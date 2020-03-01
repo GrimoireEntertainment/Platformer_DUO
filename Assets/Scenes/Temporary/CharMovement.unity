@@ -532,6 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Character: {fileID: 1704905133}
   offset: {x: 0, y: 2, z: -10}
+  smooth: 0.03
 --- !u!4 &2112559941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4010622504966124162, guid: 7b170f3ee597a464091ce56f14e4740a,
@@ -549,6 +550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.4998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994787690485756176, guid: 783382f26acc57f4ebd33a9d03ca1b7d,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3994787690485756179, guid: 783382f26acc57f4ebd33a9d03ca1b7d,
         type: 3}

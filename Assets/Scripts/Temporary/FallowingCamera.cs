@@ -6,9 +6,9 @@ public class FallowingCamera : MonoBehaviour
 {
     [SerializeField] Transform Character;
     [SerializeField] Vector3 offset;
-    [SerializeField] [Range(0,1)] float smooth = 0.2f;
+    [SerializeField] [Range(0, 1)] float smooth = 0.03f;
 
-    void FixedUpdate()
+    void LateUpdate()
     {
         Fallowing();
     }
@@ -17,5 +17,7 @@ public class FallowingCamera : MonoBehaviour
     {
         Vector3 characterPosition = Character.position + offset;
         transform.position = Vector3.Lerp(transform.position, characterPosition, smooth);
+        // Есть еще похожий метод Vector3.SmoothDamp()
+
     }
 }
