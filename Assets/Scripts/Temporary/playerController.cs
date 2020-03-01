@@ -9,7 +9,7 @@ public class playerController : MonoBehaviour
     [SerializeField] float jumpHeight;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundChecker;
-    private float groundCheckRadius = 0.3f;
+    private float groundCheckRadius = 0.05f;
     Rigidbody2D myRB;
     bool facingRight;
     bool isGrounded;
@@ -47,7 +47,8 @@ public class playerController : MonoBehaviour
 
     private void Jumping()
     {
-        if (isGrounded && Input.GetAxis("Jump") > 0)
+
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             isGrounded = false;
             myRB.AddForce(new Vector2(0, jumpHeight));
@@ -61,4 +62,5 @@ public class playerController : MonoBehaviour
         Scale.x *= -1;
         transform.localScale = Scale;
     }
+
 }
