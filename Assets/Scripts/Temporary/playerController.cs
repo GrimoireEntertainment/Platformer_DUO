@@ -9,6 +9,8 @@ public class playerController : MonoBehaviour
     [SerializeField] float jumpHeight;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundChecker;
+    [SerializeField] PressChecker rightButton;
+    [SerializeField] PressChecker leftButton;
     private float groundCheckRadius = 0.05f;
     Rigidbody2D myRB;
     bool facingRight;
@@ -43,6 +45,16 @@ public class playerController : MonoBehaviour
 
         if (move > 0 && !facingRight) flip();
         if (move < 0 && facingRight)  flip();
+
+
+        // Button Moving
+
+        if (leftButton.isPressed) {
+            transform.position += Vector3.left * maxSpeed * Time.deltaTime;
+        }
+        else if (rightButton.isPressed) {
+            transform.position += Vector3.right * maxSpeed * Time.deltaTime;
+        }
     }
 
     private void Jumping()
