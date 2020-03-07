@@ -5,6 +5,8 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
 
+    private float num = 0.0f;
+    [SerializeField] float rate;
     [SerializeField] float maxSpeed;
     [SerializeField] float jumpHeight;
     [SerializeField] LayerMask groundLayer;
@@ -49,11 +51,27 @@ public class playerController : MonoBehaviour
 
         // Button Moving
 
+        
+
         if (leftButton.isPressed) {
-            transform.position += Vector3.left * maxSpeed * Time.deltaTime;
+
+            num += rate;
+            if(num >= 1) num = 1;
+
+            myRB.velocity = Vector2.left * maxSpeed * num;
         }
+
         else if (rightButton.isPressed) {
-            transform.position += Vector3.right * maxSpeed * Time.deltaTime;
+
+            num += rate;
+            if(num >= 1) num = 1;
+
+            myRB.velocity = Vector2.right * maxSpeed * num;
+        }
+
+        else if (!rightButton.isPressed && !leftButton.isPressed) {
+            num -= (2 * rate);
+            if(num <= 0) num = 0;
         }
     }
 

@@ -8,7 +8,6 @@ public class PressChecker : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 {
     
     public bool isPressed;
-
     public void OnPointerDown(PointerEventData eventData)
     {
         isPressed = true;
