@@ -57,14 +57,14 @@ public class playerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            MoveCharachter(Vector2.left, ref keyboardSmooth, ref keyboardCheck);
+            MoveCharachter(-1, ref keyboardSmooth, ref keyboardCheck);
         }
 
         // Pressing right keyboard buttons
 
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            MoveCharachter(Vector2.right, ref keyboardSmooth, ref keyboardCheck);
+            MoveCharachter(1, ref keyboardSmooth, ref keyboardCheck);
         }
 
         // NOT pressing left and right keyboard buttons
@@ -82,12 +82,12 @@ public class playerController : MonoBehaviour
 
         if (leftButton.isPressed)
         {
-            MoveCharachter(Vector2.left, ref buttonSmooth, ref buttonCheck);
+            MoveCharachter(-1, ref buttonSmooth, ref buttonCheck);
         }
 
         else if (rightButton.isPressed)
         {
-            MoveCharachter(Vector2.right, ref buttonSmooth, ref buttonCheck);
+            MoveCharachter(1, ref buttonSmooth, ref buttonCheck);
         }
 
         else if (!rightButton.isPressed && !leftButton.isPressed)
@@ -106,7 +106,7 @@ public class playerController : MonoBehaviour
     }
 
 
-    private void MoveCharachter(Vector2 leftOrRight, ref float smoothing, ref bool checking)
+    private void MoveCharachter(sbyte leftOrRight, ref float smoothing, ref bool checking)
     {
         if (smoothing > 0 && checking) // If player press button before keyboardSmooth reached zero
         {
@@ -117,7 +117,7 @@ public class playerController : MonoBehaviour
         smoothing += rate;
         if (smoothing >= 1) smoothing = 1;
 
-        myRB.velocity = leftOrRight * maxSpeed * smoothing;
+        myRB.velocity = new Vector2(leftOrRight * maxSpeed * smoothing, myRB.velocity.y);
     }
 
     public void Jumping(bool isPC)  // Character jumping
