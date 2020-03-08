@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
-
-    private float buttonSmooth = 0.0f;
-    private float keyboardSmooth = 0.0f;
+    //Stats
     [SerializeField] float rate;
     [SerializeField] float maxSpeed;
     [SerializeField] float jumpHeight;
+
+    //checkers
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundChecker;
+
+    //Buttons
     [SerializeField] PressChecker rightButton;
     [SerializeField] PressChecker leftButton;
     [SerializeField] PressChecker jumpButton;
+
+    private float buttonSmooth = 0.0f;
+    private float keyboardSmooth = 0.0f;
     private float groundCheckRadius = 0.05f;
     Rigidbody2D myRB;
     bool facingRight;
@@ -23,8 +28,8 @@ public class playerController : MonoBehaviour
     bool buttonCheck = true;
 
     float tempVar;
-    
-    
+
+
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
@@ -43,113 +48,91 @@ public class playerController : MonoBehaviour
 
 
 
-    private void Moving()   // Function for moving character
+    private void Moving()
     {
         isGrounded = Physics2D.OverlapCircle(groundChecker.position, groundCheckRadius, groundLayer);
 
-        // Condition for pressing left keyboard buttons
 
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+        // Pressing left keyboard buttons
 
-            if(keyboardSmooth > 0 && keyboardCheck) {   // Condition for checking if player press button before keyboardSmooth reached zero
-                keyboardSmooth = 0;
-                keyboardCheck = false;
-            }
-
-            keyboardSmooth += rate;
-            if(keyboardSmooth >= 1) keyboardSmooth = 1;
-
-            myRB.velocity = Vector2.left * maxSpeed * keyboardSmooth;
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            MoveCharachter(Vector2.left, ref keyboardSmooth, ref keyboardCheck);
         }
 
-        // Condition for pressing right keyboard buttons
+        // Pressing right keyboard buttons
 
-        else if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
-
-            if(keyboardSmooth > 0 && keyboardCheck) {   // Condition for checking if player press button before keyboardSmooth reached zero
-                keyboardSmooth = 0;
-                keyboardCheck = false;
-            }
-            
-            keyboardSmooth += rate;
-            if(keyboardSmooth >= 1) keyboardSmooth = 1;
-
-            myRB.velocity = Vector2.right * maxSpeed * keyboardSmooth;
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            MoveCharachter(Vector2.right, ref keyboardSmooth, ref keyboardCheck);
         }
 
-        // Condition for not pressing left and right keyboard buttons
+        // NOT pressing left and right keyboard buttons
 
-        else if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.LeftArrow)) {
-
+        else if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.LeftArrow))
+        {
             keyboardCheck = true;   // Enabling relevant condition
 
             keyboardSmooth -= rate;
 
-            if(keyboardSmooth <= 0) keyboardSmooth = 0;
+            if (keyboardSmooth <= 0) keyboardSmooth = 0;
         }
-
-        // Code for flipping character
-
-        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || rightButton.isPressed) && !facingRight) flip();
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || leftButton.isPressed) && facingRight)  flip();
-
-
 
         // Button Moving * Button Moving * Button Moving * Button Moving * Button Moving * 
 
-        
-
-        else if (leftButton.isPressed) {
-
-            if(buttonSmooth > 0 && buttonCheck) {   // Condition for checking if player press button before keyboardSmooth reached zero
-                buttonSmooth = 0;
-                buttonCheck = false;
-            }
-
-            buttonSmooth += rate;
-
-            if(buttonSmooth >= 1) buttonSmooth = 1;
-
-            myRB.velocity = Vector2.left * maxSpeed * buttonSmooth;
+        if (leftButton.isPressed)
+        {
+            MoveCharachter(Vector2.left, ref buttonSmooth, ref buttonCheck);
         }
 
-        else if (rightButton.isPressed) {
-
-            if(buttonSmooth > 0 && buttonCheck) {   // Condition for checking if player press button before keyboardSmooth reached zero
-                buttonSmooth = 0;
-                buttonCheck = false;
-            }
-
-            buttonSmooth += rate;
-
-            if(buttonSmooth >= 1) buttonSmooth = 1;
-
-            myRB.velocity = Vector2.right * maxSpeed * buttonSmooth;
+        else if (rightButton.isPressed)
+        {
+            MoveCharachter(Vector2.right, ref buttonSmooth, ref buttonCheck);
         }
 
-        else if (!rightButton.isPressed && !leftButton.isPressed) {
-
+        else if (!rightButton.isPressed && !leftButton.isPressed)
+        {
             buttonCheck = true;    // Enabling relevant condition
 
             buttonSmooth -= rate;
 
-            if(buttonSmooth <= 0) buttonSmooth = 0;
+            if (buttonSmooth <= 0) buttonSmooth = 0;
         }
 
-        
+        // Flipping character
+
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || rightButton.isPressed) && !facingRight) flip();
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || leftButton.isPressed) && facingRight) flip();
     }
 
-    private void Jumping()  // Function for character jumping
+
+    private void MoveCharachter(Vector2 leftOrRight, ref float smoothing, ref bool checking)
+    {
+        if (smoothing > 0 && checking) // If player press button before keyboardSmooth reached zero
+        {
+            smoothing = 0;
+            checking = false;
+        }
+
+        smoothing += rate;
+        if (smoothing >= 1) smoothing = 1;
+
+        myRB.velocity = leftOrRight * maxSpeed * smoothing;
+    }
+
+    private void Jumping()  // Character jumping
     {
 
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space)) {
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
             isGrounded = false;
             myRB.AddForce(new Vector2(0, jumpHeight));
         }
 
-        else if(isGrounded && jumpButton.isPressed) {
+        else if (isGrounded && jumpButton.isPressed)
+        {
             isGrounded = false;
-            myRB.AddForce(new Vector2(0, jumpHeight/1.95f));
+            myRB.AddForce(new Vector2(0, jumpHeight / 1.95f));
         }
     }
 
