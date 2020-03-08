@@ -38,7 +38,7 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-        Jumping();
+        Jumping(true);
     }
 
     void FixedUpdate()
@@ -120,19 +120,19 @@ public class playerController : MonoBehaviour
         myRB.velocity = leftOrRight * maxSpeed * smoothing;
     }
 
-    private void Jumping()  // Character jumping
+    public void Jumping(bool isPC)  // Character jumping
     {
 
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (isPC && isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             isGrounded = false;
             myRB.AddForce(new Vector2(0, jumpHeight));
         }
 
-        else if (isGrounded && jumpButton.isPressed)
+        else if (!isPC && isGrounded)    // проверяю это через комп или нет и в компоненте кнопки вызываю эту функцию
         {
             isGrounded = false;
-            myRB.AddForce(new Vector2(0, jumpHeight / 1.95f));
+            myRB.AddForce(new Vector2(0, jumpHeight));
         }
     }
 
