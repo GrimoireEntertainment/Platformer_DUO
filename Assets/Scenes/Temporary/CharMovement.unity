@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82cafabcb6eab6e47999bec952b9b997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rate: 0.1
+  rate: 0.01
   maxSpeed: 11
   jumpHeight: 1500
   groundLayer:
