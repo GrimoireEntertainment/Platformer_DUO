@@ -28,6 +28,8 @@ public class playerController : MonoBehaviour
     bool buttonCheck = true;
 
     float tempVar;
+    [SerializeField] float breakRate;
+
 
 
     void Start()
@@ -75,12 +77,12 @@ public class playerController : MonoBehaviour
 
             if(facingRight) {
                 if(keyboardSmooth > 0) {
-                    myRB.AddForce(new Vector2(30 * keyboardSmooth, 0));
+                    myRB.AddForce(new Vector2(breakRate * keyboardSmooth, 0));
                 }
             }
             else {
                 if(keyboardSmooth > 0) {
-                    myRB.AddForce(new Vector2(-30 * keyboardSmooth, 0));
+                    myRB.AddForce(new Vector2(-breakRate * keyboardSmooth, 0));
                 }
             }
 
