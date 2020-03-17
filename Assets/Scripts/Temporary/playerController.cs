@@ -26,6 +26,7 @@ public class playerController : MonoBehaviour
     bool isGrounded;
     bool keyboardCheck = true;
     bool buttonCheck = true;
+    public bool canMove = false;
 
     float tempVar;
     [SerializeField] float breakRate;
@@ -45,7 +46,7 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Moving();
+        if(canMove) Moving();
     }
 
 
