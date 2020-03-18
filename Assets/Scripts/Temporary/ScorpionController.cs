@@ -37,8 +37,18 @@ public class ScorpionController : MonoBehaviour
         if(facingRight) ScorpionRB.velocity = new Vector2(normalSpeed, ScorpionRB.velocity.y);
         if(!facingRight) ScorpionRB.velocity = new Vector2(-normalSpeed, ScorpionRB.velocity.y);
 
-        if(Mathf.Abs(transform.position.x - pointOfOrigin.x) > scorpionWalkingArea) {
+        // if(Mathf.Abs(transform.position.x - pointOfOrigin.x) > scorpionWalkingArea) {
+        //     flip();
+        // }
+
+        if(transform.position.x > pointOfOrigin.x + scorpionWalkingArea) {
             flip();
+            pointOfOrigin.x += 1;
+        }
+
+        if(transform.position.x < pointOfOrigin.x - scorpionWalkingArea) {
+            flip();
+            pointOfOrigin.x -= 1;
         }
 
         if(PlayerDetection.playerDetected) {
