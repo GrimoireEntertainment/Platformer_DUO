@@ -6,7 +6,18 @@ public class ScorpionController : MonoBehaviour
 {
 
     [SerializeField] float normalSpeed;
-    [SerializeField] float turnAroundTime;
+    // [SerializeField] float turnAroundTime;
+    [SerializeField] float scorpionWalkingArea;
+    Vector3 pointOfOrigin;
+    [SerializeField] float scorpionMaxHealth;
+    [SerializeField] float scorpionDamage;
+    float scorpionHealth;
+
+
+    [SerializeField] PlayerDetectionScript PlayerDetection;
+    [SerializeField] GameObject player;
+    [SerializeField] playerController playerCtrl;
+
     private float startTime = 0.0f;
     bool facingRight = false;
     Rigidbody2D ScorpionRB;
@@ -16,25 +27,38 @@ public class ScorpionController : MonoBehaviour
     void Start()
     {
         ScorpionRB = GetComponent<Rigidbody2D>();
+        scorpionHealth = scorpionMaxHealth;
+        pointOfOrigin = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        startTime = startTime + Time.deltaTime;
         if(facingRight) ScorpionRB.velocity = new Vector2(normalSpeed, ScorpionRB.velocity.y);
         if(!facingRight) ScorpionRB.velocity = new Vector2(-normalSpeed, ScorpionRB.velocity.y);
 
-        if(startTime > turnAroundTime) {
+        if(Mathf.Abs(transform.position.x - pointOfOrigin.x) > scorpionWalkingArea) {
             flip();
-            startTime = 0;
+        }
+
+        if(PlayerDetection.playerDetected) {
+
+            if(player.transform.position.x < transform.position.x ) {
+                if(facingRight) flip();
+                ScorpionRB.velocity = new Vector2(-2 * normalSpeed, ScorpionRB.velocity.y);
+            }
+
+            if(player.transform.position.x > transform.position.x) {
+                if(!facingRight) flip();
+                ScorpionRB.velocity = new Vector2(2 * normalSpeed, ScorpionRB.velocity.y);
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player") {
             
-            
+            playerCtrl.playerHealth -= scorpionDamage;
 
         }
     }

@@ -8,6 +8,8 @@ public class playerController : MonoBehaviour
     [SerializeField] float rate;
     [SerializeField] float maxSpeed;
     [SerializeField] float jumpHeight;
+    [SerializeField] float playerMaxHealth;
+    public float playerHealth;
 
     //checkers
     [SerializeField] LayerMask groundLayer;
@@ -36,6 +38,7 @@ public class playerController : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody2D>();
         facingRight = true;
+        playerHealth = playerMaxHealth;
     }
 
     void Update()
@@ -106,6 +109,17 @@ public class playerController : MonoBehaviour
         else if (!rightButton.isPressed && !leftButton.isPressed)
         {
             buttonCheck = true;    // Enabling relevant condition
+
+            if(facingRight) {
+                if(buttonSmooth > 0) {
+                    myRB.AddForce(new Vector2(breakRate * buttonSmooth, 0));
+                }
+            }
+            else {
+                if(buttonSmooth > 0) {
+                    myRB.AddForce(new Vector2(-breakRate * buttonSmooth, 0));
+                }
+            }
 
             buttonSmooth -= rate;
 
