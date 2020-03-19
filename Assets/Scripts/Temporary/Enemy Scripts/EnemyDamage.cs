@@ -11,12 +11,10 @@ public class EnemyDamage : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
         if(other.tag == "Player" && Time.time > nextDamage) {
-            PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+            Health playerHealth = other.gameObject.GetComponent<Health>();
             playerHealth.AddDamage(enemyDamage);
             nextDamage = Time.time + damageRate;
         }
-        
-
     }
     // Start is called before the first frame update
     void Start()

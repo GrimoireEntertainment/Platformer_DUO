@@ -6,7 +6,7 @@ public class playerController : MonoBehaviour
 {
     //Stats
     [SerializeField] float accelerationRate;
-    [SerializeField] float breakRate;
+    // [SerializeField] float breakRate;
     [SerializeField] float maxSpeed;
     [SerializeField] float jumpHeight;
 
@@ -17,7 +17,6 @@ public class playerController : MonoBehaviour
     //Buttons
     [SerializeField] PressChecker rightButton;
     [SerializeField] PressChecker leftButton;
-    [SerializeField] PressChecker jumpButton;
 
     private float buttonSmooth = 0.0f;
     private float keyboardSmooth = 0.0f;
@@ -51,7 +50,6 @@ public class playerController : MonoBehaviour
     private void Moving()
     {
         isGrounded = Physics2D.OverlapCircle(groundChecker.position, groundCheckRadius, groundLayer);
-        
 
         // Pressing left keyboard buttons
 
@@ -73,16 +71,16 @@ public class playerController : MonoBehaviour
         {
             keyboardCheck = true;   // Enabling relevant condition
 
-            if(facingRight) {
-                if(keyboardSmooth > 0) {
-                    myRB.AddForce(new Vector2(breakRate * keyboardSmooth, 0));
-                }
-            }
-            else {
-                if(keyboardSmooth > 0) {
-                    myRB.AddForce(new Vector2(-breakRate * keyboardSmooth, 0));
-                }
-            }
+            // if(facingRight) {
+            //     if(keyboardSmooth > 0) {
+            //         myRB.AddForce(new Vector2(breakRate * keyboardSmooth, 0));
+            //     }
+            // }
+            // else {
+            //     if(keyboardSmooth > 0) {
+            //         myRB.AddForce(new Vector2(-breakRate * keyboardSmooth, 0));
+            //     }
+            // }
 
             keyboardSmooth -= accelerationRate;
 
@@ -105,16 +103,16 @@ public class playerController : MonoBehaviour
         {
             buttonCheck = true;    // Enabling relevant condition
 
-            if(facingRight) {
-                if(buttonSmooth > 0) {
-                    myRB.AddForce(new Vector2(breakRate * buttonSmooth, 0));
-                }
-            }
-            else {
-                if(buttonSmooth > 0) {
-                    myRB.AddForce(new Vector2(-breakRate * buttonSmooth, 0));
-                }
-            }
+            // if(facingRight) {
+            //     if(buttonSmooth > 0) {
+            //         myRB.AddForce(new Vector2(breakRate * buttonSmooth, 0));
+            //     }
+            // }
+            // else {
+            //     if(buttonSmooth > 0) {
+            //         myRB.AddForce(new Vector2(-breakRate * buttonSmooth, 0));
+            //     }
+            // }
 
             buttonSmooth -= accelerationRate;
 

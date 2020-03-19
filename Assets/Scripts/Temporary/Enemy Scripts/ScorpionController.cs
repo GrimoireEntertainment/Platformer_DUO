@@ -12,7 +12,7 @@ public class ScorpionController : MonoBehaviour
 
     [SerializeField] PlayerDetectionScript PlayerDetection;
     [SerializeField] GameObject player;
-    PlayerHealth playerHealth;
+    Health playerHealth;
 
     private float startTime = 0.0f;
     bool facingRight = false;
@@ -31,10 +31,6 @@ public class ScorpionController : MonoBehaviour
     {
         if(facingRight) ScorpionRB.velocity = new Vector2(normalSpeed, ScorpionRB.velocity.y);
         if(!facingRight) ScorpionRB.velocity = new Vector2(-normalSpeed, ScorpionRB.velocity.y);
-
-        // if(Mathf.Abs(transform.position.x - pointOfOrigin.x) > scorpionWalkingArea) {
-        //     flip();
-        // }
 
         if(transform.position.x > pointOfOrigin.x + scorpionWalkingArea) {
             flip();

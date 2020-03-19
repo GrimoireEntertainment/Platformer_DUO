@@ -12,21 +12,10 @@ public class PlayerAttackAreaScript : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other) {
         
         if((Input.GetKey(KeyCode.Mouse0) || swordAttackButton.isPressed) && other.tag == "Enemy" && Time.time > nextDamage) {
-            EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+            Health enemyHealth = other.gameObject.GetComponent<Health>();
             enemyHealth.AddDamage(playerDamage);
             nextDamage = Time.time + damageRate;
         }
-        
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }
