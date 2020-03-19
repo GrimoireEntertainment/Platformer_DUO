@@ -5,11 +5,10 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     //Stats
-    [SerializeField] float rate;
+    [SerializeField] float accelerationRate;
+    [SerializeField] float breakRate;
     [SerializeField] float maxSpeed;
     [SerializeField] float jumpHeight;
-    [SerializeField] float playerMaxHealth;
-    public float playerHealth;
 
     //checkers
     [SerializeField] LayerMask groundLayer;
@@ -29,16 +28,12 @@ public class playerController : MonoBehaviour
     bool keyboardCheck = true;
     bool buttonCheck = true;
 
-    float tempVar;
-    [SerializeField] float breakRate;
-
 
 
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
         facingRight = true;
-        playerHealth = playerMaxHealth;
     }
 
     void Update()
@@ -48,7 +43,7 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Moving();
+        Moving();   
     }
 
 
@@ -56,7 +51,7 @@ public class playerController : MonoBehaviour
     private void Moving()
     {
         isGrounded = Physics2D.OverlapCircle(groundChecker.position, groundCheckRadius, groundLayer);
-
+        
 
         // Pressing left keyboard buttons
 
@@ -89,7 +84,7 @@ public class playerController : MonoBehaviour
                 }
             }
 
-            keyboardSmooth -= rate;
+            keyboardSmooth -= accelerationRate;
 
             if (keyboardSmooth <= 0) keyboardSmooth = 0;
         }
@@ -121,7 +116,7 @@ public class playerController : MonoBehaviour
                 }
             }
 
-            buttonSmooth -= rate;
+            buttonSmooth -= accelerationRate;
 
             if (buttonSmooth <= 0) buttonSmooth = 0;
         }
@@ -141,7 +136,7 @@ public class playerController : MonoBehaviour
             checking = false;
         }
 
-        smoothing += rate;
+        smoothing += accelerationRate;
         if (smoothing >= 1) smoothing = 1;
 
         myRB.velocity = new Vector2(leftOrRight * maxSpeed * smoothing, myRB.velocity.y);

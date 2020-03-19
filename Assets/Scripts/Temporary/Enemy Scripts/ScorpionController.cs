@@ -9,14 +9,10 @@ public class ScorpionController : MonoBehaviour
     // [SerializeField] float turnAroundTime;
     [SerializeField] float scorpionWalkingArea;
     Vector3 pointOfOrigin;
-    [SerializeField] float scorpionMaxHealth;
-    [SerializeField] float scorpionDamage;
-    float scorpionHealth;
-
 
     [SerializeField] PlayerDetectionScript PlayerDetection;
     [SerializeField] GameObject player;
-    [SerializeField] playerController playerCtrl;
+    PlayerHealth playerHealth;
 
     private float startTime = 0.0f;
     bool facingRight = false;
@@ -27,7 +23,6 @@ public class ScorpionController : MonoBehaviour
     void Start()
     {
         ScorpionRB = GetComponent<Rigidbody2D>();
-        scorpionHealth = scorpionMaxHealth;
         pointOfOrigin = transform.position;
     }
 
@@ -67,8 +62,6 @@ public class ScorpionController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player") {
-            
-            playerCtrl.playerHealth -= scorpionDamage;
 
         }
     }
