@@ -71,17 +71,6 @@ public class playerController : MonoBehaviour
         {
             keyboardCheck = true;   // Enabling relevant condition
 
-            // if(facingRight) {
-            //     if(keyboardSmooth > 0) {
-            //         myRB.AddForce(new Vector2(breakRate * keyboardSmooth, 0));
-            //     }
-            // }
-            // else {
-            //     if(keyboardSmooth > 0) {
-            //         myRB.AddForce(new Vector2(-breakRate * keyboardSmooth, 0));
-            //     }
-            // }
-
             keyboardSmooth -= accelerationRate;
 
             if (keyboardSmooth <= 0) keyboardSmooth = 0;
@@ -102,17 +91,6 @@ public class playerController : MonoBehaviour
         else if (!rightButton.isPressed && !leftButton.isPressed)
         {
             buttonCheck = true;    // Enabling relevant condition
-
-            // if(facingRight) {
-            //     if(buttonSmooth > 0) {
-            //         myRB.AddForce(new Vector2(breakRate * buttonSmooth, 0));
-            //     }
-            // }
-            // else {
-            //     if(buttonSmooth > 0) {
-            //         myRB.AddForce(new Vector2(-breakRate * buttonSmooth, 0));
-            //     }
-            // }
 
             buttonSmooth -= accelerationRate;
 

@@ -10,7 +10,7 @@ public class ScorpionController : MonoBehaviour
     [SerializeField] float scorpionWalkingArea;
     Vector3 pointOfOrigin;
 
-    [SerializeField] PlayerDetectionScript PlayerDetection;
+    PlayerDetectionScript PlayerDetection;
     [SerializeField] GameObject player;
     Health playerHealth;
 
@@ -22,6 +22,7 @@ public class ScorpionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerDetection = GetComponentInChildren<PlayerDetectionScript>();
         ScorpionRB = GetComponent<Rigidbody2D>();
         pointOfOrigin = transform.position;
     }

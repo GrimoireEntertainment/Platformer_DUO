@@ -5,14 +5,10 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public float currentHealth;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    public void AddDamage(float damage) {
+    public void AddDamage(float damage)
+    {
         currentHealth -= damage;
-        // if(currentHealth <= 0) Destroy(gameObject);
+        if(transform.tag != "Player" && currentHealth <= 0) Destroy(gameObject); 
     }
 }

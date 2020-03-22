@@ -230,7 +230,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalSpeed: 2
   scorpionWalkingArea: 10
-  PlayerDetection: {fileID: 5665464760493292566}
   player: {fileID: 0}
 --- !u!114 &1965130265573575023
 MonoBehaviour:
@@ -244,8 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235521d6267a1c94c8bff96e28f4daa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 0
+  currentHealth: 10
 --- !u!1 &5665464759576524885
 GameObject:
   m_ObjectHideFlags: 0
