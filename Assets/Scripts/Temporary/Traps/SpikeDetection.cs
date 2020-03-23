@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpikeDetection : MonoBehaviour
 {
@@ -8,7 +6,7 @@ public class SpikeDetection : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            GetComponentInParent<Spike>().triggered = true;
+            GetComponentInParent<Spike>().Triggered = true;
         }
     }
 }
