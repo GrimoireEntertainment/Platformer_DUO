@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class Spike : MonoBehaviour
 {
@@ -15,7 +13,14 @@ public class Spike : MonoBehaviour
     public float damageRate = 1;
     public float gizmosLongness = 20;
     public float timeToStartAfterTrigger = 0;
-    public bool triggered = false;
+
+    private bool triggered = false;
+
+    public bool Triggered
+    {
+        get{return triggered;}
+        set{triggered = value;}
+    }
 
 
     void Update()
@@ -65,35 +70,41 @@ IEnumerator TriggerLounch()
 
 }
 
-//____________________________________Inspector Customing_____________________________________
-[CustomEditor(typeof(Spike))]
-public class SpikeEditor : Editor {
-    public override void OnInspectorGUI()
-    {
-        
-        var spike = target as Spike;
 
-        spike.dynamic = GUILayout.Toggle(spike.dynamic, "Dynamic");
-        spike.waitForTrigger = GUILayout.Toggle(spike.waitForTrigger, "Wait For Trigger");
-        spike.isDestroyable = GUILayout.Toggle(spike.isDestroyable, "Is Destroyable");
+// namespace UnityEditor
+// {
+//     //____________________________________Inspector Customing_____________________________________
+//     [CustomEditor(typeof(Spike))]
+//     public class SpikeEditor : Editor
+//     {
+//         public override void OnInspectorGUI()
+//         {
+
+//             var spike = target as Spike;
+
+//             spike.dynamic = GUILayout.Toggle(spike.dynamic, "Dynamic");
+//             spike.waitForTrigger = GUILayout.Toggle(spike.waitForTrigger, "Wait For Trigger");
+//             spike.isDestroyable = GUILayout.Toggle(spike.isDestroyable, "Is Destroyable");
 
 
 
-        if(spike.dynamic)
-        {
-            if(spike.isDestroyable) spike.destroyAfterSeconds = EditorGUILayout.FloatField("Destroy After Seconds After Lounch", spike.destroyAfterSeconds);
+//             if (spike.dynamic)
+//             {
+//                 if (spike.isDestroyable) spike.destroyAfterSeconds = EditorGUILayout.FloatField("Destroy After Seconds After Lounch", spike.destroyAfterSeconds);
 
-            if(spike.waitForTrigger)
-            {
-                spike.timeToStartAfterTrigger = EditorGUILayout.FloatField("Time To Start After Trigger", spike.timeToStartAfterTrigger);
-            }
-            if(!spike.waitForTrigger) spike.timeToStart = EditorGUILayout.FloatField("Time To Start", spike.timeToStart);
+//                 if (spike.waitForTrigger)
+//                 {
+//                     spike.timeToStartAfterTrigger = EditorGUILayout.FloatField("Time To Start After Trigger", spike.timeToStartAfterTrigger);
+//                 }
+//                 if (!spike.waitForTrigger) spike.timeToStart = EditorGUILayout.FloatField("Time To Start", spike.timeToStart);
 
-            spike.speed = EditorGUILayout.FloatField("Speed", spike.speed);
-            spike.damage = EditorGUILayout.FloatField("Damage", spike.damage);
-            spike.damageRate = EditorGUILayout.FloatField("Damage Rate", spike.damageRate);
-            spike.gizmosLongness = EditorGUILayout.FloatField("Gizmos Longness", spike.gizmosLongness);
-        }
-        
-    }
-}
+//                 spike.speed = EditorGUILayout.FloatField("Speed", spike.speed);
+//                 spike.damage = EditorGUILayout.FloatField("Damage", spike.damage);
+//                 spike.damageRate = EditorGUILayout.FloatField("Damage Rate", spike.damageRate);
+//                 spike.gizmosLongness = EditorGUILayout.FloatField("Gizmos Longness", spike.gizmosLongness);
+//             }
+
+//         }
+//     }
+
+// }
