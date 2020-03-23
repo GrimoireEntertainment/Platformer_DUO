@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 353529364}
   - component: {fileID: 353529366}
   - component: {fileID: 353529365}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Push Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1096,7 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf75068d0086751479c31c9a467057e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSlowingRate: 3
+  playerSlowingRate: 2
 --- !u!61 &353529363
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1121,7 +1121,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 1}
+  m_Size: {x: 1.1, y: 0.95}
   m_EdgeRadius: 0
 --- !u!61 &353529364
 BoxCollider2D:
@@ -1147,7 +1147,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 0.025}
+  m_Size: {x: 1, y: 0.025}
   m_EdgeRadius: 0
 --- !u!61 &353529365
 BoxCollider2D:
@@ -8594,6 +8594,11 @@ PrefabInstance:
       propertyPath: leftButton
       value: 
       objectReference: {fileID: 1815246348}
+    - target: {fileID: 8027270296287590522, guid: 783382f26acc57f4ebd33a9d03ca1b7d,
+        type: 3}
+      propertyPath: accelerationRate
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783382f26acc57f4ebd33a9d03ca1b7d, type: 3}
 --- !u!4 &7328387586743450491 stripped
