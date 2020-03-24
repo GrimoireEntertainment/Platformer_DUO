@@ -9,7 +9,7 @@ public class ScorpionController : MonoBehaviour
     Vector3 pointOfOrigin;
 
     PlayerDetectionScript PlayerDetection;
-    [SerializeField] GameObject player;
+    GameObject player;
     Health playerHealth;
 
     bool facingRight = false;
@@ -22,6 +22,7 @@ public class ScorpionController : MonoBehaviour
         PlayerDetection = GetComponentInChildren<PlayerDetectionScript>();
         ScorpionRB = GetComponent<Rigidbody2D>();
         pointOfOrigin = transform.position;
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
