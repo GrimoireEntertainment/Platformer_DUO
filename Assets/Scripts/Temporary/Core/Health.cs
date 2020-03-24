@@ -8,5 +8,6 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damage;
         if(transform.tag != "Player" && currentHealth <= 0) Destroy(gameObject); 
+        
     }
 }

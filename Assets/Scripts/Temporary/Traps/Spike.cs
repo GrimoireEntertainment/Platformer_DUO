@@ -60,7 +60,7 @@ IEnumerator TriggerLounch()
     Destroy(gameObject);
 }
 
-//_____________________________Gizmos Debuging____________________________________
+//_____________________________Gizmos Debugging____________________________________
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

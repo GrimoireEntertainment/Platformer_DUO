@@ -5,7 +5,7 @@ public class playerController : MonoBehaviour
     //Stats
     [SerializeField] float accelerationRate;
     // [SerializeField] float breakRate;
-    [SerializeField] float maxSpeed;
+    public float maxSpeed;
     [SerializeField] float jumpHeight;
 
     //checkers
