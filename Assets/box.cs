@@ -4,30 +4,34 @@ using UnityEngine;
 
 public class box : MonoBehaviour
 {
+    [SerializeField] bool drop;
     [SerializeField] PressChecker swordAttackButton;
-    [SerializeField] GameObject coin;
-    [SerializeField] GameObject enemy;
-    [SerializeField] bool dropCoin;
-    [SerializeField] bool dropEnemy;
+    [SerializeField] GameObject[] drops;
     Vector3 dropItemPosition;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "PlayerAttackArea" && (Input.GetKey(KeyCode.K) || swordAttackButton.isPressed)) {
+        if (other.tag == "PlayerAttackArea" && (Input.GetKey(KeyCode.K) || swordAttackButton.isPressed))
+        {
             dropItemPosition = transform.position;
+            if (drop)
+            {
+                foreach (var item in drops)
+                {
+                    Instantiate(item, dropItemPosition, Quaternion.identity);
+                }
+            }
             Destroy(gameObject);
-            if(dropCoin) Instantiate(coin, dropItemPosition, Quaternion.identity);
-            if(dropEnemy) Instantiate(enemy, dropItemPosition, Quaternion.identity);
         }
     }
 }
