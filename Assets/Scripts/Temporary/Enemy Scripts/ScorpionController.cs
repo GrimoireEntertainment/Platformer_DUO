@@ -12,7 +12,6 @@ public class ScorpionController : MonoBehaviour
     [SerializeField] GameObject player;
     Health playerHealth;
 
-    private float startTime = 0.0f;
     bool facingRight = false;
     Rigidbody2D ScorpionRB;
 

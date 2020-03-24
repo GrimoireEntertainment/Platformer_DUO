@@ -8,6 +8,7 @@ public class box : MonoBehaviour
     [SerializeField] PressChecker swordAttackButton;
     [SerializeField] GameObject[] drops;
     Vector3 dropItemPosition;
+    bool playerIsHere;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +18,7 @@ public class box : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.tag == "PlayerAttackArea" && (Input.GetKey(KeyCode.K) || swordAttackButton.isPressed))
+        if (playerIsHere && (Input.GetKey(KeyCode.K) || swordAttackButton.isPressed))
         {
             dropItemPosition = transform.position;
             if (drop)
@@ -33,5 +30,13 @@ public class box : MonoBehaviour
             }
             Destroy(gameObject);
         }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "PlayerAttackArea") playerIsHere = true;
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.tag == "PlayerAttackArea") playerIsHere = false;
     }
 }
