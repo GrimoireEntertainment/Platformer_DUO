@@ -7,6 +7,7 @@ public class PlayerAttackAreaScript : MonoBehaviour
     [SerializeField] float damageRate;
     float nextDamage = 0.0f;
 
+
     private void OnTriggerStay2D(Collider2D other) {
         //Конфликт - Input.GetKey(KeyCode.Mouse0) и swordAttackButton.isPressed
         // насколько я понял на телефоне простое нажатие по экрану воспринимается как Input.GetKey(KeyCode.Mouse0)
@@ -16,6 +17,5 @@ public class PlayerAttackAreaScript : MonoBehaviour
             enemyHealth.AddDamage(playerDamage);
             nextDamage = Time.time + damageRate;
         }
-        
     }
 }
