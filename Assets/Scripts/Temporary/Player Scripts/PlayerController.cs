@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     //Stats
     [SerializeField] float accelerationRate;
@@ -139,5 +139,5 @@ public class playerController : MonoBehaviour
         Scale.x *= -1;
         transform.localScale = Scale;
     }
-
+    
 }
