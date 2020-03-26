@@ -3,18 +3,19 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    public  bool dynamic = false;
-    public bool waitForTrigger = false;
-    public bool isDestroyable = false;
-    public float destroyAfterSeconds;
-    public float timeToStart = 0;
-    public float speed = 20;
-    public float damage = 10;
-    public float damageRate = 1;
-    public float gizmosLongness = 20;
-    public float timeToStartAfterTrigger = 0;
+    [SerializeField]  bool dynamic = false;
+    [SerializeField] bool waitForTrigger = false;
+    [SerializeField] bool isDestroyable = false;
+    [SerializeField] float destroyAfterSeconds;
+    [SerializeField] float timeToStart = 0;
+    [SerializeField] float speed = 20;
+    [SerializeField] float damage = 10;
+    [SerializeField] float damageRate = 1;
+    [SerializeField] float gizmosLongness = 20;
+    [SerializeField] float timeToStartAfterTrigger = 0;
 
     private bool triggered = false;
+    private float damageTime;
 
     public bool Triggered
     {
@@ -38,10 +39,10 @@ public class Spike : MonoBehaviour
 //____________________________Damaging_____________________________
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "Player" && Time.time > damageRate)
+        if(other.tag == "Player" && Time.time > damageTime)
         {
             other.transform.GetComponent<Health>().AddDamage(damage);
-            damageRate += Time.time;
+            damageTime = Time.time + damageRate;
         }
     }
     
