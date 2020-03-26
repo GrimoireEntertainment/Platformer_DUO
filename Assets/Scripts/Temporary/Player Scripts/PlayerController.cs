@@ -168,11 +168,17 @@ public class PlayerController : MonoBehaviour
         }
 
 //__________________________________Прыжок во время лазанья по стенам_____________________________________________________
-        else if (wallTouch && Input.GetKeyDown(KeyCode.Space))
+        else if (isPC && wallTouch && Input.GetKeyDown(KeyCode.Space))
         {
             //Не уверен что лучше и правильнее Velocity или AddForce поэтому пусть пока на коментах постоит
             // Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * -facingDirection, wallJumpForce * wallJumpDirection.y);
             // myRB.AddForce(new Vector2(wallJumpForce * wallJumpDirection.x * -facingDirection, wallJumpForce * wallJumpDirection.y), ForceMode2D.Force);
+            myRB.velocity = new Vector2(wallJumpForce * wallJumpDirection.x * -facingDirection, wallJumpForce * wallJumpDirection.y);
+            movingDeniedTime = Time.time + movingDeniedTimeRate;
+            movingAllowed = false;
+        }
+        else if (!isPC && wallTouch)
+        {
             myRB.velocity = new Vector2(wallJumpForce * wallJumpDirection.x * -facingDirection, wallJumpForce * wallJumpDirection.y);
             movingDeniedTime = Time.time + movingDeniedTimeRate;
             movingAllowed = false;
