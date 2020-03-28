@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 5540722079264502807}
   - component: {fileID: 7678127104610562554}
   - component: {fileID: 4241226811713527760}
-  - component: {fileID: 8027270296287590522}
   - component: {fileID: 4271524211725517720}
+  - component: {fileID: 5253796830464928152}
+  - component: {fileID: 1058544163486311195}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2583322892847818779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.373002, y: 1.3350178, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4238076552951972966}
@@ -125,27 +126,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
---- !u!114 &8027270296287590522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2583322892847818779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82cafabcb6eab6e47999bec952b9b997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accelerationRate: 0.1
-  maxSpeed: 9
-  jumpHeight: 1200
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  groundChecker: {fileID: 4238076552951972966}
-  rightButton: {fileID: 0}
-  leftButton: {fileID: 0}
 --- !u!114 &4271524211725517720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +139,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 30
+--- !u!114 &5253796830464928152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2583322892847818779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef09c6cf69cb6f408aee52d09358e73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accelerationRate: 0.2
+  maxSpeed: 9
+  jumpHeight: 25
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  groundChecker: {fileID: 4238076552951972966}
+  rightButton: {fileID: 0}
+  leftButton: {fileID: 0}
+  wallClimbing: 7
+  movingDeniedTimeRate: 0.15
+  wallCatchTimeRate: 0.5
+  wallJumpDirection: {x: 1, y: 3}
+  wallJumpForce: 8
+--- !u!95 &1058544163486311195
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2583322892847818779}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4807210461105769283
 GameObject:
   m_ObjectHideFlags: 0
