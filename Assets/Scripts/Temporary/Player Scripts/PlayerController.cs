@@ -1,15 +1,9 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-
-    //Stats
-    [SerializeField] float accelerationRate;
-    // [SerializeField] float breakRate;
-    public float maxSpeed;
-    [SerializeField] float jumpHeight;
-
     //checkers
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundChecker;
@@ -18,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PressChecker rightButton;
     [SerializeField] PressChecker leftButton;
 
-//__________________Wall Climbing/Jumping Variables_____________________________
+    //---------------------Wall Climbing/Jumping Variables----------------------
 
     [SerializeField] float wallClimbing = 3;
     [SerializeField] float movingDeniedTimeRate = 0.2f;
@@ -26,12 +20,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector2 wallJumpDirection;
     [SerializeField] float wallJumpForce;
 
+    public int facingDirection = 1;
     private bool wallTouch;
-    private int facingDirection = 1;
     private bool movingAllowed = true;
     private float movingDeniedTime;
     private float wallCatchTime;
-//_________________________________________________________________________________
+    //--------------------------------------------------------------
+
+
+    //--------------------------Stats--------------------------
+    private float accelerationRate;
+    public float maxSpeed;
+    private float jumpHeight;
+    private bool canWallClimb = false;
+    //-------------------------------------------------------
     private float buttonSmooth = 0.0f;
     private float keyboardSmooth = 0.0f;
     private float groundCheckRadius = 0.05f;
@@ -60,15 +62,34 @@ public class PlayerController : MonoBehaviour
         // CheckingWall();
     }
 
-
+    public void UpdateStats()
+    {
+        Stats stats = GetComponentInChildren<Stats>();
+        maxSpeed = stats.maxSpeed;
+        accelerationRate = stats.acceleration;
+        jumpHeight = stats.jumpHeight;
+        canWallClimb = stats.canWallClimb;
+    }
 
     private void Moving()
     {
         isGrounded = Physics2D.OverlapCircle(groundChecker.position, groundCheckRadius, groundLayer);
-        if (Time.time > movingDeniedTime)
+
+        //part of code relates Wall Climbing
+        if (canWallClimb && Time.time > movingDeniedTime)
         {
             movingAllowed = true;
         }
+
+        CheckingPressedButtons();
+
+        // Flipping character
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || rightButton.isPressed) && !facingRight) flip();
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || leftButton.isPressed) && facingRight) flip();
+    }
+
+    private void CheckingPressedButtons()
+    {
         // Pressing left keyboard buttons
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -114,13 +135,7 @@ public class PlayerController : MonoBehaviour
 
             if (buttonSmooth <= 0) buttonSmooth = 0;
         }
-
-        // Flipping character
-
-        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || rightButton.isPressed) && !facingRight) flip();
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || leftButton.isPressed) && facingRight) flip();
     }
-
 
     private void MoveCharacter(sbyte leftOrRight, ref float smoothing, ref bool checking)
     {
@@ -134,8 +149,13 @@ public class PlayerController : MonoBehaviour
         if (smoothing >= 1) smoothing = 1;
         if (movingAllowed) myRB.velocity = new Vector2(leftOrRight * maxSpeed * smoothing, myRB.velocity.y);
 
-//_______________________Движение по стенам_________________________________________
-        if (wallTouch && movingAllowed)
+        //--------------------------------Скольжение вниз по стенке------------------------------
+        Sliding(leftOrRight, smoothing);
+    }
+
+    private void Sliding(sbyte leftOrRight, float smoothing)
+    {
+        if (canWallClimb && wallTouch && movingAllowed)
         {
             if (Time.time < wallCatchTime)
             {
@@ -146,7 +166,6 @@ public class PlayerController : MonoBehaviour
                 myRB.velocity = new Vector2(leftOrRight * maxSpeed * smoothing, -wallClimbing);
             }
         }
-//_______________________________________________________________________________
     }
 
     public void Jumping(bool isPC)  // Character jumping
@@ -167,8 +186,13 @@ public class PlayerController : MonoBehaviour
             myRB.velocity = new Vector2(myRB.velocity.x, jumpHeight);
         }
 
-//__________________________________Прыжок во время лазанья по стенам_____________________________________________________
-        else if (isPC && wallTouch && Input.GetKeyDown(KeyCode.Space))
+        //--------------------Прыжок во время лазанья по стенам-------------------
+        WallJump(isPC);
+    }
+
+    private void WallJump(bool isPC)
+    {
+        if (canWallClimb && isPC && wallTouch && Input.GetKeyDown(KeyCode.Space))
         {
             //Не уверен что лучше и правильнее Velocity или AddForce поэтому пусть пока на коментах постоит
             // Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * -facingDirection, wallJumpForce * wallJumpDirection.y);
@@ -177,7 +201,7 @@ public class PlayerController : MonoBehaviour
             movingDeniedTime = Time.time + movingDeniedTimeRate;
             movingAllowed = false;
         }
-        else if (!isPC && wallTouch)
+        else if (canWallClimb && !isPC && wallTouch)
         {
             myRB.velocity = new Vector2(wallJumpForce * wallJumpDirection.x * -facingDirection, wallJumpForce * wallJumpDirection.y);
             movingDeniedTime = Time.time + movingDeniedTimeRate;
@@ -192,6 +216,24 @@ public class PlayerController : MonoBehaviour
         Vector3 Scale = transform.localScale;
         Scale.x *= -1;
         transform.localScale = Scale;
+    }
+
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (canWallClimb && gameObject.name == "Character") wallTouch = false;
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (canWallClimb && gameObject.name == "Character") wallCatchTime = Time.time + wallCatchTimeRate;
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (canWallClimb && other.tag == "Wall" && !isGrounded && gameObject.name == "Character")
+        {
+            wallTouch = true;
+        }
     }
 
     // private void CheckingWall()
@@ -213,24 +255,4 @@ public class PlayerController : MonoBehaviour
     //         }
     //     }
     // }
-
-
-
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if(gameObject.name == "Character") wallTouch = false;
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(gameObject.name == "Character")wallCatchTime = Time.time + wallCatchTimeRate;
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.tag == "Wall" && !isGrounded && gameObject.name == "Character")
-        {
-            wallTouch = true;
-        }
-    }
 }

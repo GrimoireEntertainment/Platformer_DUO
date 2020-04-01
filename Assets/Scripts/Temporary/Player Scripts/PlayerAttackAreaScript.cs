@@ -3,13 +3,34 @@
 public class PlayerAttackAreaScript : MonoBehaviour
 {
     [SerializeField] PressChecker swordAttackButton;
-    [SerializeField] float playerDamage;
-    [SerializeField] float damageRate;
+    [SerializeField] GameObject projectile = null;
+
+    public float playerDamage;
+    public float damageRate;
+    public float nextRangedLounchgeRate = 1;
+
     float nextDamage = 0.0f;
+    float nextRangedLounch = 0;
 
     private void Update()
     {
-        if((Input.GetKey(KeyCode.K) || swordAttackButton.isPressed))
+        if(projectile != null)
+        {
+            if ((Input.GetKey(KeyCode.K) || swordAttackButton.isPressed) && Time.time > nextRangedLounch)
+            {
+                RangedAttack();
+                nextRangedLounch = Time.time + nextRangedLounchgeRate;
+            }
+        }
+        else
+        {
+            MeleeAttack();
+        }
+    }
+
+    private void MeleeAttack()
+    {
+        if ((Input.GetKey(KeyCode.K) || swordAttackButton.isPressed))
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
@@ -17,6 +38,11 @@ public class PlayerAttackAreaScript : MonoBehaviour
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
+    }
+
+    private void RangedAttack()
+    {
+        Instantiate(projectile, transform.position, projectile.transform.rotation);
     }
 
     private void OnTriggerStay2D(Collider2D other)

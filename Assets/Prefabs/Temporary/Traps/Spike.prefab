@@ -106,7 +106,6 @@ MonoBehaviour:
   damageRate: 1
   gizmosLongness: 20
   timeToStartAfterTrigger: 0
-  triggered: 0
 --- !u!61 &545549231709074988
 BoxCollider2D:
   m_ObjectHideFlags: 0
