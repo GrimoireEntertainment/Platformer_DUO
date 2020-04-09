@@ -8,6 +8,9 @@ TagManager:
   - PlayerAttackArea
   - Coin
   - Wall
+  - PlayerX
+  - PlayerY
+  - Missile
   layers:
   - Default
   - TransparentFX

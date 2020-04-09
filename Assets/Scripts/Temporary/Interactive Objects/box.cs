@@ -8,11 +8,12 @@ public class box : MonoBehaviour
     [SerializeField] PressChecker swordAttackButton;
     [SerializeField] GameObject[] drops;
     Vector3 dropItemPosition;
-    bool playerIsHere;
+    bool playerXIsHere;
+    bool playerYIsHere;
 
     void Update()
     {
-        if (playerIsHere && (Input.GetKey(KeyCode.K) || swordAttackButton.isPressed))
+        if ((playerXIsHere && (Input.GetKey(KeyCode.K) || swordAttackButton.isPressed)) || playerYIsHere)
         {
             dropItemPosition = transform.position;
             
@@ -28,10 +29,15 @@ public class box : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "PlayerAttackArea") playerIsHere = true;
+        if(other.tag == "PlayerAttackArea") playerXIsHere = true;
+        if(other.tag == "Missile") playerYIsHere = true;
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.tag == "PlayerAttackArea") playerIsHere = false;
+        if(other.tag == "PlayerAttackArea") playerXIsHere = false;
+    }
+
+    private void DropFunction() {
+        
     }
 }

@@ -6,11 +6,11 @@ public class Lever : MonoBehaviour
 {
     [Header("Animator Components")]
     [SerializeField] Animator animator;
-    [SerializeField] string parametrName;
-    [SerializeField] float floatParametrValue;
-    [SerializeField] int intParametrValue;
-    [SerializeField] bool boolParametrValue;
-    [SerializeField] ParametrType parametrType;
+    [SerializeField] ParametrType parameterType;
+    [SerializeField] string parameterName;
+    [SerializeField] float floatParameterValue;
+    [SerializeField] int intParameterValue;
+    [SerializeField] bool boolParameterValue;
     [Header("Enables and Disables")]
     [SerializeField] GameObject[] enables;
     [SerializeField] GameObject[] disables;
@@ -41,19 +41,19 @@ public class Lever : MonoBehaviour
             print("ok");
             if(animator != null)
             {
-                switch (parametrType)
+                switch (parameterType)
                 {
                     case ParametrType.Int:
-                        animator.SetInteger(parametrName, intParametrValue);
+                        animator.SetInteger(parameterName, intParameterValue);
                         break;
                     case ParametrType.Float:
-                        animator.SetFloat(parametrName, floatParametrValue);
+                        animator.SetFloat(parameterName, floatParameterValue);
                         break;
                     case ParametrType.Bool:
-                        animator.SetBool(parametrName, boolParametrValue);
+                        animator.SetBool(parameterName, boolParameterValue);
                         break;
                     case ParametrType.Trigger:
-                        animator.SetTrigger(parametrName);
+                        animator.SetTrigger(parameterName);
                         break;
                 }
             }

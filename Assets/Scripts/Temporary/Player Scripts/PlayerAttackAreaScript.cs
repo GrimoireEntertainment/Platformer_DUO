@@ -4,6 +4,7 @@ public class PlayerAttackAreaScript : MonoBehaviour
 {
     [SerializeField] PressChecker swordAttackButton;
     [SerializeField] GameObject projectile = null;
+    [SerializeField] GameObject missileStartPosition;
 
     public float playerDamage;
     public float damageRate;
@@ -42,13 +43,11 @@ public class PlayerAttackAreaScript : MonoBehaviour
 
     private void RangedAttack()
     {
-        Instantiate(projectile, transform.position, projectile.transform.rotation);
+        Instantiate(projectile, missileStartPosition.transform.position, projectile.transform.rotation);
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        //Конфликт - Input.GetKey(KeyCode.Mouse0) и swordAttackButton.isPressed
-        // насколько я понял на телефоне простое нажатие по экрану воспринимается как Input.GetKey(KeyCode.Mouse0)
         if((Input.GetKey(KeyCode.K) || swordAttackButton.isPressed) && other.tag == "Enemy" && Time.time > nextDamage)
         {
             Health enemyHealth = other.gameObject.GetComponent<Health>();

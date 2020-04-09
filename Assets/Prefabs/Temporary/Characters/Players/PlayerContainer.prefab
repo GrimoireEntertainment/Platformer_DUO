@@ -113,10 +113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef09c6cf69cb6f408aee52d09358e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelerationRate: 0
-  maxSpeed: 7
-  jumpHeight: 0
-  canWallClimb: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -129,6 +125,37 @@ MonoBehaviour:
   wallJumpDirection: {x: 1, y: 3}
   wallJumpForce: 8
   facingDirection: 1
+  maxSpeed: 7
+--- !u!1 &6995814602445114424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2359063336451979077}
+  m_Layer: 0
+  m_Name: MissleStartPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2359063336451979077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6995814602445114424}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.144, y: 0.077, z: -199.77992}
+  m_LocalScale: {x: 1, y: 0.6666667, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1748916872366426465}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1390407157098281604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +171,7 @@ MonoBehaviour:
   acceleration: 0.2
   maxSpeed: 10
   jumpHeight: 30
+  secondJumpHeight: 0
   canWallClimb: 0
 --- !u!114 &7086340152427882997
 MonoBehaviour:
@@ -160,6 +188,7 @@ MonoBehaviour:
   acceleration: 0.1
   maxSpeed: 7
   jumpHeight: 20
+  secondJumpHeight: 0
   canWallClimb: 1
 --- !u!1001 &3374570815935311154
 PrefabInstance:
@@ -273,6 +302,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1693949347350595920, guid: 313ed5d82d7987348a69283b2e65d0d5,
+        type: 3}
+      propertyPath: missileStartPosition
+      value: 
+      objectReference: {fileID: 6995814602445114424}
     - target: {fileID: 8410598317421705091, guid: 313ed5d82d7987348a69283b2e65d0d5,
         type: 3}
       propertyPath: m_LocalPosition.x

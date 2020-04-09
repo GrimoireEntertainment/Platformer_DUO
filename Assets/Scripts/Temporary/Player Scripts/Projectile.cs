@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, 2);
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Enemy" && Time.time > nextRangedDamage)
         {
@@ -33,5 +33,6 @@ public class Projectile : MonoBehaviour
             enemyHealth.AddDamage(playerAttack.playerDamage);
             Destroy(gameObject);
         }
+        
     }
 }
