@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
 
@@ -50,8 +51,6 @@ public class PlayerController : MonoBehaviour
     bool keyboardCheck = true;
     bool buttonCheck = true;
 
-
-
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
@@ -92,8 +91,13 @@ public class PlayerController : MonoBehaviour
         {
             movingAllowed = true;
         }
-
-        CheckingPressedButtons();
+        
+        if(SceneManager.GetActiveScene().name.Contains("runner") || SceneManager.GetActiveScene().name.Contains("Runner")){
+            MoveCharacter(1, ref keyboardSmooth, ref keyboardCheck);
+        }
+        else {
+            CheckingPressedButtons();
+        }
 
         // Flipping character
         if((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || rightButton.isPressed) && !facingRight) flip();
