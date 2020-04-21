@@ -34,6 +34,7 @@ Transform:
   m_Children:
   - {fileID: 2105869087306660168}
   - {fileID: 1748916872366426465}
+  - {fileID: 575145864218538276}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -119,13 +120,71 @@ MonoBehaviour:
   groundChecker: {fileID: 9092735918604672007}
   rightButton: {fileID: 0}
   leftButton: {fileID: 0}
-  wallClimbing: 7
-  movingDeniedTimeRate: 0.15
-  wallCatchTimeRate: 0.5
-  wallJumpDirection: {x: 1, y: 3}
-  wallJumpForce: 8
   facingDirection: 1
   maxSpeed: 7
+--- !u!1 &4619581007248819209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 575145864218538276}
+  - component: {fileID: 7068402482567796637}
+  - component: {fileID: 4897563311891293289}
+  m_Layer: 0
+  m_Name: playerBody
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &575145864218538276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619581007248819209}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2547752866017084257}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &7068402482567796637
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619581007248819209}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1.5}
+  m_Direction: 0
+--- !u!114 &4897563311891293289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619581007248819209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2899a0d101a615d4ba7d3dcbcd8624f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempGround: {fileID: 2375689549477186240, guid: c767963dc8a1e9547853b79695a4afbf,
+    type: 3}
+  groundChecker: {fileID: 9092735918604672007}
 --- !u!1 &6995814602445114424
 GameObject:
   m_ObjectHideFlags: 0
