@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class pushObject : MonoBehaviour
 {
-    [SerializeField] float massForPlayerX;
-    [SerializeField] float massForPlayerY;
-    Rigidbody2D myRB;
+    [SerializeField] float playerSlowingRate;
+    PlayerController player;
 
     // Start is called before the first frame update
     void Start()
     {
-        myRB = GetComponent<Rigidbody2D>();
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -24,13 +23,15 @@ public class pushObject : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            char xOrY = other.GetComponent<PlayerController>().xOrY;
-            if(xOrY == 'x')
-                myRB.mass = massForPlayerX;
-
-            if (xOrY == 'y')
-                myRB.mass = massForPlayerY;
+            player.maxSpeed /= playerSlowingRate;
         }
-        
     }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        
+        if(other.tag == "Player") {
+            player.maxSpeed *= playerSlowingRate;
+        }
+    }
+
 }

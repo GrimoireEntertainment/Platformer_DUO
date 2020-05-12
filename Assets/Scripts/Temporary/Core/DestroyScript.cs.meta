@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/Temporary/Core/DestroyScript.cs.meta
 guid: e0a9d7bbbe328a740892ede5b1bf2504
+=======
+guid: 4cc9610855554f84ba61638febb0a6d7
+>>>>>>> 9ce440972736e56fae3b0e75519371ca1a0e2d9e:Assets/Scripts/Temporary/Interactive Objects/CollectCoin.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
