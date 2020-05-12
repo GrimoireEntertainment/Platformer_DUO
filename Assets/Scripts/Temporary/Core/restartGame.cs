@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class restartGame : MonoBehaviour
 {
     [SerializeField] float restartTime;
+    [SerializeField] string restartSceneName;
     float startTime;
     bool gameRes = false;
 
@@ -18,7 +19,7 @@ public class restartGame : MonoBehaviour
     {
         startTime += Time.deltaTime;
         if(startTime > restartTime && gameRes) {
-            SceneManager.LoadScene("CharMovement", LoadSceneMode.Single);
+            SceneManager.LoadScene(restartSceneName, LoadSceneMode.Single);
             gameRes = false;
         }
     }

@@ -9,4 +9,5 @@ public class Stats : MonoBehaviour
     public float jumpHeight;
     public float secondJumpHeight;
     public bool canWallClimb;
+    public char xOrY;
 }

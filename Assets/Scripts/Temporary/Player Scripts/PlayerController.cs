@@ -5,6 +5,8 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+
+    [SerializeField] bool isRunner = false;
     //checkers
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundChecker;
@@ -13,21 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PressChecker rightButton;
     [SerializeField] PressChecker leftButton;
 
-    //---------------------Wall Climbing/Jumping Variables----------------------
-
-    // [SerializeField] float wallClimbing = 3;
-    // [SerializeField] float movingDeniedTimeRate = 0.2f;
-    // [SerializeField] float wallCatchTimeRate = 0.5f;
-    // [SerializeField] Vector2 wallJumpDirection;
-    // [SerializeField] float wallJumpForce;
-    // [SerializeField] float keepTouchingWall;
-
     public int facingDirection = 1;
-    // private bool wallTouch;
-    // private bool movingAllowed = true;
-    // private float movingDeniedTime;
-    // private float wallCatchTime;
-    //--------------------------------------------------------------
 
     //--------------------------Stats--------------------------
     private float accelerationRate;
@@ -37,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private bool canWallClimb = false;
     bool secondJumpAllowed;
     bool canJumpMore;
+    [HideInInspector]public char xOrY;
     //-------------------------------------------------------
     private float buttonSmooth = 0.0f;
     private float keyboardSmooth = 0.0f;
@@ -67,8 +56,21 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Moving();
-        // CheckingWall();
+        if(isRunner)
+        {
+            Runner();
+        }
+        else
+        {
+            Moving();
+        }
+        
+    }
+
+    private void Runner()
+    {
+        MoveCharacter(1, ref keyboardSmooth, ref keyboardCheck);
+        CheckingGrounded();
     }
 
     public void UpdateStats()
@@ -79,28 +81,23 @@ public class PlayerController : MonoBehaviour
         jumpHeight = stats.jumpHeight;
         secondJumpHeight = stats.secondJumpHeight;
         canWallClimb = stats.canWallClimb;
+        xOrY = stats.xOrY;
     }
 
     private void Moving()
     {
-        isGrounded = Physics2D.OverlapCircle(groundChecker.position, groundCheckRadius, groundLayer);
+        CheckingGrounded();
 
-        //part of code relates Wall Climbing
-        // if (canWallClimb && Time.time > movingDeniedTime)
-        // {
-        //     movingAllowed = true;
-        // }
-        
-        if(SceneManager.GetActiveScene().name.Contains("runner") || SceneManager.GetActiveScene().name.Contains("Runner")){
-            MoveCharacter(1, ref keyboardSmooth, ref keyboardCheck);
-        }
-        else {
-            CheckingPressedButtons();
-        }
+        CheckingPressedButtons();
 
         // Flipping character
-        if((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || rightButton.isPressed) && !facingRight) flip();
-        if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || leftButton.isPressed) && facingRight) flip();
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || rightButton.isPressed) && !facingRight) flip();
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || leftButton.isPressed) && facingRight) flip();
+    }
+
+    private void CheckingGrounded()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundChecker.position, groundCheckRadius, groundLayer);
     }
 
     private void CheckingPressedButtons()
@@ -162,26 +159,10 @@ public class PlayerController : MonoBehaviour
 
         smoothing += accelerationRate;
         if (smoothing >= 1) smoothing = 1;
-        /*if (movingAllowed)*/ myRB.velocity = new Vector2(leftOrRight * maxSpeed * smoothing, myRB.velocity.y);
+        myRB.velocity = new Vector2(leftOrRight * maxSpeed * smoothing, myRB.velocity.y);
 
         //--------------------------------Скольжение вниз по стенке------------------------------
-        // Sliding(leftOrRight, smoothing);
     }
-
-    // private void Sliding(sbyte leftOrRight, float smoothing)
-    // {
-    //     if (canWallClimb && wallTouch && movingAllowed)
-    //     {
-    //         if (Time.time < wallCatchTime)
-    //         {
-    //             myRB.velocity = new Vector2(50, 1.5f);
-    //         }
-    //         else
-    //         {
-    //             myRB.velocity = new Vector2(leftOrRight * maxSpeed * smoothing, -wallClimbing);
-    //         }
-    //     }
-    // }
 
     public void Jumping(bool isPC)  // Character jumping
     {
@@ -189,7 +170,6 @@ public class PlayerController : MonoBehaviour
         if (isPC && isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             isGrounded = false;
-            // myRB.AddForce(new Vector2(myRB.velocity.x, jumpHeight));
 
             myRB.velocity = new Vector2(myRB.velocity.x, jumpHeight);
         }
@@ -197,14 +177,8 @@ public class PlayerController : MonoBehaviour
         else if (!isPC && isGrounded)    // проверяю это через комп или нет и в компоненте кнопки вызываю эту функцию
         {
             isGrounded = false;
-            //Не уверен что лучше и правильнее Velocity или AddForce поэтому пусть пока на коментах постоит
-            // myRB.AddForce(new Vector2(myRB.velocity.x, jumpHeight));
-
             myRB.velocity = new Vector2(myRB.velocity.x, jumpHeight);
         }
-
-        //--------------------Прыжок во время лазанья по стенам-------------------
-        // WallJump(isPC);
     }
 
     private void secondJumping(bool isPC) {
@@ -224,25 +198,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    // private void WallJump(bool isPC)
-    // {
-    //     if (canWallClimb && isPC && wallTouch && Input.GetKeyDown(KeyCode.Space))
-    //     {
-    //         //Не уверен что лучше и правильнее Velocity или AddForce поэтому пусть пока на коментах постоит
-    //         // Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * -facingDirection, wallJumpForce * wallJumpDirection.y);
-    //         // myRB.AddForce(new Vector2(wallJumpForce * wallJumpDirection.x * -facingDirection, wallJumpForce * wallJumpDirection.y), ForceMode2D.Force);
-    //         myRB.velocity = new Vector2(wallJumpForce * wallJumpDirection.x * -facingDirection, wallJumpForce * wallJumpDirection.y);
-    //         movingDeniedTime = Time.time + movingDeniedTimeRate;
-    //         movingAllowed = false;
-    //     }
-    //     else if (canWallClimb && !isPC && wallTouch)
-    //     {
-    //         myRB.velocity = new Vector2(wallJumpForce * wallJumpDirection.x * -facingDirection, wallJumpForce * wallJumpDirection.y);
-    //         movingDeniedTime = Time.time + movingDeniedTimeRate;
-    //         movingAllowed = false;
-    //     }
-    // }
 
     private void flip()
     {
@@ -277,49 +232,4 @@ public class PlayerController : MonoBehaviour
             if(!facingRight) playerSize.localScale = new Vector3(-1.0f, 1.0f, 0.0f);
         }
     }
-
-
-
-
-    // private void OnTriggerExit2D(Collider2D other)
-    // {
-    //     if (canWallClimb && gameObject.name == "Character") wallTouch = false;
-    // }
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (canWallClimb && gameObject.name == "Character") wallCatchTime = Time.time + wallCatchTimeRate;
-    // }
-
-    // private void OnTriggerStay2D(Collider2D other)
-    // {
-    //     if (canWallClimb && other.tag == "Wall" && !isGrounded && gameObject.name == "Character")
-    //     {
-    //         wallTouch = true;
-    //     }
-    // }
-
-
-
-
-
-
-    // private void CheckingWall()
-    // {
-    //     RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.right * facingDirection, 0.6f);
-    //     foreach (RaycastHit2D hit in hits)
-    //     {
-    //         if(hit.collider.tag == "Wall")
-    //         {
-    //             print(hit.collider.name);
-    //             if (!isGrounded)
-    //             {
-    //                 wallTouch = true;
-    //             }
-    //             else
-    //             {
-    //                 wallTouch = false;
-    //             }
-    //         }
-    //     }
-    // }
 }

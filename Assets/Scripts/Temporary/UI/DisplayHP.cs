@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class DisplayHP : MonoBehaviour
 {
     float MaxHealth;
+    [SerializeField] string restartScene = null;
 
     private void Awake()
     {
@@ -24,7 +25,7 @@ public class DisplayHP : MonoBehaviour
         if(hp <= 0)
         {
             Destroy(GameObject.FindWithTag("Player"));
-            SceneManager.LoadScene("CharMovement", LoadSceneMode.Single);
+            SceneManager.LoadScene(restartScene, LoadSceneMode.Single);
         }
     }
 }

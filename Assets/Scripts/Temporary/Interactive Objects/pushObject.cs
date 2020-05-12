@@ -22,11 +22,15 @@ public class pushObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "PlayerX") {
-            myRB.mass = massForPlayerX;
+        if(other.tag == "Player")
+        {
+            char xOrY = other.GetComponent<PlayerController>().xOrY;
+            if(xOrY == 'x')
+                myRB.mass = massForPlayerX;
+
+            if (xOrY == 'y')
+                myRB.mass = massForPlayerY;
         }
-        if(other.tag == "PlayerY") {
-            myRB.mass = massForPlayerY;
-        }
+        
     }
 }

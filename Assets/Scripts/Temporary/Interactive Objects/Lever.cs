@@ -36,9 +36,8 @@ public class Lever : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "PlayerAttackArea")
+        if (other.tag == "PlayerAttackArea" || other.tag == "Missile")
         {
-            print("ok");
             if(animator != null)
             {
                 switch (parameterType)

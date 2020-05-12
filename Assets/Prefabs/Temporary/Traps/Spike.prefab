@@ -96,10 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73900115d10e0044b944d42fbbedaa20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dynamic: 0
+  dynamic: 1
   waitForTrigger: 0
-  isDestroyable: 0
-  destroyAfterSeconds: 0
+  isDestroyable: 1
+  destroyAfterSeconds: 2
   timeToStart: 0
   speed: 20
   damage: 10

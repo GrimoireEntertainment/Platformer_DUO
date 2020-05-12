@@ -5,8 +5,7 @@ public class Spike : MonoBehaviour
 {
     [SerializeField]  bool dynamic = false;
     [SerializeField] bool waitForTrigger = false;
-    [SerializeField] bool isDestroyable = false;
-    [SerializeField] float destroyAfterSeconds;
+    public float destroyAfterSeconds = 2;
     [SerializeField] float timeToStart = 0;
     [SerializeField] float speed = 20;
     [SerializeField] float damage = 10;
@@ -50,6 +49,7 @@ public class Spike : MonoBehaviour
     private void Lounch()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
+        Destroy(gameObject, destroyAfterSeconds);
     }
 
 //______________________Coroutine Wait For Seconds After Trigger The Area_________________________
@@ -57,8 +57,6 @@ IEnumerator TriggerLounch()
 {
     yield return new WaitForSeconds(timeToStartAfterTrigger);
     Lounch();
-    yield return new WaitForSeconds(destroyAfterSeconds);
-    Destroy(gameObject);
 }
 
 //_____________________________Gizmos Debugging____________________________________

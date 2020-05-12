@@ -20,4 +20,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Temporary/PauseMenu.unity
     guid: c806aca9281600a4fa6f20c1f4f323f2
+  - enabled: 1
+    path: Assets/Scenes/Temporary/Levels/Level_1.unity
+    guid: 8bb540e9e977af64a9bd283d0bfa116d
+  - enabled: 1
+    path: Assets/Scenes/Temporary/Levels/Level_1_In.unity
+    guid: c3784fdef9389204d8214c6bdf60fea1
+  - enabled: 1
+    path: Assets/Scenes/Temporary/Levels/Level_2.unity
+    guid: 8236bf0727d9c9e49a0f0330dd38beb3
+  - enabled: 1
+    path: Assets/Scenes/Temporary/Levels/Level_3.unity
+    guid: 146e9512f51b7314789771c811105f9e
   m_configObjects: {}
