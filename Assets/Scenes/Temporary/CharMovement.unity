@@ -21138,6 +21138,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Push Object
       objectReference: {fileID: 0}
+    - target: {fileID: 1194932809295691787, guid: 8fd9e132420f6de488b50745445b4e45,
+        type: 3}
+      propertyPath: m_TagString
+      value: InteractiveObjects
+      objectReference: {fileID: 0}
     - target: {fileID: 1194932809295691796, guid: 8fd9e132420f6de488b50745445b4e45,
         type: 3}
       propertyPath: playerSlowingRate
@@ -21156,7 +21161,7 @@ PrefabInstance:
     - target: {fileID: 1194932809295691796, guid: 8fd9e132420f6de488b50745445b4e45,
         type: 3}
       propertyPath: massForPlayerX
-      value: 15
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1194932809295691796, guid: 8fd9e132420f6de488b50745445b4e45,
         type: 3}
@@ -21270,12 +21275,12 @@ PrefabInstance:
     - target: {fileID: 951714135587035689, guid: 482e7a47c680d0e46b41ded00263ee57,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -75.32
+      value: -59.7
       objectReference: {fileID: 0}
     - target: {fileID: 951714135587035689, guid: 482e7a47c680d0e46b41ded00263ee57,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -155.42
+      value: -160.78
       objectReference: {fileID: 0}
     - target: {fileID: 951714135587035689, guid: 482e7a47c680d0e46b41ded00263ee57,
         type: 3}

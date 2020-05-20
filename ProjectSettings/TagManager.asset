@@ -11,6 +11,7 @@ TagManager:
   - PlayerX
   - PlayerY
   - Missile
+  - InteractiveObjects
   layers:
   - Default
   - TransparentFX

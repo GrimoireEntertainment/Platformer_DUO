@@ -36,7 +36,7 @@ public class Lever : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "PlayerAttackArea" || other.tag == "Missile")
+        if (other.tag == "PlayerAttackArea" || other.tag == "Missile" || other.tag == "InteractiveObjects")
         {
             if(animator != null)
             {
@@ -56,12 +56,25 @@ public class Lever : MonoBehaviour
                         break;
                 }
             }
-                
-            if(enables != null)
+            
+            LeverObjectsActivator(true, false); // Активирует/деактивирует объекты, которые нужно активировать/деактивировать
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.tag == "InteractiveObjects")
+        {
+            LeverObjectsActivator(false, true); // Возвращает объекты в исходное состояние
+        }
+    }
+
+    private void LeverObjectsActivator(bool enabling, bool disabling) // Функция для активации/деактивации объектов
+    {
+        if(enables != null)
             {
                 foreach (GameObject item in enables)
                 {
-                    item.SetActive(true);
+                    item.SetActive(enabling);
                 }
             }
 
@@ -69,10 +82,8 @@ public class Lever : MonoBehaviour
             {
                 foreach (var item in disables)
                 {
-                    item.SetActive(false);
+                    item.SetActive(disabling);
                 }
             }
-
-        }
     }
 }
