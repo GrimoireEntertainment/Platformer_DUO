@@ -5,7 +5,7 @@ using UnityEngine;
 public class Avtomat : MonoBehaviour
 {
     [SerializeField] float timeRate = 1;
-    [SerializeField] GameObject missle;
+    [SerializeField] GameObject missile;
     [SerializeField] float destroyAfterSeconds = 1;
 
 
@@ -15,8 +15,8 @@ public class Avtomat : MonoBehaviour
     {
         if(Time.time >= rate)
         {
-            missle.GetComponent<Spike>().destroyAfterSeconds = destroyAfterSeconds;
-            Instantiate(missle, transform.position, transform.rotation);
+            missile.GetComponent<Spike>().destroyAfterSeconds = destroyAfterSeconds;
+            Instantiate(missile, transform.position, transform.rotation);
             rate = Time.time + timeRate;
         }
     }
