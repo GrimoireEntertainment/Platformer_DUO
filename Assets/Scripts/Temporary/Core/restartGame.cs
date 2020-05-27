@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class restartGame : MonoBehaviour
 {
-    [SerializeField] float restartTime;
+    private float pointOfTime;
     [SerializeField] string restartSceneName;
-    float startTime;
-    bool gameRes = false;
+    [SerializeField] float restartTime;
+    private bool gameRestart;
 
     // Start is called before the first frame update
     void Start()
@@ -17,18 +17,33 @@ public class restartGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        startTime += Time.deltaTime;
-        if(startTime > restartTime && gameRes) {
-            SceneManager.LoadScene(restartSceneName, LoadSceneMode.Single);
-            gameRes = false;
+        // Если здоровье игрока ниже или равен нулю, завершаем игру
+        // Выражение !gameRestart позволяет использовать блок if лишь один раз
+        // тем самым предотвращает бесконечный цикл со сдвигом переменной pointOfTime
+        if(GameObject.FindWithTag("Player").GetComponent<Health>().currentHealth <= 0 && !gameRestart) 
+        {
+            GameOver();
+        }
+
+        // Загружаем необходимую сцену
+        if(Time.time > pointOfTime && gameRestart) 
+        {
+            SceneManager.LoadScene(restartSceneName);
+            gameRestart = false;
         }
     }
 
+    // Нужен на случай, если игрок упал в платформы
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player") {
-            gameRes = true;
-            startTime = 0.0f;
+            GameOver();
         }
+    }
+    // Функция, извещающая о том, что игра завершена
+    private void GameOver() 
+    {
+        gameRestart = true;
+        pointOfTime = Time.time + restartTime;
     }
 }
