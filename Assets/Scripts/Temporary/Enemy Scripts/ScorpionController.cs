@@ -54,12 +54,6 @@ public class ScorpionController : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.tag == "Player") {
-
-        }
-    }
     
     private void flip()
     {

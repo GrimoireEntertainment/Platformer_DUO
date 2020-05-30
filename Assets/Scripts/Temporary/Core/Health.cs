@@ -6,8 +6,11 @@ public class Health : MonoBehaviour
 
     public void AddDamage(float damage)
     {
+        
         currentHealth -= damage;
-        print("health works");
-        if(transform.tag != "Player" && currentHealth <= 0) Destroy(gameObject); 
+        if(transform.tag != "Player" && currentHealth <= 0){
+            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
+        }  
     }
 }
