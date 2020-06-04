@@ -11,6 +11,8 @@ public class Lever : MonoBehaviour
     [SerializeField] float floatParameterValue;
     [SerializeField] int intParameterValue;
     [SerializeField] bool boolParameterValue;
+    [SerializeField] Sprite lockLever;
+    [SerializeField] Sprite unlockLever;
     [Header("Enables and Disables")]
     [SerializeField] GameObject[] enables;
     [SerializeField] GameObject[] disables;
@@ -58,6 +60,7 @@ public class Lever : MonoBehaviour
             }
             
             LeverObjectsActivator(true, false); // Активирует/деактивирует объекты, которые нужно активировать/деактивировать
+            GetComponent<SpriteRenderer>().sprite = unlockLever;
         }
     }
 
@@ -65,6 +68,7 @@ public class Lever : MonoBehaviour
         if(other.tag == "InteractiveObjects")
         {
             LeverObjectsActivator(false, true); // Возвращает объекты в исходное состояние
+            GetComponent<SpriteRenderer>().sprite = lockLever;
         }
     }
 

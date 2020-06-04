@@ -5,13 +5,14 @@ using UnityEngine;
 public class box : MonoBehaviour
 {
     [SerializeField] bool drop;
+    [SerializeField] Sprite openBox;
     [SerializeField] PressChecker swordAttackButton;
     [SerializeField] GameObject[] drops;
     Vector3 dropItemPosition;
     bool playerXIsHere;
     bool playerYIsHere;
 
-    void Update()
+    private void Update()
     {
         if ((playerXIsHere && (Input.GetKey(KeyCode.K) || swordAttackButton.isPressed)) || playerYIsHere)
         {
@@ -24,7 +25,7 @@ public class box : MonoBehaviour
                     Instantiate(item, dropItemPosition, Quaternion.identity);
                 }
             }
-            Destroy(gameObject);
+            GetComponent<SpriteRenderer>().sprite = openBox;
         }
     }
     void OnTriggerEnter2D(Collider2D other)

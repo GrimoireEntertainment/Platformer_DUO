@@ -12,6 +12,7 @@ TagManager:
   - PlayerY
   - Missile
   - InteractiveObjects
+  - Flying Dragon
   layers:
   - Default
   - TransparentFX

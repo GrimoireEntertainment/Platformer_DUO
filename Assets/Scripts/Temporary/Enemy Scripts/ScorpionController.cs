@@ -11,6 +11,7 @@ public class ScorpionController : MonoBehaviour
     PlayerDetectionScript PlayerDetection;
     GameObject player;
     Health playerHealth;
+    Animator myAnim;
 
     bool facingRight = false;
     Rigidbody2D ScorpionRB;
@@ -21,6 +22,7 @@ public class ScorpionController : MonoBehaviour
     {
         PlayerDetection = GetComponentInChildren<PlayerDetectionScript>();
         ScorpionRB = GetComponent<Rigidbody2D>();
+        myAnim = GetComponent<Animator>();
         pointOfOrigin = transform.position;
         player = GameObject.FindWithTag("Player");
     }
@@ -41,18 +43,20 @@ public class ScorpionController : MonoBehaviour
             pointOfOrigin.x -= 1;
         }
 
-        if(PlayerDetection.playerDetected) {
-
+        if(PlayerDetection.playerDetected) 
+        {
+            myAnim.SetBool("isRunning", true);
             if(player.transform.position.x < transform.position.x ) {
                 if(facingRight) flip();
-                ScorpionRB.velocity = new Vector2(-2 * normalSpeed, ScorpionRB.velocity.y);
+                ScorpionRB.velocity = new Vector2(-3 * normalSpeed, ScorpionRB.velocity.y);
             }
 
             if(player.transform.position.x > transform.position.x) {
                 if(!facingRight) flip();
-                ScorpionRB.velocity = new Vector2(2 * normalSpeed, ScorpionRB.velocity.y);
+                ScorpionRB.velocity = new Vector2(3 * normalSpeed, ScorpionRB.velocity.y);
             }
         }
+        
     }
     
     private void flip()
