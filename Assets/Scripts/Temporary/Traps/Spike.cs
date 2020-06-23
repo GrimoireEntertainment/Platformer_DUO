@@ -48,7 +48,7 @@ public class Spike : MonoBehaviour
 //_____________________________Moving_______________________________
     private void Lounch()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        transform.Translate(Vector2.up * speed * Time.deltaTime);
         Destroy(gameObject, destroyAfterSeconds);
     }
 

@@ -26,6 +26,7 @@ public class box : MonoBehaviour
                 }
             }
             GetComponent<SpriteRenderer>().sprite = openBox;
+            gameObject.GetComponent<box>().enabled = false;
         }
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -36,6 +37,7 @@ public class box : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         if(other.tag == "PlayerAttackArea") playerXIsHere = false;
+        if(other.tag == "Missile") playerYIsHere = false;
     }
 
     private void DropFunction() {
