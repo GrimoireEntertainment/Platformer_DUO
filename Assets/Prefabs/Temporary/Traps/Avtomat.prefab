@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeRate: 1
-  missle: {fileID: 545549231709074984, guid: fac4903ac48dfcc45ac8c76a8cec776c, type: 3}
+  missile: {fileID: 2137110349516592757, guid: 4675c31b7319459478bd7529f94d488a, type: 3}
+  destroyAfterSeconds: 1
 --- !u!212 &5422126485732528746
 SpriteRenderer:
   m_ObjectHideFlags: 0

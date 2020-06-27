@@ -12313,12 +12313,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &992971008 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 951714135587035689, guid: 482e7a47c680d0e46b41ded00263ee57,
-    type: 3}
-  m_PrefabInstance: {fileID: 1203340655}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &993525001 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 930617036063709452, guid: 73dd503578edd154cba452069dce1079,
@@ -14494,61 +14488,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 951714135587035689, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 45.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 951714135587035689, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 951714135587035689, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2524682400600966423, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2771282921061184830, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3345687770986319731, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: restartScene
-      value: Level_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3345687771490743040, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3345687771490743040, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 3345687771490743040, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3345687771490743047, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: Character
-      value: 
-      objectReference: {fileID: 992971008}
-    - target: {fileID: 3345687771490743047, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: offset.z
-      value: -27
-      objectReference: {fileID: 0}
     - target: {fileID: 3345687771663603804, guid: 482e7a47c680d0e46b41ded00263ee57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14609,40 +14548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Core
       objectReference: {fileID: 0}
-    - target: {fileID: 3345687772041095981, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3345687772041095981, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3345687772305294097, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3345687772305294097, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3450883079904154432, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: currentHealth
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5492695685037928637, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      propertyPath: jumpHeight
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 9097897703547197817, guid: 482e7a47c680d0e46b41ded00263ee57,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 482e7a47c680d0e46b41ded00263ee57, type: 3}

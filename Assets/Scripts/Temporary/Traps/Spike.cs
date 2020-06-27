@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    [SerializeField]  bool dynamic = false;
+    [SerializeField] bool dynamic = true;
     [SerializeField] bool waitForTrigger = false;
     public float destroyAfterSeconds = 2;
     [SerializeField] float timeToStart = 0;

@@ -92,7 +92,10 @@ public class PlayerController : MonoBehaviour
         {
             CheckingGrounded(playerXAnim);
         }
-        
+        else
+        {
+            CheckingGrounded(playerYAnim);
+        }
     }
 
     public void UpdateStats()

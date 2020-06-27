@@ -57,10 +57,9 @@ public class Lever : MonoBehaviour
                         animator.SetTrigger(parameterName);
                         break;
                 }
-                LeverObjectsActivator(true, false); // Активирует/деактивирует объекты, которые нужно активировать/деактивировать
-                GetComponent<SpriteRenderer>().sprite = unlockLever;
             }
-            
+            LeverObjectsActivator(true, false); // Активирует/деактивирует объекты, которые нужно активировать/деактивировать
+            GetComponent<SpriteRenderer>().sprite = unlockLever;
         }
     }
 

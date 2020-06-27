@@ -655,7 +655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3345687771490743043}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.48, y: -153.68544, z: -20}
+  m_LocalPosition: {x: -1.8, y: 2.99, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3345687771663603804}
@@ -725,7 +725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 951714135587035689}
-  offset: {x: 3.09, y: 1.58, z: -15}
+  offset: {x: 3.09, y: 1.58, z: -27}
   smooth: 0.06
 --- !u!1 &3345687771647718700
 GameObject:
@@ -1720,7 +1720,7 @@ PrefabInstance:
     - target: {fileID: 111950821202807304, guid: 923a1b554ad711f4d90e1827da6e9a86,
         type: 3}
       propertyPath: currentHealth
-      value: 1000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 584296349591792758, guid: 923a1b554ad711f4d90e1827da6e9a86,
         type: 3}
@@ -1737,6 +1737,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.g
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 584296349591792758, guid: 923a1b554ad711f4d90e1827da6e9a86,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 678522956193382864, guid: 923a1b554ad711f4d90e1827da6e9a86,
         type: 3}
@@ -1777,6 +1782,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 965806655311502431, guid: 923a1b554ad711f4d90e1827da6e9a86,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1390407157098281604, guid: 923a1b554ad711f4d90e1827da6e9a86,
         type: 3}
@@ -1841,12 +1851,12 @@ PrefabInstance:
     - target: {fileID: 2547752866017084257, guid: 923a1b554ad711f4d90e1827da6e9a86,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -57.24
+      value: 45.44
       objectReference: {fileID: 0}
     - target: {fileID: 2547752866017084257, guid: 923a1b554ad711f4d90e1827da6e9a86,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -164.64
+      value: 10.11
       objectReference: {fileID: 0}
     - target: {fileID: 2547752866017084257, guid: 923a1b554ad711f4d90e1827da6e9a86,
         type: 3}
@@ -1942,6 +1952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxSpeed
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086340152427882997, guid: 923a1b554ad711f4d90e1827da6e9a86,
+        type: 3}
+      propertyPath: jumpHeight
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7087094692405411923, guid: 923a1b554ad711f4d90e1827da6e9a86,
         type: 3}
