@@ -8,6 +8,8 @@ public class EnemyDamage : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
+        if (!CompareTag("Player")) return;
+
         if(Time.time > nextDamage) {
             Health playerHealth = other.gameObject.GetComponent<Health>();
             playerHealth.AddDamage(enemyDamage);

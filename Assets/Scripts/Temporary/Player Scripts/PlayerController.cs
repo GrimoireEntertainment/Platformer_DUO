@@ -54,14 +54,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(playerXAnim.gameObject.activeSelf)
-        {
-            Jumping(true, playerXAnim);
-        }
-        else
-        {
-            Jumping(true, playerYAnim);
-        }
+        Jumping(true);
         Slipping();
     }
 
@@ -73,14 +66,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if(playerXAnim.gameObject.activeSelf)
-            {
-                Moving(playerXAnim);
-            }
-            else
-            {
-                Moving(playerYAnim);
-            }
+            Moving(true);
         }
         
     }
@@ -109,19 +95,13 @@ public class PlayerController : MonoBehaviour
         xOrY = stats.xOrY;
     }
 
-    private void Moving(Animator characterAnim)
+    public void Moving(bool isPC)
     {
-        
-        if(playerXAnim.gameObject.activeSelf)
-        {
-            CheckingGrounded(playerXAnim);
-        }
-        else
-        {
-            CheckingGrounded(playerYAnim);
-        }
+        Animator characterAnim = playerXAnim.gameObject.activeSelf ? playerXAnim : playerYAnim;
 
-        CheckingPressedButtons(true, characterAnim);
+        CheckingGrounded(playerXAnim.gameObject.activeSelf ? playerXAnim : playerYAnim);
+
+        CheckingPressedButtons(isPC, characterAnim);
 
         // Flipping character
         if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || rightButton.isPressed) && !facingRight) flip();
@@ -208,8 +188,12 @@ public class PlayerController : MonoBehaviour
         //--------------------------------Скольжение вниз по стенке------------------------------
     }
 
-    public void Jumping(bool isPC, Animator characterAnim)  // Character jumping
+    public void Jumping(bool isPC)  // Character jumping
     {
+        Animator characterAnim;
+
+        characterAnim = playerXAnim.gameObject.activeSelf ? playerXAnim : playerYAnim;
+
         secondJumping(isPC);
         if (isPC && isGrounded && Input.GetKey(KeyCode.Space))
         {
