@@ -12,7 +12,7 @@ public class PlayerContainer : MonoBehaviour
         Swap();
     }
 
-    void FixedUpdate()
+    private void Update()
     {
         if(player_y.activeSelf)
         {
@@ -22,9 +22,7 @@ public class PlayerContainer : MonoBehaviour
         {
             transform.position = player_x.transform.position;
         }
-    }
-    private void Update()
-    {
+
         if (Input.GetKeyDown(KeyCode.L)) Swap();
     }
 

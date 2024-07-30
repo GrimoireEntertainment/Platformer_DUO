@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2258523413457861687}
   - component: {fileID: 2258523413457861686}
   - component: {fileID: 2258523413457861685}
-  - component: {fileID: 2258523413457861684}
+  - component: {fileID: 1148368813716049939}
   m_Layer: 8
   m_Name: Ground 2.0
   m_TagString: Untagged
@@ -26,12 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2258523413457861683}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.3, y: -25.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1971053207 &2258523413457861686
 SpriteShapeRenderer:
@@ -43,11 +44,13 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -90,8 +93,9 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: ed7f0769c115d3a469ed9fc2e878dddc, type: 3}
   - {fileID: 21300000, guid: 5120bf904a35df44db61d5cb78842447, type: 3}
   m_LocalAABB:
-    m_Center: {x: -1.2859602, y: -3.11691, z: -0.00020005}
-    m_Extent: {x: 9.358021, y: 9.631622, z: 0.00020005}
+    m_Center: {x: -1.3111534, y: -3.1171074, z: 0}
+    m_Extent: {x: 9.396248, y: 9.632039, z: 0}
+  m_SpriteSortPoint: 0
 --- !u!114 &2258523413457861685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,37 +116,33 @@ MonoBehaviour:
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
       height: 1
-      bevelCutoff: 0
-      bevelSize: 0
       spriteIndex: 0
       corner: 1
+      m_CornerMode: 1
     - position: {x: -10.0082035, y: 5.723854, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
       height: 1
-      bevelCutoff: 0
-      bevelSize: 0
       spriteIndex: 0
       corner: 1
+      m_CornerMode: 1
     - position: {x: 7.2579155, y: 5.811409, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
       height: 1
-      bevelCutoff: 0
-      bevelSize: 0
       spriteIndex: 0
       corner: 1
+      m_CornerMode: 1
     - position: {x: 7.43861, y: -12.100466, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
       height: 1
-      bevelCutoff: 0
-      bevelSize: 0
       spriteIndex: 0
       corner: 1
+      m_CornerMode: 1
   m_SpriteShape: {fileID: 11400000, guid: 773871ed01baff947b2e0c60212f66b2, type: 2}
   m_FillPixelPerUnit: 100
   m_StretchTiling: 1
@@ -154,11 +154,20 @@ MonoBehaviour:
   m_ColliderDetail: 16
   m_ColliderOffset: 0.239
   m_UpdateCollider: 1
-  m_OptimizeCollider: 1
-  m_OptimizeGeometry: 1
   m_EnableTangents: 1
   m_GeometryCached: 0
---- !u!68 &2258523413457861684
+  m_UTess2D: 1
+  m_Creator: {fileID: 0}
+  m_Modifiers: []
+  m_ColliderSegment:
+  - {x: -10.204355, y: -12.414906}
+  - {x: -10.309907, y: 5.0263333}
+  - {x: -10.342421, y: 6.0543733}
+  - {x: 7.589141, y: 6.147693}
+  - {x: 7.5708456, y: 5.118032}
+  - {x: 7.7476296, y: -12.406237}
+  - {x: -10.204355, y: -12.414906}
+--- !u!68 &1148368813716049939
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,18 +177,34 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -10.204355, y: -12.414906}
-  - {x: -10.309907, y: 5.0263333}
-  - {x: -10.344214, y: 6.0567565}
-  - {x: 7.589141, y: 6.147693}
-  - {x: 7.5708456, y: 5.118032}
-  - {x: 7.7476296, y: -12.406237}
-  - {x: -9.059117, y: -12.414352}
-  - {x: -9.263685, y: -12.414452}
-  - {x: -10.204355, y: -12.414906}
+  - {x: -10.707401, y: -3.1171074}
+  - {x: 8.085094, y: -3.1171074}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

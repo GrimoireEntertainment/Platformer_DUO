@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using System;
-using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -56,19 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         Jumping(true);
         Slipping();
-    }
-
-    void FixedUpdate()
-    {
-        if(isRunner)
-        {
-            Runner();
-        }
-        else
-        {
-            Moving(true);
-        }
-        
+        Moving(true);
     }
 
     private void Runner()
@@ -99,7 +84,7 @@ public class PlayerController : MonoBehaviour
     {
         Animator characterAnim = playerXAnim.gameObject.activeSelf ? playerXAnim : playerYAnim;
 
-        CheckingGrounded(playerXAnim.gameObject.activeSelf ? playerXAnim : playerYAnim);
+        CheckingGrounded(characterAnim);
 
         CheckingPressedButtons(isPC, characterAnim);
 
@@ -118,6 +103,7 @@ public class PlayerController : MonoBehaviour
     private void CheckingPressedButtons(bool isPC, Animator characterAnim)
     {
         characterAnim.SetFloat("speed", Mathf.Abs(keyboardSmooth));
+
         // Pressing left keyboard buttons
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -131,12 +117,12 @@ public class PlayerController : MonoBehaviour
         {
             MoveCharacter(1, ref keyboardSmooth, ref keyboardCheck);
         }
-
         // NOT pressing left and right keyboard buttons
 
-        else if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.LeftArrow))
+        else if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.A) &&
+                 !Input.GetKey(KeyCode.LeftArrow))
         {
-            keyboardCheck = true;   // Enabling relevant condition
+            keyboardCheck = true; // Enabling relevant condition
 
             keyboardSmooth -= accelerationRate;
 
@@ -158,14 +144,12 @@ public class PlayerController : MonoBehaviour
 
         else if (!rightButton.isPressed && !leftButton.isPressed)
         {
-            buttonCheck = true;    // Enabling relevant condition
+            buttonCheck = true; // Enabling relevant condition
 
             buttonSmooth -= accelerationRate;
 
             if (buttonSmooth <= 0) buttonSmooth = 0;
         }
-
-        
     }
 
     private void MoveCharacter(sbyte leftOrRight, ref float smoothing, ref bool checking)

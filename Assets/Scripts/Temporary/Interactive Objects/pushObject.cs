@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class pushObject : MonoBehaviour
 {
@@ -17,37 +15,13 @@ public class pushObject : MonoBehaviour
         myRB = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if(isPlayerHere) 
+        if(other.CompareTag("Player"))
         {
-            xOrY = GameObject.FindWithTag("Player").GetComponentInChildren<Stats>().xOrY;
-            if(xOrY == 'x')
-            {
-                myRB.mass = massForPlayerX;
-            }
+            myRB.mass = other.GetComponentInChildren<Stats>().xOrY == 'x' ? massForPlayerX : massForPlayerY;
 
-            if (xOrY == 'y')
-            {
-                myRB.mass = massForPlayerY;
-            }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.tag == "Player")
-        {
             isPlayerHere = true;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if(other.tag == "Player")
-        {
-            isPlayerHere = false;
         }
     }
 }

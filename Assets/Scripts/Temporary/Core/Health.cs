@@ -7,10 +7,9 @@ public class Health : MonoBehaviour
     public void AddDamage(float damage)
     {
         currentHealth -= damage;
-        if((transform.tag != "Player" && transform.tag != "Flying Dragon") && currentHealth <= 0)
+        if((!transform.CompareTag("Player") && !transform.CompareTag("Flying Dragon")) && currentHealth <= 0)
         {
             Destroy(gameObject);
-            Destroy(transform.parent.gameObject);
         }
     }
 }

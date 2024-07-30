@@ -1713,7 +1713,7 @@ PrefabInstance:
     - target: {fileID: 111950821202807304, guid: 923a1b554ad711f4d90e1827da6e9a86,
         type: 3}
       propertyPath: currentHealth
-      value: 10000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 584296349591792758, guid: 923a1b554ad711f4d90e1827da6e9a86,
         type: 3}
@@ -1780,31 +1780,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1390407157098281604, guid: 923a1b554ad711f4d90e1827da6e9a86,
-        type: 3}
-      propertyPath: xOrY
-      value: 121
-      objectReference: {fileID: 0}
-    - target: {fileID: 1390407157098281604, guid: 923a1b554ad711f4d90e1827da6e9a86,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1390407157098281604, guid: 923a1b554ad711f4d90e1827da6e9a86,
-        type: 3}
-      propertyPath: jumpHeight
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1390407157098281604, guid: 923a1b554ad711f4d90e1827da6e9a86,
-        type: 3}
-      propertyPath: acceleration
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1390407157098281604, guid: 923a1b554ad711f4d90e1827da6e9a86,
-        type: 3}
-      propertyPath: secondJumpHeight
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1748916872366426465, guid: 923a1b554ad711f4d90e1827da6e9a86,
         type: 3}
@@ -1930,26 +1905,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MissileStartPosition
-      objectReference: {fileID: 0}
-    - target: {fileID: 7086340152427882997, guid: 923a1b554ad711f4d90e1827da6e9a86,
-        type: 3}
-      propertyPath: xOrY
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 7086340152427882997, guid: 923a1b554ad711f4d90e1827da6e9a86,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7086340152427882997, guid: 923a1b554ad711f4d90e1827da6e9a86,
-        type: 3}
-      propertyPath: jumpHeight
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7086340152427882997, guid: 923a1b554ad711f4d90e1827da6e9a86,
-        type: 3}
-      propertyPath: secondJumpHeight
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7087094692405411923, guid: 923a1b554ad711f4d90e1827da6e9a86,
         type: 3}
