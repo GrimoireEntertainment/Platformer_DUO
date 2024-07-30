@@ -117,59 +117,54 @@ public class PlayerController : MonoBehaviour
 
     private void CheckingPressedButtons(bool isPC, Animator characterAnim)
     {
-        if(isPC)
+        characterAnim.SetFloat("speed", Mathf.Abs(keyboardSmooth));
+        // Pressing left keyboard buttons
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            characterAnim.SetFloat("speed", Mathf.Abs(keyboardSmooth));
-            // Pressing left keyboard buttons
-
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            {
-                MoveCharacter(-1, ref keyboardSmooth, ref keyboardCheck);
-            }
-
-            // Pressing right keyboard buttons
-
-            else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            {
-                MoveCharacter(1, ref keyboardSmooth, ref keyboardCheck);
-            }
-
-            // NOT pressing left and right keyboard buttons
-
-            else if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.LeftArrow))
-            {
-                keyboardCheck = true;   // Enabling relevant condition
-
-                keyboardSmooth -= accelerationRate;
-
-                if (keyboardSmooth <= 0) keyboardSmooth = 0;
-            }
+            MoveCharacter(-1, ref keyboardSmooth, ref keyboardCheck);
         }
-        
-        if(!isPC)
+
+        // Pressing right keyboard buttons
+
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            characterAnim.SetFloat("speed", Mathf.Abs(buttonSmooth));
-            // Button Moving * Button Moving * Button Moving * Button Moving * Button Moving * 
-
-            if (leftButton.isPressed)
-            {
-                MoveCharacter(-1, ref buttonSmooth, ref buttonCheck);
-            }
-
-            else if (rightButton.isPressed)
-            {
-                MoveCharacter(1, ref buttonSmooth, ref buttonCheck);
-            }
-
-            else if (!rightButton.isPressed && !leftButton.isPressed)
-            {
-                buttonCheck = true;    // Enabling relevant condition
-
-                buttonSmooth -= accelerationRate;
-
-                if (buttonSmooth <= 0) buttonSmooth = 0;
-            }
+            MoveCharacter(1, ref keyboardSmooth, ref keyboardCheck);
         }
+
+        // NOT pressing left and right keyboard buttons
+
+        else if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.LeftArrow))
+        {
+            keyboardCheck = true;   // Enabling relevant condition
+
+            keyboardSmooth -= accelerationRate;
+
+            if (keyboardSmooth <= 0) keyboardSmooth = 0;
+        }
+
+        characterAnim.SetFloat("speed", Mathf.Abs(buttonSmooth));
+        // Button Moving * Button Moving * Button Moving * Button Moving * Button Moving *
+
+        if (leftButton.isPressed)
+        {
+            MoveCharacter(-1, ref buttonSmooth, ref buttonCheck);
+        }
+
+        else if (rightButton.isPressed)
+        {
+            MoveCharacter(1, ref buttonSmooth, ref buttonCheck);
+        }
+
+        else if (!rightButton.isPressed && !leftButton.isPressed)
+        {
+            buttonCheck = true;    // Enabling relevant condition
+
+            buttonSmooth -= accelerationRate;
+
+            if (buttonSmooth <= 0) buttonSmooth = 0;
+        }
+
         
     }
 

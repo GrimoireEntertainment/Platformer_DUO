@@ -6799,41 +6799,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &564636858 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3345687772105754480, guid: 482e7a47c680d0e46b41ded00263ee57,
-    type: 3}
-  m_PrefabInstance: {fileID: 1203340655}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &564636864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564636858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1854610462}
-          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-          m_MethodName: Moving
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &564837436
 GameObject:
   m_ObjectHideFlags: 0
@@ -9792,41 +9757,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &779169471 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3345687771647718700, guid: 482e7a47c680d0e46b41ded00263ee57,
-    type: 3}
-  m_PrefabInstance: {fileID: 1203340655}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &779169477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779169471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1854610462}
-          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-          m_MethodName: Moving
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1001 &781370392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15133,15 +15063,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3345687772105754480, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 564636864}
-    - targetCorrespondingSourceObject: {fileID: 3345687771647718700, guid: 482e7a47c680d0e46b41ded00263ee57,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 779169477}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 482e7a47c680d0e46b41ded00263ee57, type: 3}
 --- !u!114 &1203340656 stripped
 MonoBehaviour:
@@ -22231,18 +22153,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 411bc9616f611ce49a9df7a02d549cfd, type: 3}
---- !u!114 &1854610462 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3865103024325528123, guid: 482e7a47c680d0e46b41ded00263ee57,
-    type: 3}
-  m_PrefabInstance: {fileID: 1203340655}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ef09c6cf69cb6f408aee52d09358e73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1854843512
 GameObject:
   m_ObjectHideFlags: 0
