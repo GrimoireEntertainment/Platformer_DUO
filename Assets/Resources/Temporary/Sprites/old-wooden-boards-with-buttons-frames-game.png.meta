@@ -1,0 +1,681 @@
+fileFormatVersion: 2
+guid: 09f3ddbeb4ad7ab43883858903e34ab4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_0
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 385
+        width: 186
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2259621d228583419c6392a15928392
+      internalID: -1009891571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_1
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 397
+        width: 187
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1cdc0f0d95da814db36c78480de0e23
+      internalID: 738946077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_2
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 384
+        width: 187
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 930844ce6632e27479651f815a81684b
+      internalID: 1069466581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_3
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 382
+        width: 186
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdb3437fa5a1c0542b0c20c66151e2f4
+      internalID: 273997709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_4
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 591
+        width: 91
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf6a7291e5c4a34fb9fa7f4ab2bc4b8
+      internalID: 1337597918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_5
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 591
+        width: 92
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33ab6940f213c614ba0f59c5b496dc21
+      internalID: 697030940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_6
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 591
+        width: 91
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7befc6b371520440af4646f773d0f9a
+      internalID: 1609560763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_7
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 591
+        width: 91
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d529dac3f905514e805a0dbeeb31b37
+      internalID: 481609499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_8
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 591
+        width: 93
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd45bcf917235874bae2019f267bf196
+      internalID: -287331259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_9
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 591
+        width: 91
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67efe5228892f1243a178a9eb6232afe
+      internalID: -731603886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_10
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 591
+        width: 91
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bbccccab51724f48bf3d167abb19d4b
+      internalID: 446352680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_11
+      rect:
+        serializedVersion: 2
+        x: 1726
+        y: 591
+        width: 77
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0942b2e025c388d469cd6edbb0ffb77b
+      internalID: -592653289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_12
+      rect:
+        serializedVersion: 2
+        x: 1839
+        y: 591
+        width: 78
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6bddd5e1c3a951438c25ee1cfad9ed2
+      internalID: 1367079597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_13
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 402
+        width: 315
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5799983ae1b549c429464a36b269b10c
+      internalID: -1634714282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_14
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 242
+        width: 244
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71b30036000562c43b575c14b703a115
+      internalID: 1302720407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_15
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 402
+        width: 311
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de07e62c1bbd5724c9f60bb7a1e45d55
+      internalID: -941849490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_16
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 64
+        width: 342
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcc39f351fd90b04fad720d481bd15ec
+      internalID: 659469619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_17
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 79
+        width: 256
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b94b935ab73c394185d502b19c4f5ac
+      internalID: -730959303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_18
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 255
+        width: 315
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb7174b3b44b7c840b5739a0763799cb
+      internalID: -989345080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_19
+      rect:
+        serializedVersion: 2
+        x: 1614
+        y: 290
+        width: 307
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4fce5279181be141b12a156b1585e3b
+      internalID: -1244184725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_20
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 173
+        width: 605
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d2b66617913dc74b81da6e37f9cf5c2
+      internalID: -812068889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_21
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 193
+        width: 317
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33e58f03d630d5a4eacbeccc98385677
+      internalID: 776089445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_22
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 99
+        width: 605
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ac71aca3bbd924b82f8964be2dbdcb
+      internalID: 1235946947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old-wooden-boards-with-buttons-frames-game_23
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 99
+        width: 311
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 203542b673517304582006ed3115403a
+      internalID: -1367193905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      old-wooden-boards-with-buttons-frames-game_0: -1009891571
+      old-wooden-boards-with-buttons-frames-game_1: 738946077
+      old-wooden-boards-with-buttons-frames-game_10: 446352680
+      old-wooden-boards-with-buttons-frames-game_11: -592653289
+      old-wooden-boards-with-buttons-frames-game_12: 1367079597
+      old-wooden-boards-with-buttons-frames-game_13: -1634714282
+      old-wooden-boards-with-buttons-frames-game_14: 1302720407
+      old-wooden-boards-with-buttons-frames-game_15: -941849490
+      old-wooden-boards-with-buttons-frames-game_16: 659469619
+      old-wooden-boards-with-buttons-frames-game_17: -730959303
+      old-wooden-boards-with-buttons-frames-game_18: -989345080
+      old-wooden-boards-with-buttons-frames-game_19: -1244184725
+      old-wooden-boards-with-buttons-frames-game_2: 1069466581
+      old-wooden-boards-with-buttons-frames-game_20: -812068889
+      old-wooden-boards-with-buttons-frames-game_21: 776089445
+      old-wooden-boards-with-buttons-frames-game_22: 1235946947
+      old-wooden-boards-with-buttons-frames-game_23: -1367193905
+      old-wooden-boards-with-buttons-frames-game_3: 273997709
+      old-wooden-boards-with-buttons-frames-game_4: 1337597918
+      old-wooden-boards-with-buttons-frames-game_5: 697030940
+      old-wooden-boards-with-buttons-frames-game_6: 1609560763
+      old-wooden-boards-with-buttons-frames-game_7: 481609499
+      old-wooden-boards-with-buttons-frames-game_8: -287331259
+      old-wooden-boards-with-buttons-frames-game_9: -731603886
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
