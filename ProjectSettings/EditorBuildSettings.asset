@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Temporary/LevelMenu.unity
     guid: 8340e403e718f6746ae8b56b87f39662
   - enabled: 1
-    path: Assets/Scenes/Temporary/CharMovement.unity
-    guid: 55018799ee030fb4e93f91e7342eb6be
-  - enabled: 1
     path: Assets/Scenes/Temporary/PauseMenu.unity
     guid: c806aca9281600a4fa6f20c1f4f323f2
   - enabled: 1
