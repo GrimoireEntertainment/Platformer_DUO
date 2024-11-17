@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyDamage : MonoBehaviour
 {
-    [SerializeField] float enemyDamage;
+    [FormerlySerializedAs("enemyDamage")] [SerializeField] float _enemyDamage;
     [SerializeField] float damageRate;
     float nextDamage = 0.0f;
 
@@ -12,7 +13,7 @@ public class EnemyDamage : MonoBehaviour
 
         if(Time.time > nextDamage) {
             Health playerHealth = other.gameObject.GetComponent<Health>();
-            playerHealth.AddDamage(enemyDamage);
+            playerHealth.AddDamage(_enemyDamage);
             nextDamage = Time.time + damageRate;
         }
     }

@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class PressChecker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     
-    public bool isPressed;
+    [FormerlySerializedAs("isPressed")] public bool _isPressed;
     public void OnPointerDown(PointerEventData eventData)
     {
-        isPressed = true;
+        _isPressed = true;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        isPressed = false;
+        _isPressed = false;
     }
 }

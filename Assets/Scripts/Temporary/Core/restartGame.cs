@@ -20,7 +20,7 @@ public class restartGame : MonoBehaviour
         // Если здоровье игрока ниже или равен нулю, завершаем игру
         // Выражение !gameRestart позволяет использовать блок if лишь один раз
         // тем самым предотвращает бесконечный цикл со сдвигом переменной pointOfTime
-        if(GameObject.FindWithTag("Player").GetComponent<Health>().currentHealth <= 0 && !gameRestart) 
+        if(GameObject.FindWithTag("Player").GetComponent<Health>()._currentHealth <= 0 && !gameRestart) 
         {
             GameOver();
         }
