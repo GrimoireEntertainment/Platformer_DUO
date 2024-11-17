@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Health : MonoBehaviour
 {
-    public float currentHealth;
+    [FormerlySerializedAs("currentHealth")] public float _currentHealth;
 
     public void AddDamage(float damage)
     {
-        currentHealth -= damage;
-        if((!transform.CompareTag("Player") && !transform.CompareTag("Flying Dragon")) && currentHealth <= 0)
+        _currentHealth -= damage;
+        if((!transform.CompareTag("Player") && !transform.CompareTag("Flying Dragon")) && _currentHealth <= 0)
         {
             Destroy(gameObject);
         }

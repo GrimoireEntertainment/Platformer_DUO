@@ -15,7 +15,5 @@ public class FallowingCamera : MonoBehaviour
     {
         Vector3 characterPosition = Character.position + offset;
         transform.position = Vector3.Lerp(transform.position, characterPosition, smooth);
-        // Есть еще похожий метод Vector3.SmoothDamp()
-
     }
 }
