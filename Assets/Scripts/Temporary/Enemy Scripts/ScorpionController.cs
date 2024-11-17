@@ -4,7 +4,6 @@ public class ScorpionController : MonoBehaviour
 {
 
     [SerializeField] float normalSpeed;
-    // [SerializeField] float turnAroundTime;
     [SerializeField] float scorpionWalkingArea;
     Vector3 pointOfOrigin;
 
@@ -17,7 +16,6 @@ public class ScorpionController : MonoBehaviour
     Rigidbody2D ScorpionRB;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         PlayerDetection = GetComponentInChildren<PlayerDetectionScript>();
@@ -27,7 +25,6 @@ public class ScorpionController : MonoBehaviour
         player = GameObject.FindWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(facingRight) ScorpionRB.velocity = new Vector2(normalSpeed, ScorpionRB.velocity.y);

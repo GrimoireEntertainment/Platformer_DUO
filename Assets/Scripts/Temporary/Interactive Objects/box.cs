@@ -14,7 +14,7 @@ public class box : MonoBehaviour
 
     private void Update()
     {
-        if ((playerXIsHere && (Input.GetKey(KeyCode.K) || swordAttackButton.isPressed)) || playerYIsHere)
+        if ((playerXIsHere && (Input.GetKey(KeyCode.K) || swordAttackButton._isPressed)) || playerYIsHere)
         {
             dropItemPosition = transform.position;
             

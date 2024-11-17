@@ -43,7 +43,7 @@ public class FlyingEnemyScript : MonoBehaviour
         if(transform.position.x > player.position.x && _facingRight) flip();
         if(transform.position.x < player.position.x && !_facingRight) flip();
 
-        if(dragonHealth.currentHealth <= 0)
+        if(dragonHealth._currentHealth <= 0)
         {
             dragonAnim.SetBool("dragonDead", true);
             Destroy(gameObject, 0.8f);
