@@ -33,7 +33,7 @@ public class ChasingItemInRunnerScript : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            other.GetComponent<Health>().currentHealth = 0;
+            other.GetComponent<Health>()._currentHealth = 0;
         }
     }
 }

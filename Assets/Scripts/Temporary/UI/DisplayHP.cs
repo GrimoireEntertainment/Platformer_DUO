@@ -8,13 +8,13 @@ public class DisplayHP : MonoBehaviour
 
     private void Awake()
     {
-        MaxHealth = GameObject.FindWithTag("Player").GetComponentInChildren<Health>().currentHealth;
+        MaxHealth = GameObject.FindWithTag("Player").GetComponentInChildren<Health>()._currentHealth;
     }
 
     void Update()
     {
         // Принимаем количество здоровья у игрока
-        float hp = GameObject.FindWithTag("Player").GetComponentInChildren<Health>().currentHealth;
+        float hp = GameObject.FindWithTag("Player").GetComponentInChildren<Health>()._currentHealth;
         
         // Меняем цвет выводимого текста здоровья игрока
         if(hp > MaxHealth * 0.7f && hp <= MaxHealth)  transform.GetComponent<Text>().color = Color.green;
