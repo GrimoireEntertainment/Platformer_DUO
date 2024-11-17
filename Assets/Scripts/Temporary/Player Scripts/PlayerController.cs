@@ -89,8 +89,8 @@ public class PlayerController : MonoBehaviour
         CheckingPressedButtons(isPC, characterAnim);
 
         // Flipping character
-        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || rightButton.isPressed) && !facingRight) flip();
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || leftButton.isPressed) && facingRight) flip();
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || rightButton._isPressed) && !facingRight) flip();
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || leftButton._isPressed) && facingRight) flip();
     }
 
     private void CheckingGrounded(Animator characterAnim)
@@ -132,17 +132,17 @@ public class PlayerController : MonoBehaviour
         characterAnim.SetFloat("speed", Mathf.Abs(buttonSmooth));
         // Button Moving * Button Moving * Button Moving * Button Moving * Button Moving *
 
-        if (leftButton.isPressed)
+        if (leftButton._isPressed)
         {
             MoveCharacter(-1, ref buttonSmooth, ref buttonCheck);
         }
 
-        else if (rightButton.isPressed)
+        else if (rightButton._isPressed)
         {
             MoveCharacter(1, ref buttonSmooth, ref buttonCheck);
         }
 
-        else if (!rightButton.isPressed && !leftButton.isPressed)
+        else if (!rightButton._isPressed && !leftButton._isPressed)
         {
             buttonCheck = true; // Enabling relevant condition
 

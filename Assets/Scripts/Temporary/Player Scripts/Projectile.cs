@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
@@ -26,7 +24,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy" && Time.time > nextRangedDamage)
+        if (other.CompareTag("Enemy") && Time.time > nextRangedDamage)
         {
             nextRangedDamage = Time.time + nextRangedDamageRate;
             Health enemyHealth = other.gameObject.GetComponent<Health>();

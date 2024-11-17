@@ -31,7 +31,7 @@ public class PlayerAttackAreaScript : MonoBehaviour
         {
             if(projectile != null)
             {
-                if ((Input.GetKey(KeyCode.K) || swordAttackButton.isPressed) && Time.time > nextRangedLounch)
+                if ((Input.GetKey(KeyCode.K) || swordAttackButton._isPressed) && Time.time > nextRangedLounch)
                 {
                     playerYAnim.SetBool("playerAttacked", true);
                     rangedAnimationTime = Time.time + rangedAnimationRate;
@@ -57,7 +57,7 @@ public class PlayerAttackAreaScript : MonoBehaviour
 
     private void MeleeAttack()
     {
-        if (Input.GetKey(KeyCode.K) || swordAttackButton.isPressed)
+        if (Input.GetKey(KeyCode.K) || swordAttackButton._isPressed)
         {
             playerXAnim.SetBool("playerAttacked", true);
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
@@ -77,7 +77,7 @@ public class PlayerAttackAreaScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if((Input.GetKey(KeyCode.K) || swordAttackButton.isPressed) && (other.tag == "Enemy" || other.tag == "Flying Dragon") && Time.time > nextDamage)
+        if((Input.GetKey(KeyCode.K) || swordAttackButton._isPressed) && (other.tag == "Enemy" || other.tag == "Flying Dragon") && Time.time > nextDamage)
         {
             Health enemyHealth = other.gameObject.GetComponent<Health>();
             enemyHealth.AddDamage(playerDamage);

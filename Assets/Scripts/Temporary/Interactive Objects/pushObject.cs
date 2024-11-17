@@ -9,7 +9,6 @@ public class pushObject : MonoBehaviour
     char xOrY;
     Rigidbody2D myRB;
 
-    // Start is called before the first frame update
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
