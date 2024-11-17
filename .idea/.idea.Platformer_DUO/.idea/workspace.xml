@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="47588e8b-d93b-4344-afc9-c059e2d2f97f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Temporary/Dragon/Die.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Temporary/Dragon/Die.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Temporary/Dragon/Fire.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Temporary/Dragon/Fire.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Temporary/Dragon/Flying Enemy.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Temporary/Dragon/Flying Enemy.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Temporary/Lever/Level_3LastObstacle1.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Temporary/Lever/Level_3LastObstacle1.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Temporary/PlayerX/Player_X.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Temporary/PlayerX/Player_X.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Temporary/PlayerY/Player_Y.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Temporary/PlayerY/Player_Y.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Characters/Enemies/Cactus.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Characters/Enemies/Cactus.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Characters/Enemies/Scorpion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Characters/Enemies/Scorpion.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Characters/Enemies/Weapon/Cactus Weapon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Characters/Enemies/Weapon/Cactus Weapon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Characters/Enemies/missile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Characters/Enemies/missile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Characters/Players/PlayerContainer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Characters/Players/PlayerContainer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Environment/FollowingItemInRunner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Environment/FollowingItemInRunner.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Interactable/Box.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Interactable/Box.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Traps/Set of Spikes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Temporary/Traps/Set of Spikes.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Buttons 2.0/AttackButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Buttons 2.0/AttackButton.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Buttons 2.0/jumpButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Buttons 2.0/jumpButton.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Buttons 2.0/leftButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Buttons 2.0/leftButton.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Buttons 2.0/rightButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Buttons 2.0/rightButton.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Buttons 2.0/swapButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Buttons 2.0/swapButton.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/0.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/0.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/4.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/5.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/6.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/7.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/8.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Die/9.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Idle/0.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Idle/0.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Idle/1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Idle/1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Idle/2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Flying Dragon/Idle/2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/Bottom ground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/Bottom ground.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/Ground Texture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/Ground Texture.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/left down corner.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/left down corner.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/left ground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/left ground.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/left up corner.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/left up corner.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/right down corner.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/right down corner.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/right ground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/right ground.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/right up corner.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/right up corner.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/set of spikes.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/set of spikes.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/top ground 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/top ground 2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/top ground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Ground 2.0/top ground.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Sprites/1x1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Sprites/1x1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Sprites/Coin.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Sprites/Coin.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temporary/Sprites/old-wooden-boards-with-buttons-frames-game.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Temporary/Sprites/old-wooden-boards-with-buttons-frames-game.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Temporary/Levels/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Temporary/Levels/Level_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Temporary/Levels/Level_1_In.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Temporary/Levels/Level_1_In.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Temporary/Levels/Level_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Temporary/Levels/Level_2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Temporary/Levels/Level_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Temporary/Levels/Level_3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/DestroyScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/DestroyScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/FallowingCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/FallowingCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/Health.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/PressChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/PressChecker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/SceneLoading.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/SceneLoading.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/quitGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/quitGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/restartGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Core/restartGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Enemy Scripts/EnemyDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Enemy Scripts/EnemyDamage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Enemy Scripts/FlyingEnemyMissileScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Enemy Scripts/FlyingEnemyMissileScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Enemy Scripts/FlyingEnemyScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Enemy Scripts/FlyingEnemyScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Enemy Scripts/FreezeFlyEnemyOnTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Enemy Scripts/FreezeFlyEnemyOnTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Enemy Scripts/RangedEnemyWeaponScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Enemy Scripts/RangedEnemyWeaponScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Enemy Scripts/ScorpionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Enemy Scripts/ScorpionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Interactive Objects/Lever.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Interactive Objects/Lever.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Interactive Objects/SecretPlace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Interactive Objects/SecretPlace.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Interactive Objects/box.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Interactive Objects/box.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Interactive Objects/pushObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Interactive Objects/pushObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Player Scripts/PlayerAttackAreaScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Player Scripts/PlayerAttackAreaScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Player Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Player Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Player Scripts/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Player Scripts/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Traps/Avtomat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Traps/Avtomat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Traps/ChasingItemInRunnerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/Traps/ChasingItemInRunnerScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/UI/DisplayCoin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/UI/DisplayCoin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/UI/DisplayHP.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Temporary/UI/DisplayHP.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2oz4j2Bbb4aO38hWaRdLvOPYrTT" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\DD\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\DD\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\DD\\AppData\\Local\\Symbols\\src"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="D:\Programs\Unity\Installs\2022.3.8f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath D:\PROJECTS\Platformer_DUO -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\PROJECTS\Platformer_DUO" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="D:\Programs\Unity\Installs\2022.3.8f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\PROJECTS\Platformer_DUO -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\PROJECTS\Platformer_DUO" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="47588e8b-d93b-4344-afc9-c059e2d2f97f" name="Changes" comment="" />
+      <created>1731859203461</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731859203461</updated>
+      <workItem from="1731859205283" duration="168000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
