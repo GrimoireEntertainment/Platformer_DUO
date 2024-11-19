@@ -28,8 +28,8 @@ public class ScorpionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(facingRight) ScorpionRB.velocity = new Vector2(normalSpeed, ScorpionRB.velocity.y);
-        if(!facingRight) ScorpionRB.velocity = new Vector2(-normalSpeed, ScorpionRB.velocity.y);
+        if(facingRight) ScorpionRB.linearVelocity = new Vector2(normalSpeed, ScorpionRB.linearVelocity.y);
+        if(!facingRight) ScorpionRB.linearVelocity = new Vector2(-normalSpeed, ScorpionRB.linearVelocity.y);
 
         if(transform.position.x > pointOfOrigin.x + scorpionWalkingArea) {
             flip();
@@ -45,12 +45,12 @@ public class ScorpionController : MonoBehaviour
 
             if(player.transform.position.x < transform.position.x ) {
                 if(facingRight) flip();
-                ScorpionRB.velocity = new Vector2(-2 * normalSpeed, ScorpionRB.velocity.y);
+                ScorpionRB.linearVelocity = new Vector2(-2 * normalSpeed, ScorpionRB.linearVelocity.y);
             }
 
             if(player.transform.position.x > transform.position.x) {
                 if(!facingRight) flip();
-                ScorpionRB.velocity = new Vector2(2 * normalSpeed, ScorpionRB.velocity.y);
+                ScorpionRB.linearVelocity = new Vector2(2 * normalSpeed, ScorpionRB.linearVelocity.y);
             }
         }
     }

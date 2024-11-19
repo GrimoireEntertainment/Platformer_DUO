@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
 
         smoothing += accelerationRate;
         if (smoothing >= 1) smoothing = 1;
-        myRB.velocity = new Vector2(leftOrRight * maxSpeed * smoothing, myRB.velocity.y);
+        myRB.linearVelocity = new Vector2(leftOrRight * maxSpeed * smoothing, myRB.linearVelocity.y);
 
         //--------------------------------Скольжение вниз по стенке------------------------------
     }
@@ -171,13 +171,13 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
 
-            myRB.velocity = new Vector2(myRB.velocity.x, jumpHeight);
+            myRB.linearVelocity = new Vector2(myRB.linearVelocity.x, jumpHeight);
         }
 
         else if (!isPC && isGrounded)    // проверяю это через комп или нет и в компоненте кнопки вызываю эту функцию
         {
             isGrounded = false;
-            myRB.velocity = new Vector2(myRB.velocity.x, jumpHeight);
+            myRB.linearVelocity = new Vector2(myRB.linearVelocity.x, jumpHeight);
         }
     }
 
@@ -188,12 +188,12 @@ public class PlayerController : MonoBehaviour
 
         if(canJumpMore && secondJumpAllowed) {
             if( isPC && Input.GetKeyDown(KeyCode.Space)) {
-                myRB.velocity = new Vector2(myRB.velocity.x, secondJumpHeight);
+                myRB.linearVelocity = new Vector2(myRB.linearVelocity.x, secondJumpHeight);
                 canJumpMore = false;
             }
             else if(!isPC)
             {
-                myRB.velocity = new Vector2(myRB.velocity.x, secondJumpHeight);
+                myRB.linearVelocity = new Vector2(myRB.linearVelocity.x, secondJumpHeight);
                 canJumpMore = false;
             }
         }
