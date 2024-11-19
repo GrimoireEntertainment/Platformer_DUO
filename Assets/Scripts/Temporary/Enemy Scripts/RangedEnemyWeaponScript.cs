@@ -18,7 +18,7 @@ public class RangedEnemyWeaponScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myRB.velocity = new Vector2(-speed, myRB.velocity.y);
+        myRB.linearVelocity = new Vector2(-speed, myRB.linearVelocity.y);
         Destroy(gameObject, destroyAfterSeconds);
     }
 
