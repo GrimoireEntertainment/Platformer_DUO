@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using Common;
+using Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,22 +7,22 @@ namespace UI
 {
     public class DisplayHP : MonoBehaviour
     {
-        float MaxHealth;
+        private float _maxHealth;
 
         private void Awake()
         {
-            MaxHealth = GameObject.FindWithTag("Player").GetComponentInChildren<Health>().currentHealth;
+            _maxHealth = GameObject.FindWithTag(Tags.PlayerTag).GetComponentInChildren<Health>().CurrentHealth;
         }
 
         void Update()
         {
             // Принимаем количество здоровья у игрока
-            float hp = GameObject.FindWithTag("Player").GetComponentInChildren<Health>().currentHealth;
+            float hp = GameObject.FindWithTag(Tags.PlayerTag).GetComponentInChildren<Health>().CurrentHealth;
         
             // Меняем цвет выводимого текста здоровья игрока
-            if(hp > MaxHealth * 0.7f && hp <= MaxHealth)  transform.GetComponent<Text>().color = Color.green;
-            if(hp > MaxHealth * 0.3f && hp <= MaxHealth * 0.7f) transform.GetComponent<Text>().color = Color.yellow;
-            if(hp > 0 && hp <= MaxHealth * 0.3f) transform.GetComponent<Text>().color = Color.red;
+            if(hp > _maxHealth * 0.7f && hp <= _maxHealth)  transform.GetComponent<Text>().color = Color.green;
+            if(hp > _maxHealth * 0.3f && hp <= _maxHealth * 0.7f) transform.GetComponent<Text>().color = Color.yellow;
+            if(hp > 0 && hp <= _maxHealth * 0.3f) transform.GetComponent<Text>().color = Color.red;
 
             // Меняем выводимый текст здоровья игрока
             transform.GetComponent<Text>().text = hp.ToString();

@@ -5,51 +5,58 @@ namespace Player_Scripts
 {
     public class PlayerController : MonoBehaviour
     {
-
-        [SerializeField] bool isRunner = false;
+        [SerializeField] private bool isRunner = false;
         //checkers
-        [SerializeField] LayerMask groundLayer;
-        [SerializeField] Transform groundChecker;
-
+        [SerializeField] private LayerMask groundLayer;
+        [SerializeField] private Transform groundChecker;
         //Buttons
-        [SerializeField] PressChecker rightButton;
-        [SerializeField] PressChecker leftButton;
+        [SerializeField] private PressChecker rightButton;
+        [SerializeField] private PressChecker leftButton;
 
-        public int facingDirection = 1;
+        [HideInInspector] public char xOrY;
+        [SerializeField] private float maxSpeed;
+        [SerializeField] private int facingDirection = 1;
+
+        public int FacingDirection => facingDirection;
 
         //--------------------------Stats--------------------------
-        private float accelerationRate;
-        public float maxSpeed;
-        private float jumpHeight;
-        private float secondJumpHeight;
-        private bool canWallClimb = false;
-        bool secondJumpAllowed;
-        bool canJumpMore;
-        [HideInInspector]public char xOrY;
+        private float _accelerationRate;
+        private float _jumpHeight;
+        private float _secondJumpHeight;
+        private bool _canWallClimb = false;
+        private bool _secondJumpAllowed;
+        private bool _canJumpMore;
+
         //-------------------------------------------------------
-        private float buttonSmooth = 0.0f;
-        private float keyboardSmooth = 0.0f;
-        private float groundCheckRadius = 0.05f;
-        Rigidbody2D myRB;
-        Animator playerXAnim;
-        Animator playerYAnim;
-        CapsuleCollider2D playerBody;
-        GameObject AttackArea;
-        Transform playerSize;
-        bool facingRight;
-        bool isGrounded;
-        bool keyboardCheck = true;
-        bool buttonCheck = true;
+        private float _buttonSmooth = 0.0f;
+        private float _keyboardSmooth = 0.0f;
+        private float _groundCheckRadius = 0.05f;
+        private Rigidbody2D _myRB;
+        private Animator _playerXAnim;
+        private Animator _playerYAnim;
+        private CapsuleCollider2D _playerBody;
+        private GameObject _attackArea;
+        private Transform _playerSize;
+        private bool _facingRight;
+        private bool _isGrounded;
+        private bool _keyboardCheck = true;
+        private bool _buttonCheck = true;
+
+        private const string AttackArea = "AttackArea";
+
+        private static readonly int Grounded = Animator.StringToHash("isGrounded");
+        private static readonly int Speed = Animator.StringToHash("Speed");
+        private static readonly int VerticalSpeed = Animator.StringToHash("verticalSpeed");
 
         void Start()
         {
-            myRB = GetComponent<Rigidbody2D>();
-            playerXAnim = gameObject.transform.GetChild(0).GetComponent<Animator>();
-            playerYAnim = gameObject.transform.GetChild(1).GetComponent<Animator>();
-            playerBody = gameObject.GetComponent<CapsuleCollider2D>();
-            AttackArea = GameObject.Find("AttackArea");
-            playerSize = GetComponentInChildren<Transform>();
-            facingRight = true;
+            _myRB = GetComponent<Rigidbody2D>();
+            _playerXAnim = gameObject.transform.GetChild(0).GetComponent<Animator>();
+            _playerYAnim = gameObject.transform.GetChild(1).GetComponent<Animator>();
+            _playerBody = gameObject.GetComponent<CapsuleCollider2D>();
+            _attackArea = GameObject.Find(AttackArea);
+            _playerSize = GetComponentInChildren<Transform>();
+            _facingRight = true;
         }
 
         void Update()
@@ -61,97 +68,92 @@ namespace Player_Scripts
 
         private void Runner()
         {
-            MoveCharacter(1, ref keyboardSmooth, ref keyboardCheck);
-            if(playerXAnim.gameObject.activeSelf)
-            {
-                CheckingGrounded(playerXAnim);
-            }
-            else
-            {
-                CheckingGrounded(playerYAnim);
-            }
+            MoveCharacter(1, ref _keyboardSmooth, ref _keyboardCheck);
+            CheckingGrounded(_playerXAnim.gameObject.activeSelf ? _playerXAnim : _playerYAnim);
         }
 
         public void UpdateStats()
         {
             Stats stats = GetComponentInChildren<Stats>();
             maxSpeed = stats.maxSpeed;
-            accelerationRate = stats.acceleration;
-            jumpHeight = stats.jumpHeight;
-            secondJumpHeight = stats.secondJumpHeight;
-            canWallClimb = stats.canWallClimb;
+            _accelerationRate = stats.acceleration;
+            _jumpHeight = stats.jumpHeight;
+            _secondJumpHeight = stats.secondJumpHeight;
+            _canWallClimb = stats.canWallClimb;
             xOrY = stats.xOrY;
         }
 
         public void Moving(bool isPC)
         {
-            Animator characterAnim = playerXAnim.gameObject.activeSelf ? playerXAnim : playerYAnim;
+            Animator characterAnim = _playerXAnim.gameObject.activeSelf ? _playerXAnim : _playerYAnim;
 
             CheckingGrounded(characterAnim);
 
             CheckingPressedButtons(isPC, characterAnim);
 
             // Flipping character
-            if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || rightButton.isPressed) && !facingRight) flip();
-            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || leftButton.isPressed) && facingRight) flip();
+            if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || rightButton.isPressed) &&
+                !_facingRight) flip();
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || leftButton.isPressed) &&
+                _facingRight) flip();
         }
 
         private void CheckingGrounded(Animator characterAnim)
         {
-            isGrounded = Physics2D.OverlapCircle(groundChecker.position, groundCheckRadius, groundLayer);
-            characterAnim.SetBool("isGrounded", isGrounded);
+            _isGrounded = Physics2D.OverlapCircle(groundChecker.position, _groundCheckRadius, groundLayer);
+            characterAnim.SetBool(Grounded, _isGrounded);
             // characterAnim.SetFloat("verticalSpeed", myRB.velocity.y);
         }
 
         private void CheckingPressedButtons(bool isPC, Animator characterAnim)
         {
-            characterAnim.SetFloat("speed", Mathf.Abs(keyboardSmooth));
+            characterAnim.SetFloat(Speed, Mathf.Abs(_keyboardSmooth));
 
             // Pressing left keyboard buttons
 
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                MoveCharacter(-1, ref keyboardSmooth, ref keyboardCheck);
+                MoveCharacter(-1, ref _keyboardSmooth, ref _keyboardCheck);
             }
 
             // Pressing right keyboard buttons
 
             else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                MoveCharacter(1, ref keyboardSmooth, ref keyboardCheck);
+                MoveCharacter(1, ref _keyboardSmooth, ref _keyboardCheck);
             }
             // NOT pressing left and right keyboard buttons
 
             else if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.A) &&
                      !Input.GetKey(KeyCode.LeftArrow))
             {
-                keyboardCheck = true; // Enabling relevant condition
+                _keyboardCheck = true; // Enabling relevant condition
 
-                keyboardSmooth -= accelerationRate;
+                _keyboardSmooth -= _accelerationRate;
 
-                if (keyboardSmooth <= 0) keyboardSmooth = 0;
+                if (_keyboardSmooth <= 0) _keyboardSmooth = 0;
             }
 
-            characterAnim.SetFloat("speed", Mathf.Abs(buttonSmooth));
+            characterAnim.SetFloat(Speed, Mathf.Abs(_buttonSmooth));
             // Button Moving * Button Moving * Button Moving * Button Moving * Button Moving *
 
             if (leftButton.isPressed)
             {
-                MoveCharacter(-1, ref buttonSmooth, ref buttonCheck);
+                MoveCharacter(-1, ref _buttonSmooth, ref _buttonCheck);
             }
 
             else if (rightButton.isPressed)
             {
-                MoveCharacter(1, ref buttonSmooth, ref buttonCheck);
+                MoveCharacter(1, ref _buttonSmooth, ref _buttonCheck);
             }
 
             else if (!rightButton.isPressed && !leftButton.isPressed)
             {
-                buttonCheck = true; // Enabling relevant condition
+                _buttonCheck = true; // Enabling relevant condition
 
-                buttonSmooth -= accelerationRate;
+                _buttonSmooth -= _accelerationRate;
 
-                if (buttonSmooth <= 0) buttonSmooth = 0;
+                if (_buttonSmooth <= 0) _buttonSmooth = 0;
             }
         }
 
@@ -163,50 +165,53 @@ namespace Player_Scripts
                 checking = false;
             }
 
-            smoothing += accelerationRate;
+            smoothing += _accelerationRate;
             if (smoothing >= 1) smoothing = 1;
-            myRB.linearVelocity = new Vector2(leftOrRight * maxSpeed * smoothing, myRB.linearVelocity.y);
+            _myRB.linearVelocity = new Vector2(leftOrRight * maxSpeed * smoothing, _myRB.linearVelocity.y);
 
             //--------------------------------Скольжение вниз по стенке------------------------------
         }
 
-        public void Jumping(bool isPC)  // Character jumping
+        public void Jumping(bool isPC) // Character jumping
         {
             Animator characterAnim;
 
-            characterAnim = playerXAnim.gameObject.activeSelf ? playerXAnim : playerYAnim;
+            characterAnim = _playerXAnim.gameObject.activeSelf ? _playerXAnim : _playerYAnim;
 
             secondJumping(isPC);
-            if (isPC && isGrounded && Input.GetKey(KeyCode.Space))
+            if (isPC && _isGrounded && Input.GetKey(KeyCode.Space))
             {
-                isGrounded = false;
-                characterAnim.SetBool("isGrounded", isGrounded);
-                myRB.linearVelocity = new Vector2(myRB.linearVelocity.x, jumpHeight);
-                characterAnim.SetFloat("verticalSpeed", myRB.linearVelocity.y);
+                _isGrounded = false;
+                characterAnim.SetBool(Grounded, _isGrounded);
+                _myRB.linearVelocity = new Vector2(_myRB.linearVelocity.x, _jumpHeight);
+                characterAnim.SetFloat(VerticalSpeed, _myRB.linearVelocity.y);
             }
 
-            else if (!isPC && isGrounded)    // проверяю это через комп или нет и в компоненте кнопки вызываю эту функцию
+            else if (!isPC && _isGrounded) // проверяю это через комп или нет и в компоненте кнопки вызываю эту функцию
             {
-                isGrounded = false;
-                characterAnim.SetBool("isGrounded", isGrounded);
-                myRB.linearVelocity = new Vector2(myRB.linearVelocity.x, jumpHeight);
+                _isGrounded = false;
+                characterAnim.SetBool(Grounded, _isGrounded);
+                _myRB.linearVelocity = new Vector2(_myRB.linearVelocity.x, _jumpHeight);
             }
         }
 
-        private void secondJumping(bool isPC) {
-            if(isGrounded) canJumpMore = true;
+        private void secondJumping(bool isPC)
+        {
+            if (_isGrounded) _canJumpMore = true;
 
-            if(!isGrounded) secondJumpAllowed = true;
+            if (!_isGrounded) _secondJumpAllowed = true;
 
-            if(canJumpMore && secondJumpAllowed) {
-                if( isPC && Input.GetKeyDown(KeyCode.Space)) {
-                    myRB.linearVelocity = new Vector2(myRB.linearVelocity.x, secondJumpHeight);
-                    canJumpMore = false;
-                }
-                else if(!isPC)
+            if (_canJumpMore && _secondJumpAllowed)
+            {
+                if (isPC && Input.GetKeyDown(KeyCode.Space))
                 {
-                    myRB.linearVelocity = new Vector2(myRB.linearVelocity.x, secondJumpHeight);
-                    canJumpMore = false;
+                    _myRB.linearVelocity = new Vector2(_myRB.linearVelocity.x, _secondJumpHeight);
+                    _canJumpMore = false;
+                }
+                else if (!isPC)
+                {
+                    _myRB.linearVelocity = new Vector2(_myRB.linearVelocity.x, _secondJumpHeight);
+                    _canJumpMore = false;
                 }
             }
         }
@@ -214,29 +219,31 @@ namespace Player_Scripts
         private void flip()
         {
             facingDirection *= -1;
-            facingRight = !facingRight;
+            _facingRight = !_facingRight;
 
             Vector3 Scale = transform.localScale;
             Scale.x *= -1;
             transform.localScale = Scale;
         }
 
-        private void Slipping() {
-
-            if(Input.GetKey(KeyCode.S)) {
-                playerBody.offset = new Vector2(0.0f, -0.25f);
-                playerBody.size = new Vector2(2f, 1.0f);
-                playerBody.direction = CapsuleDirection2D.Horizontal;
+        private void Slipping()
+        {
+            if (Input.GetKey(KeyCode.S))
+            {
+                _playerBody.offset = new Vector2(0.0f, -0.25f);
+                _playerBody.size = new Vector2(2f, 1.0f);
+                _playerBody.direction = CapsuleDirection2D.Horizontal;
 
                 // AttackArea.SetActive(false);
 
                 // if(facingRight) playerSize.localScale = new Vector3(1.5f, 0.75f, 0.0f);
                 // if(!facingRight) playerSize.localScale = new Vector3(-1.5f, 0.75f, 0.0f);
             }
-            else if(!Input.GetKey(KeyCode.S)) {
-                playerBody.offset = new Vector2(0.0f, -0.2f);
-                playerBody.size = new Vector2(1.0f, 2.5f);
-                playerBody.direction = CapsuleDirection2D.Vertical;
+            else if (!Input.GetKey(KeyCode.S))
+            {
+                _playerBody.offset = new Vector2(0.0f, -0.2f);
+                _playerBody.size = new Vector2(1.0f, 2.5f);
+                _playerBody.direction = CapsuleDirection2D.Vertical;
 
                 // AttackArea.SetActive(true);
 

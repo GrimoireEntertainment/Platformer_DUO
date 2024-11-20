@@ -1,15 +1,21 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 namespace Core
 {
     public class Health : MonoBehaviour
     {
-        public float currentHealth;
+        [SerializeField] private float _currentHealth;
+
+        public float CurrentHealth => _currentHealth;
 
         public void AddDamage(float damage)
         {
-            currentHealth -= damage;
-            if((!transform.CompareTag("Player") && !transform.CompareTag("Flying Dragon")) && currentHealth <= 0)
+            _currentHealth -= damage;
+            if (_currentHealth - damage < 0) _currentHealth = 0;
+
+            if (!transform.CompareTag(Tags.PlayerTag) && !transform.CompareTag(Tags.FlyingDragon) &&
+                _currentHealth <= 0)
             {
                 Destroy(gameObject);
             }

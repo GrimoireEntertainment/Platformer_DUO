@@ -1,70 +1,69 @@
-﻿using Core;
+﻿using Common;
+using Core;
 using UnityEngine;
 
 namespace Enemy_Scripts
 {
     public class ScorpionController : MonoBehaviour
     {
-
         [SerializeField] float normalSpeed;
-        // [SerializeField] float turnAroundTime;
         [SerializeField] float scorpionWalkingArea;
-        Vector3 pointOfOrigin;
 
-        PlayerDetectionScript PlayerDetection;
-        GameObject player;
-        Health playerHealth;
-        Animator myAnim;
+        bool _facingRight = false;
 
-        bool facingRight = false;
-        Rigidbody2D ScorpionRB;
+        Vector3 _pointOfOrigin;
+        PlayerDetectionScript _playerDetection;
+        GameObject _player;
+        Health _playerHealth;
+        Animator _myAnim;
+        Rigidbody2D _scorpionRB;
 
-
-        // Start is called before the first frame update
         void Start()
         {
-            PlayerDetection = GetComponentInChildren<PlayerDetectionScript>();
-            ScorpionRB = GetComponent<Rigidbody2D>();
-            myAnim = GetComponent<Animator>();
-            pointOfOrigin = transform.position;
-            player = GameObject.FindWithTag("Player");
+            _playerDetection = GetComponentInChildren<PlayerDetectionScript>();
+            _scorpionRB = GetComponent<Rigidbody2D>();
+            _myAnim = GetComponent<Animator>();
+            _pointOfOrigin = transform.position;
+            _player = GameObject.FindWithTag(Tags.PlayerTag);
         }
 
-        // Update is called once per frame
         void Update()
         {
-            if(facingRight) ScorpionRB.linearVelocity = new Vector2(normalSpeed, ScorpionRB.linearVelocity.y);
-            if(!facingRight) ScorpionRB.linearVelocity = new Vector2(-normalSpeed, ScorpionRB.linearVelocity.y);
+            if (_facingRight) _scorpionRB.linearVelocity = new Vector2(normalSpeed, _scorpionRB.linearVelocity.y);
+            if (!_facingRight) _scorpionRB.linearVelocity = new Vector2(-normalSpeed, _scorpionRB.linearVelocity.y);
 
-            if(transform.position.x > pointOfOrigin.x + scorpionWalkingArea) {
-                flip();
-                pointOfOrigin.x += 1;
-            }
-
-            if(transform.position.x < pointOfOrigin.x - scorpionWalkingArea) {
-                flip();
-                pointOfOrigin.x -= 1;
-            }
-
-            if(PlayerDetection.playerDetected) 
+            if (transform.position.x > _pointOfOrigin.x + scorpionWalkingArea)
             {
-                myAnim.SetBool("isRunning", true);
-                if(player.transform.position.x < transform.position.x ) {
-                    if(facingRight) flip();
-                    ScorpionRB.linearVelocity = new Vector2(-3 * normalSpeed, ScorpionRB.linearVelocity.y);
+                flip();
+                _pointOfOrigin.x += 1;
+            }
+
+            if (transform.position.x < _pointOfOrigin.x - scorpionWalkingArea)
+            {
+                flip();
+                _pointOfOrigin.x -= 1;
+            }
+
+            if (_playerDetection.PlayerDetected)
+            {
+                _myAnim.SetBool("isRunning", true);
+                if (_player.transform.position.x < transform.position.x)
+                {
+                    if (_facingRight) flip();
+                    _scorpionRB.linearVelocity = new Vector2(-3 * normalSpeed, _scorpionRB.linearVelocity.y);
                 }
 
-                if(player.transform.position.x > transform.position.x) {
-                    if(!facingRight) flip();
-                    ScorpionRB.linearVelocity = new Vector2(3 * normalSpeed, ScorpionRB.linearVelocity.y);
+                if (_player.transform.position.x > transform.position.x)
+                {
+                    if (!_facingRight) flip();
+                    _scorpionRB.linearVelocity = new Vector2(3 * normalSpeed, _scorpionRB.linearVelocity.y);
                 }
             }
-        
         }
-    
+
         private void flip()
         {
-            facingRight = !facingRight;
+            _facingRight = !_facingRight;
             Vector3 Scale = transform.localScale;
             Scale.x *= -1;
             transform.localScale = Scale;

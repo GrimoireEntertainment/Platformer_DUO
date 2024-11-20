@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 namespace Player_Scripts
 {
@@ -6,21 +7,10 @@ namespace Player_Scripts
     {
         [SerializeField] GameObject tempGround;
         [SerializeField] Transform groundChecker;
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
     
         void OnTriggerEnter2D(Collider2D other)
         {
-            if(other.tag == "Wall") {
+            if(other.CompareTag(Tags.Wall)) {
                 // playerPhysicsMaterial.friction = 1;
                 tempGround.SetActive(true);
                 Instantiate(tempGround, groundChecker.position, Quaternion.identity);

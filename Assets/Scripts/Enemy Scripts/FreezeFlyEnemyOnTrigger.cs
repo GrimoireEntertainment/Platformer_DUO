@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 namespace Enemy_Scripts
 {
@@ -6,15 +7,16 @@ namespace Enemy_Scripts
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if(other.tag == "Player")
+            if (other.CompareTag(Tags.PlayerTag))
             {
                 GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 print("freeze");
             }
         }
+
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.tag == "Player")
+            if (other.CompareTag(Tags.PlayerTag))
             {
                 GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             }

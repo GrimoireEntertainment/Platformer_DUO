@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using Common;
+using Core;
 using UnityEngine;
 
 namespace Enemy_Scripts
@@ -7,18 +8,19 @@ namespace Enemy_Scripts
     {
         [SerializeField] float enemyDamage;
         [SerializeField] float damageRate;
-        float nextDamage = 0.0f;
+
+        private float _nextDamage = 0.0f;
 
         void OnTriggerStay2D(Collider2D other)
         {
-            if (!CompareTag("Player")) return;
+            if (!CompareTag(Tags.PlayerTag)) return;
 
-            if(Time.time > nextDamage) {
+            if (Time.time > _nextDamage)
+            {
                 Health playerHealth = other.gameObject.GetComponent<Health>();
                 playerHealth.AddDamage(enemyDamage);
-                nextDamage = Time.time + damageRate;
+                _nextDamage = Time.time + damageRate;
             }
         }
-    
     }
 }

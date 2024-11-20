@@ -4,18 +4,18 @@ namespace Core
 {
     public class DestroyScript : MonoBehaviour
     {
-        [SerializeField] float _secondsBeforeDestroy = 0.5f;
+        [SerializeField] float secondsBeforeDestroy = 0.5f;
 
         private float _pointOfTime;
 
         void Start()
         {
-            _pointOfTime = Time.time + _secondsBeforeDestroy;
+            _pointOfTime = Time.time + secondsBeforeDestroy;
         }
 
         void Update()
         {
-            if(Time.time > _pointOfTime) Destroy(gameObject);
+            if (Time.time > _pointOfTime) Destroy(gameObject);
         }
     }
 }

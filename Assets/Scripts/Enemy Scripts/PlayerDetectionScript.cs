@@ -1,22 +1,25 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 namespace Enemy_Scripts
 {
     public class PlayerDetectionScript : MonoBehaviour
     {
+        public bool PlayerDetected { get; private set; }
 
-        public bool playerDetected;
-
-        private void OnTriggerStay2D(Collider2D other) {
-            if(other.tag == "Player") {
-                playerDetected = true;
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (other.CompareTag(Tags.PlayerTag))
+            {
+                PlayerDetected = true;
             }
         }
 
         void OnTriggerExit2D(Collider2D other)
         {
-            if(other.tag == "Player") {
-                playerDetected = false;
+            if (other.CompareTag(Tags.PlayerTag))
+            {
+                PlayerDetected = false;
             }
         }
     }

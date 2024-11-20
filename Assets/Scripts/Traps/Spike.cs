@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Common;
 using Core;
 using UnityEngine;
 
@@ -6,33 +7,35 @@ namespace Traps
 {
     public class Spike : MonoBehaviour
     {
-        [SerializeField] bool dynamic = true;
-        [SerializeField] bool waitForTrigger = false;
-        public float destroyAfterSeconds = 2;
-        [SerializeField] float timeToStart = 0;
-        [SerializeField] float speed = 20;
-        [SerializeField] float damage = 10;
-        [SerializeField] float damageRate = 1;
-        [SerializeField] float gizmosLongness = 20;
-        [SerializeField] float timeToStartAfterTrigger = 0;
+        public float DestroyAfterSeconds = 2;
 
-        private bool triggered = false;
-        private float damageTime;
+        [SerializeField] private bool dynamic = true;
+        [SerializeField] private bool waitForTrigger = false;
+        [SerializeField] private float timeToStart = 0;
+        [SerializeField] private float speed = 20;
+        [SerializeField] private float damage = 10;
+        [SerializeField] private float damageRate = 1;
+        [SerializeField] private float gizmosLongness = 20;
+        [SerializeField] private float timeToStartAfterTrigger = 0;
+
+        private bool _triggered = false;
+        private float _damageTime;
 
         public bool Triggered
         {
-            get{return triggered;}
-            set{triggered = value;}
+            get { return _triggered; }
+            set { _triggered = value; }
         }
 
 
         void Update()
         {
-            if(dynamic && Time.time >= timeToStart && !waitForTrigger)
+            if (dynamic && Time.time >= timeToStart && !waitForTrigger)
             {
                 Lounch();
             }
-            if(waitForTrigger && triggered)
+
+            if (waitForTrigger && _triggered)
             {
                 StartCoroutine(TriggerLounch());
             }
@@ -41,18 +44,18 @@ namespace Traps
 //____________________________Damaging_____________________________
         private void OnTriggerStay2D(Collider2D other)
         {
-            if(other.tag == "Player" && Time.time > damageTime)
+            if (other.CompareTag(Tags.PlayerTag) && Time.time > _damageTime)
             {
                 other.transform.GetComponent<Health>().AddDamage(damage);
-                damageTime = Time.time + damageRate;
+                _damageTime = Time.time + damageRate;
             }
         }
-    
+
 //_____________________________Moving_______________________________
         private void Lounch()
         {
             transform.Translate(Vector2.up * speed * Time.deltaTime);
-            Destroy(gameObject, destroyAfterSeconds);
+            Destroy(gameObject, DestroyAfterSeconds);
         }
 
 //______________________Coroutine Wait For Seconds After Trigger The Area_________________________
@@ -69,7 +72,6 @@ namespace Traps
             Vector3 direction = transform.TransformDirection(Vector3.right) * gizmosLongness;
             Gizmos.DrawRay(transform.position, direction);
         }
-
     }
 }
 
@@ -88,7 +90,6 @@ namespace Traps
 //             spike.dynamic = GUILayout.Toggle(spike.dynamic, "Dynamic");
 //             spike.waitForTrigger = GUILayout.Toggle(spike.waitForTrigger, "Wait For Trigger");
 //             spike.isDestroyable = GUILayout.Toggle(spike.isDestroyable, "Is Destroyable");
-
 
 
 //             if (spike.dynamic)

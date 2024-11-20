@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using Common;
+using Core;
 using UnityEngine;
 
 namespace Enemy_Scripts
@@ -10,57 +11,62 @@ namespace Enemy_Scripts
         [SerializeField] float _distanceFromPlayer;
         [SerializeField] GameObject missile;
         [SerializeField] Transform missileStartPoint;
-        private Transform player;
-        private Animator dragonAnim;
-        private Health dragonHealth;
+
+        private Transform _player;
+        private Animator _dragonAnim;
+        private Health _dragonHealth;
         private float _shootTime = 0.0f;
         private bool _isPlayerDetected = false;
         private bool _isPlayerInZone = false;
         private bool _facingRight = true;
-        // Start is called before the first frame update
+
+        private static readonly int DragonDead = Animator.StringToHash("dragonDead");
+
         void Start()
         {
-            player = GameObject.FindWithTag("Player").GetComponent<Transform>();
-            dragonAnim = GetComponent<Animator>();
-            dragonHealth = GetComponentInChildren<Health>();
+            _player = GameObject.FindWithTag(Tags.PlayerTag).GetComponent<Transform>();
+            _dragonAnim = GetComponent<Animator>();
+            _dragonHealth = GetComponentInChildren<Health>();
         }
 
-        // Update is called once per frame
         void Update()
         {
-            if(_isPlayerDetected && Vector2.Distance(transform.position, player.position) > _distanceFromPlayer)
+            if (_isPlayerDetected && Vector2.Distance(transform.position, _player.position) > _distanceFromPlayer)
             {
-                transform.position = Vector2.MoveTowards(transform.position, player.position, _speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, _player.position, _speed * Time.deltaTime);
             }
 
 
-            if(_isPlayerInZone && Time.time > _shootTime)
+            if (_isPlayerInZone && Time.time > _shootTime)
             {
-                if(_facingRight) Instantiate(missile, missileStartPoint.position, Quaternion.AngleAxis(-180, Vector3.right));
-                if(!_facingRight) Instantiate(missile, missileStartPoint.position, Quaternion.AngleAxis(180, Vector3.up));
+                if (_facingRight)
+                    Instantiate(missile, missileStartPoint.position, Quaternion.AngleAxis(-180, Vector3.right));
+                if (!_facingRight)
+                    Instantiate(missile, missileStartPoint.position, Quaternion.AngleAxis(180, Vector3.up));
                 _shootTime = Time.time + _shootRate;
             }
 
-            if(transform.position.x > player.position.x && _facingRight) flip();
-            if(transform.position.x < player.position.x && !_facingRight) flip();
+            if (transform.position.x > _player.position.x && _facingRight) Flip();
+            if (transform.position.x < _player.position.x && !_facingRight) Flip();
 
-            if(dragonHealth.currentHealth <= 0)
+            if (_dragonHealth.CurrentHealth <= 0)
             {
-                dragonAnim.SetBool("dragonDead", true);
+                _dragonAnim.SetBool(DragonDead, true);
                 Destroy(gameObject, 0.8f);
             }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if(other.tag == "Player")
+            if (other.CompareTag(Tags.PlayerTag))
             {
                 _isPlayerDetected = true;
             }
         }
+
         void OnTriggerStay2D(Collider2D other)
         {
-            if(other.tag == "Player")
+            if (other.CompareTag(Tags.PlayerTag))
             {
                 _isPlayerInZone = true;
             }
@@ -68,13 +74,13 @@ namespace Enemy_Scripts
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if(other.tag == "Player")
+            if (other.CompareTag(Tags.PlayerTag))
             {
                 _isPlayerInZone = false;
             }
         }
 
-        private void flip()
+        private void Flip()
         {
             _facingRight = !_facingRight;
             Vector3 Scale = transform.localScale;

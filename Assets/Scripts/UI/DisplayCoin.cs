@@ -14,7 +14,7 @@ namespace UI
 
         private void Update()
         {
-            GetComponent<Text>().text = amountOfMoney.ToString();    
+            GetComponent<Text>().text = amountOfMoney.ToString();
         }
     }
 }

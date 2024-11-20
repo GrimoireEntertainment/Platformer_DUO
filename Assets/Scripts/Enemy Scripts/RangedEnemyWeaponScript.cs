@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using Common;
+using Core;
 using UnityEngine;
 
 namespace Enemy_Scripts
@@ -8,24 +9,24 @@ namespace Enemy_Scripts
         [SerializeField] float amountOfDamage;
         [SerializeField] float speed;
         [SerializeField] float destroyAfterSeconds;
-        private Rigidbody2D myRB;
 
-        // Start is called before the first frame update
+        private Rigidbody2D _myRB;
+
         void Start()
         {
-            myRB = GetComponent<Rigidbody2D>();
+            _myRB = GetComponent<Rigidbody2D>();
         }
 
-        // Update is called once per frame
         void Update()
         {
-            myRB.linearVelocity = new Vector2(-speed, myRB.linearVelocity.y);
+            _myRB.linearVelocity = new Vector2(-speed, _myRB.linearVelocity.y);
             Destroy(gameObject, destroyAfterSeconds);
         }
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            if(other.tag == "Player") {
+            if (other.CompareTag(Tags.PlayerTag))
+            {
                 Health playerHealth = other.gameObject.GetComponent<Health>();
                 playerHealth.AddDamage(amountOfDamage);
             }

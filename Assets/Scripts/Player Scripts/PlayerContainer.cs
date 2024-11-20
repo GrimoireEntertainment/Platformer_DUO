@@ -7,7 +7,7 @@ namespace Player_Scripts
         [SerializeField] GameObject player_x;
         [SerializeField] GameObject player_y;
 
-        private bool isActive = true;
+        private bool _isActive = true;
 
         private void Start()
         {
@@ -16,7 +16,7 @@ namespace Player_Scripts
 
         private void Update()
         {
-            if(player_y.activeSelf)
+            if (player_y.activeSelf)
             {
                 transform.position = player_y.transform.position;
             }
@@ -30,9 +30,9 @@ namespace Player_Scripts
 
         public void Swap()
         {
-            player_x.SetActive(isActive);
-            player_y.SetActive(!isActive);
-            isActive = !isActive;
+            player_x.SetActive(_isActive);
+            player_y.SetActive(!_isActive);
+            _isActive = !_isActive;
             GetComponent<PlayerController>().UpdateStats();
         }
     }

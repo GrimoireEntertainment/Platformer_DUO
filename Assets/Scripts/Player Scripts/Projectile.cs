@@ -7,34 +7,32 @@ namespace Player_Scripts
     {
         [SerializeField] float speed = 30;
 
-        PlayerController playerController;
-        PlayerAttackAreaScript playerAttack;
-        Rigidbody2D rb;
-
-        private float nextRangedDamage;
-        private float nextRangedDamageRate = 0.5f;
+        private PlayerController _playerController;
+        private PlayerAttackAreaScript _playerAttack;
+        private Rigidbody2D _rb;
+        private float _nextRangedDamage;
+        private float _nextRangedDamageRate = 0.5f;
 
         private void Start()
         {
-            playerController = GameObject.Find("PlayerContainer").GetComponent<PlayerController>();
-            playerAttack = GameObject.Find("Player_Y").GetComponentInChildren<PlayerAttackAreaScript>();
-            rb = GetComponent<Rigidbody2D>();
+            _playerController = GameObject.Find("PlayerContainer").GetComponent<PlayerController>();
+            _playerAttack = GameObject.Find("Player_Y").GetComponentInChildren<PlayerAttackAreaScript>();
+            _rb = GetComponent<Rigidbody2D>();
 
-            rb.AddForce(new Vector2(playerController.facingDirection * speed, 0), ForceMode2D.Impulse);
+            _rb.AddForce(new Vector2(_playerController.FacingDirection * speed, 0), ForceMode2D.Impulse);
 
             Destroy(gameObject, 2);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.tag == "Enemy" && Time.time > nextRangedDamage)
+            if (other.CompareTag("Enemy") && Time.time > _nextRangedDamage)
             {
-                nextRangedDamage = Time.time + nextRangedDamageRate;
+                _nextRangedDamage = Time.time + _nextRangedDamageRate;
                 Health enemyHealth = other.gameObject.GetComponent<Health>();
-                enemyHealth.AddDamage(playerAttack.playerDamage);
+                enemyHealth.AddDamage(_playerAttack.PlayerDamage);
                 Destroy(gameObject);
             }
-        
         }
     }
 }

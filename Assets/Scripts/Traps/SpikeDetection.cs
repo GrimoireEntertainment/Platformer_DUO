@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 namespace Traps
 {
@@ -6,7 +7,7 @@ namespace Traps
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if(other.tag == "Player")
+            if (other.CompareTag(Tags.PlayerTag))
             {
                 GetComponentInParent<Spike>().Triggered = true;
             }

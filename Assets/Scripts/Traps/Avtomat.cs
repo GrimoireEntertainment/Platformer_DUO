@@ -8,16 +8,15 @@ namespace Traps
         [SerializeField] GameObject missile;
         [SerializeField] float destroyAfterSeconds = 1;
 
-
-        private float rate;
+        private float _rate;
 
         void Update()
         {
-            if(Time.time >= rate)
+            if (Time.time >= _rate)
             {
-                missile.GetComponent<Spike>().destroyAfterSeconds = destroyAfterSeconds;
+                missile.GetComponent<Spike>().DestroyAfterSeconds = destroyAfterSeconds;
                 Instantiate(missile, transform.position, transform.rotation);
-                rate = Time.time + timeRate;
+                _rate = Time.time + timeRate;
             }
         }
     }
