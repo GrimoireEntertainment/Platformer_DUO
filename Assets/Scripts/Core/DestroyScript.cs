@@ -4,18 +4,18 @@ namespace Core
 {
     public class DestroyScript : MonoBehaviour
     {
-        private float pointOfTime;
-        [SerializeField] float secondsBeforeDestroy;
-        // Start is called before the first frame update
+        [SerializeField] float _secondsBeforeDestroy = 0.5f;
+
+        private float _pointOfTime;
+
         void Start()
         {
-            pointOfTime = Time.time + secondsBeforeDestroy;
+            _pointOfTime = Time.time + _secondsBeforeDestroy;
         }
 
-        // Update is called once per frame
         void Update()
         {
-            if(Time.time > pointOfTime) Destroy(gameObject); 
+            if(Time.time > _pointOfTime) Destroy(gameObject);
         }
     }
 }
