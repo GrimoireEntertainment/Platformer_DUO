@@ -3665,7 +3665,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AI ENGINE 2.5D
+  m_Text: Echo of Souls
 --- !u!222 &644213457
 CanvasRenderer:
   m_ObjectHideFlags: 0
