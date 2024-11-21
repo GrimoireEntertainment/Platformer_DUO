@@ -29,4 +29,164 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Temporary/Levels/Level_3.unity
     guid: 146e9512f51b7314789771c811105f9e
+  - enabled: 1
+    path: Assets/TheProject/Scene/HomeScene.unity
+    guid: 77e45099d10064f1282a0a11af427c56
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Demo.unity
+    guid: 74da8ff685cdb4305aa0d6c7b17fea1b
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 0 - Sample.unity
+    guid: 726c967cbc42b4fe9b1f664abc6797df
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 1.unity
+    guid: 37683e01b67254370a7302e88408714c
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 2.unity
+    guid: 7621cf2bba92145c993009a35d165c31
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 3.unity
+    guid: ae82b4e345bb34acab9e671fac3d6b94
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 4.unity
+    guid: 4fd7ceefc89b8475598285e9048bc790
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 5.unity
+    guid: 3d78265767bae4475b865ed9ffe25001
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 6.unity
+    guid: 90a3eed02721442699f051ad00b4019b
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 7.unity
+    guid: a6cc726c3bfe2475aaecf682f875aadc
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 8.unity
+    guid: 05421a668dfb44561b8d0b8a488eab71
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 9.unity
+    guid: 8b189c992db4b45c8a1b418f42292ae5
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 10.unity
+    guid: 91b518a69b90343d0b54c2cda90a4315
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 11.unity
+    guid: 581170ad6ad0844d2996a80e1a1f5ca8
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 12.unity
+    guid: 1b66721605932419eabffaf9bca556d1
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 13.unity
+    guid: 5050096c246f741d7b95fb026af174b4
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 14.unity
+    guid: 64ff7332c65834f4ba254bc08f92ea3e
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 15.unity
+    guid: 85ab0981a20d64c87a12a3d5f004c0a4
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 16.unity
+    guid: c354bed8a193947c1bbb9dd4dd4e95ff
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 17.unity
+    guid: fdb14a1cdec6d485aba0c3a711f37f13
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 18.unity
+    guid: 8a95401c050ac4989b5c323cacc5db44
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 19.unity
+    guid: 2a9d89e7bfde7476d851f883ce2e0d81
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 20.unity
+    guid: 75bb531d1122f46d0889d25777300150
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 21.unity
+    guid: 4223fc78f32734e4e9ad0cac085d622b
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 22.unity
+    guid: 0c212264e27754d67a3606112358aba1
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 23.unity
+    guid: f0bd1ba68493742739b72bd8bf50929d
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 24.unity
+    guid: a4a82d8fa769a4675899abae9857734e
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 25.unity
+    guid: c4ec04574205c4808b9643d5151222d0
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 26.unity
+    guid: 6ab29f6784f8c4e768eff24603efdd6c
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 27.unity
+    guid: 78438b34f9363495eabd307c40391927
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 28.unity
+    guid: a2e10eda818a14ac8999591530b7d3b4
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 29.unity
+    guid: e897d5c02e68a4bb98bb0f0aad33e3be
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 30.unity
+    guid: f9df50fa4630f48a38e51836da367619
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 31.unity
+    guid: bfea2e9d637d94c78ab17601436c9ff6
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 32.unity
+    guid: ec66382d6207c49ceb3f922953fbebd0
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 33.unity
+    guid: 526b92fd206ea4598a53a6c862f11c14
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 34.unity
+    guid: 32bcf61f26d544861bc84c193b120714
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 35.unity
+    guid: 8358607d4d7714faca4db886c54ba555
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 36.unity
+    guid: 90c27178debad4341b51795f47dcbc09
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 37.unity
+    guid: f21dd8bf82b204e82b59ebca2c9776d4
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 38.unity
+    guid: 1ee7ffea488d745efb1c3e8b5ebda829
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 39.unity
+    guid: 1c3bedcf0a5c94dd8b66306c47a1c510
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 40.unity
+    guid: 79ff8dbb8b74a4d97932b5caa4ef10b4
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 41.unity
+    guid: 5abba731dc63f495dad0acc4ae16f184
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 42.unity
+    guid: aa49385f67c3b4751955c63c13594d7d
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 43.unity
+    guid: a6751d9de50b5408d8bb9b94917fb96d
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 44.unity
+    guid: 4a009e7d56ada4b28ba59f178f4e1d67
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 45.unity
+    guid: 0c81097a23fee450eaf75f8070162925
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 46.unity
+    guid: 7c76e58af43a84fea8483bb1b50523cd
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 47.unity
+    guid: 4bde956d256b14d7b9df22417d3edd52
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 48.unity
+    guid: 6dcd82670dcd34c3dba37ab71158e1dc
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 49.unity
+    guid: 465b0cd04780546999382f09a0feb739
+  - enabled: 1
+    path: Assets/TheProject/Scene/Level/Level 50.unity
+    guid: 1ca36d6addd6d42ad93a9b61fded3ea3
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
