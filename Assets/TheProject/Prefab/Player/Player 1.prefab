@@ -1642,7 +1642,7 @@ MonoBehaviour:
   isDroppingToLadder: 0
   layerTopPipe:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 32768
   isHangingTopPipe: 0
   hangingOffset: {x: 0, y: -1.2}
   hangingMoveSpeed: 3
@@ -1674,7 +1674,7 @@ MonoBehaviour:
   isJumpingOutFromTheRope: 0
   layerAsRope:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 266240
 --- !u!143 &5431458227379743878
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1714,7 +1714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerZoneCheck:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   useOverrideAcc: 0
   accGrounedOverride: 0
   velocityDevide: 1
@@ -1734,7 +1734,7 @@ MonoBehaviour:
   weaponAvailable: 0
   CollisionMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
   multiDamage: 1
   damageToGive: 10
   MeleePoint: {fileID: 5785936959164016338}
@@ -1770,7 +1770,7 @@ MonoBehaviour:
   soundAttack: {fileID: 8300000, guid: f71892cb28ffc498e8e974283d87cca6, type: 3}
   targetLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 67968
   standingTimeWhenSneaking: 0.3
   gunHolder: {fileID: 467045742244571040}
 --- !u!114 &1460487137
@@ -1787,7 +1787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerAsLadder:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 65536
   ladderMoveSpeed: 2
   droppingToLadderTime: 0.65
   rootBone: {fileID: 2204475657295122836}
@@ -1810,7 +1810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerAsRope:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
   ropeCheckPoint: {fileID: 1328581834}
   checkDistance: 1
   ropeMoveUpSpeed: 2
@@ -1853,7 +1853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerAsSneakingWall:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 131072
   considerHighWallPos: 1.5
   isHighWall: 0
   isInTheSneakingZone: 0
