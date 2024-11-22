@@ -39,7 +39,6 @@ public class ControllerInput : MonoBehaviour
     private void OnDisable()
     {
         controls.PlayerControl.Disable();
-
     }
 
     private void Awake()
@@ -49,6 +48,8 @@ public class ControllerInput : MonoBehaviour
         controls = new GameplayControl();
         controls.PlayerControl.B.started += ctx => Jump();
         controls.PlayerControl.B.canceled += ctx => JumpOff();
+
+        controls.PlayerControl.Q.started += ctx => ChangeCharacter();
 
         controls.PlayerControl.Y.started += ctx => MeleeAttack();
         controls.PlayerControl.X.started += ctx => RangeAttack();
@@ -166,12 +167,18 @@ public class ControllerInput : MonoBehaviour
     }
 
     [ReadOnly] public bool allowJump = true;
+
     [ReadOnly] public bool allowSlide = true;
 
     public void Jump()
     {
         if (allowJump)
             GameManager.Instance.Player.Jump();
+    }
+
+    private void ChangeCharacter()
+    {
+        GameManager.Instance.Player.ChangeCharacter();
     }
 
     public void JumpOff()

@@ -227,6 +227,11 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
         }
     }
 
+    public void ChangeCharacter()
+    {
+        
+    }
+
     void Update()
     {
         if (GameManager.Instance.gameState != GameManager.GameState.Playing)
@@ -2226,19 +2231,31 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
     }
 
     #region
+
     [Header("---ROPE--")]
     public Vector3 rotateAxis = Vector3.forward;
+
     public float speed = 100;
+
     public float releaseForce = 10;
+
     float distance, releasePointY;
+
     public float ropeCheckRadius = 6;
+
     [Tooltip("draw rope offset")]
     public Vector2 grabOffset = new Vector2(0, 1.6f);
+
     LineRenderer ropeRenderer;
+
     [ReadOnly] public bool isGrabingRope = false;
+
     [ReadOnly] public RopePoint currentAvailableRope;
+
     [ReadOnly] public bool isJumpingOutFromTheRope = false;
+
     public LayerMask layerAsRope;
+
     RopePoint lastRopePointObj;
 
     void CheckRopeInZone()
