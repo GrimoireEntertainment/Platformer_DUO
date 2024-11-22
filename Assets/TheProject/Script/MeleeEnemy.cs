@@ -305,14 +305,18 @@ public class MeleeEnemy : MonoBehaviour, ICanTakeDamage
         gameObject.AddComponent<Rigidbody>();
 
         Destroy(characterController);
-        gameObject.AddComponent<Rigidbody>();
+
+        if (!gameObject.GetComponent<Rigidbody>())
+        {
+            gameObject.AddComponent<Rigidbody>();
+        }
         GetComponent<Rigidbody>().isKinematic = true;
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 15);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Deadzone")
+        if (collision.gameObject.CompareTag("Deadzone"))
         {
             Kill();
         }

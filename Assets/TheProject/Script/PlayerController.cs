@@ -2040,7 +2040,10 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
         if (!verticalMotion)
             vel.y = characterController.velocity.y; // Preserve vertical velocity
 
-        characterController.Move(vel * Time.deltaTime);
+        if (characterController.enabled)
+        {
+            characterController.Move(vel * Time.deltaTime);
+        }
 
         Vector3 deltaRot = anim.deltaRotation.eulerAngles;
 
@@ -2208,7 +2211,6 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
 
     void SetCharacterControllerSlidingSize()
     {
-        Debug.LogError("G");
         characterController.height = slidingCapsultHeight;
         var _center = characterController.center;
         _center.y = slidingCapsultHeight * 0.5f;
