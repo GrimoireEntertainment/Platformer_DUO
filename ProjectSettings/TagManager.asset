@@ -19,22 +19,22 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ladder
+  - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Enemy
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Item
+  - TriggerPlayer
+  - ObjectCanStandOn
+  - Rope
+  - Zone
+  - Projectile
+  - TopPipe
+  - Ladder
+  - SneakingZone
+  - RopePoint
   - 
   - 
   - 
