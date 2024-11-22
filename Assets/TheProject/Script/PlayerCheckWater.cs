@@ -25,6 +25,8 @@ public class PlayerCheckWater : MonoBehaviour
 
     [Header("DIVING")]
     [ReadOnly] public bool isUnderWater = false;
+
+    public float startSwimingInDiving = 1;
     public float drivingSpeed = 2f;
     public float oxygenDrainTimeOut = 5f;
     [ReadOnly] public float oxygenRemainTime;
@@ -37,7 +39,7 @@ public class PlayerCheckWater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var hitWater = Physics.OverlapSphere(transform.position, 0.1f, layerAsWater);
+        var hitWater = Physics.OverlapSphere(transform.position + Vector3.up * startSwimingInDiving, 0.1f, layerAsWater);
         if (hitWater.Length > 0)
         {
             if (currentWaterZone == null && GameManager.Instance.Player.velocity.y < -5)
