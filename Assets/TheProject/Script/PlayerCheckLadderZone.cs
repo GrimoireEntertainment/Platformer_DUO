@@ -34,25 +34,20 @@ public class PlayerCheckLadderZone : MonoBehaviour
         Vector3 p2 = p1 + Vector3.up * GameManager.Instance.Player.characterController.height + Vector3.up * -0.5f;
         float distanceToObstacle = 0;
 
+        Debug.DrawRay(p1, transform.forward * 10);
+
         // Cast character controller shape 10 meters forward to see if it is about to hit anything.
-        if (Physics.CapsuleCast(p1, p2, GameManager.Instance.Player.characterController.radius, transform.forward, out ladderHit, 10, layerAsLadder))
+        if (Physics.Raycast(p1, transform.forward, out ladderHit, 5, layerAsLadder))
         {
             ladderNormal = ladderHit.normal;
-            //Debug.LogError("distance to ladder = " + ladderHit.distance);
             distanceToObstacle = ladderHit.distance;
-            if (distanceToObstacle < 0.1f)
+
+            if (distanceToObstacle < 0.5f)
             {
-                //if (Physics.Raycast(p2, transform.forward, 1, layerAsLadder))
                 isInLadderZone = true;
             }
             Debug.DrawRay(ladderHit.point, ladderHit.normal * 10);
         }
-
-        //if (_temp && !isInLadderZone)
-        //{
-        //    Debug.LogError()
-        //    Debug.Break();
-        //}
 
         return isInLadderZone;
     }

@@ -1787,10 +1787,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerAsLadder:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   ladderMoveSpeed: 2
   droppingToLadderTime: 0.65
-  rootBone: {fileID: 0}
+  rootBone: {fileID: 2204475657295122836}
   rootBoneRotateOffset: {x: -10, y: 0, z: 0}
   rootBonePositionOffset: {x: 0, y: 0, z: 0.12}
   ladderNormal: {x: 0, y: 0}
@@ -1875,7 +1875,7 @@ MonoBehaviour:
   slideSpeed: 10
   accSpeed: 1
   angleAsSlope: 50
-  rootBone: {fileID: 0}
+  rootBone: {fileID: 2204475657295122836}
   rotateBoneOnSliding: {x: 0, y: 90, z: 10}
   currentAngle: 0
   isStandOnTheSlope: 0
