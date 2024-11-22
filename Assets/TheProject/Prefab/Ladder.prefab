@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 967432037230973052}
   - component: {fileID: 3782265206464729674}
-  m_Layer: 3
+  m_Layer: 16
   m_Name: prevent player passthrough collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5744584306391636574}
-  m_Layer: 3
+  m_Layer: 16
   m_Name: Ladder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1583542157802479348}
   - component: {fileID: 6989536972426461739}
   - component: {fileID: 4313647570499006486}
-  m_Layer: 3
+  m_Layer: 16
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

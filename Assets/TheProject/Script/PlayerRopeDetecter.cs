@@ -11,6 +11,7 @@ public class PlayerRopeDetecter : MonoBehaviour
     public Vector2 offsetPlayer = new Vector2(-0.5f, 1.5f);
     public float swingForce = 10;
     public float jumpOutForce = 10;
+    public float ropeJumpHoldForce = 800;
 
     [ReadOnly] public RaycastHit ropeHit;
     [ReadOnly] public bool isHoldingRope = false;

@@ -281,7 +281,7 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
                 velocity = Vector2.zero;
                 AllowInputControlAgainCo();
                 //apply the force when jump hold the rope
-                playerRopeDetecter.currentRope.GetComponent<Rigidbody>().AddForce(playerRopeDetecter.currentRope.transform.forward * input.x * 500);
+                playerRopeDetecter.currentRope.GetComponent<Rigidbody>().AddForce(playerRopeDetecter.currentRope.transform.forward * input.x * playerRopeDetecter.ropeJumpHoldForce);
             }
         }
         if (isGrabingRope)
