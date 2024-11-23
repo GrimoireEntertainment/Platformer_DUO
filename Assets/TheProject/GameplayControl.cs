@@ -28,10 +28,19 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
             ""id"": ""f1baef56-095b-4e0f-b12c-7f57a500ed99"",
             ""actions"": [
                 {
+                    ""name"": ""Q"",
+                    ""type"": ""Button"",
+                    ""id"": ""8339228f-b4cb-420f-851b-41343bdbfa51"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""A"",
                     ""type"": ""Button"",
                     ""id"": ""4a041f0c-98bb-4a2d-9cd4-d01ca2c37627"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -49,7 +58,7 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
                     ""name"": ""Y"",
                     ""type"": ""Button"",
                     ""id"": ""5073ad41-877e-4165-8d09-118656e2b4ae"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -67,7 +76,7 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
                     ""name"": ""D Left"",
                     ""type"": ""Button"",
                     ""id"": ""599213ee-e883-4366-b397-b46be4c4c624"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -131,7 +140,7 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""344d44f4-0248-4724-b7c1-efece6371fa4"",
-                    ""path"": ""<Keyboard>/k"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -175,7 +184,7 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""aa7a35db-0ff9-45f2-b4eb-7ccae2f808c3"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -369,6 +378,17 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
                     ""action"": ""Sliding"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""959ddc40-e5de-4270-a541-b6ecf5313606"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Q"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -377,6 +397,7 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
 }");
         // PlayerControl
         m_PlayerControl = asset.FindActionMap("PlayerControl", throwIfNotFound: true);
+        m_PlayerControl_Q = m_PlayerControl.FindAction("Q", throwIfNotFound: true);
         m_PlayerControl_A = m_PlayerControl.FindAction("A", throwIfNotFound: true);
         m_PlayerControl_B = m_PlayerControl.FindAction("B", throwIfNotFound: true);
         m_PlayerControl_Y = m_PlayerControl.FindAction("Y", throwIfNotFound: true);
@@ -454,6 +475,7 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
     // PlayerControl
     private readonly InputActionMap m_PlayerControl;
     private List<IPlayerControlActions> m_PlayerControlActionsCallbackInterfaces = new List<IPlayerControlActions>();
+    private readonly InputAction m_PlayerControl_Q;
     private readonly InputAction m_PlayerControl_A;
     private readonly InputAction m_PlayerControl_B;
     private readonly InputAction m_PlayerControl_Y;
@@ -469,6 +491,7 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
     {
         private @GameplayControl m_Wrapper;
         public PlayerControlActions(@GameplayControl wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Q => m_Wrapper.m_PlayerControl_Q;
         public InputAction @A => m_Wrapper.m_PlayerControl_A;
         public InputAction @B => m_Wrapper.m_PlayerControl_B;
         public InputAction @Y => m_Wrapper.m_PlayerControl_Y;
@@ -489,6 +512,9 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerControlActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerControlActionsCallbackInterfaces.Add(instance);
+            @Q.started += instance.OnQ;
+            @Q.performed += instance.OnQ;
+            @Q.canceled += instance.OnQ;
             @A.started += instance.OnA;
             @A.performed += instance.OnA;
             @A.canceled += instance.OnA;
@@ -526,6 +552,9 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IPlayerControlActions instance)
         {
+            @Q.started -= instance.OnQ;
+            @Q.performed -= instance.OnQ;
+            @Q.canceled -= instance.OnQ;
             @A.started -= instance.OnA;
             @A.performed -= instance.OnA;
             @A.canceled -= instance.OnA;
@@ -578,6 +607,7 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
     public PlayerControlActions @PlayerControl => new PlayerControlActions(this);
     public interface IPlayerControlActions
     {
+        void OnQ(InputAction.CallbackContext context);
         void OnA(InputAction.CallbackContext context);
         void OnB(InputAction.CallbackContext context);
         void OnY(InputAction.CallbackContext context);

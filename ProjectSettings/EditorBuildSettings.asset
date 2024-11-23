@@ -188,5 +188,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TheProject/Scene/Level/Level 50.unity
     guid: 1ca36d6addd6d42ad93a9b61fded3ea3
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: fbf1fce75ae2a4595a46eba80f665928,
+      type: 3}
   m_UseUCBPForAssetBundles: 0

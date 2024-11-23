@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TheProject.Script;
 using UnityEngine;
 public enum PlayerState { Ground, Water, Jetpack, Windy }
 [System.Serializable]
@@ -16,6 +17,8 @@ public class PlayerParameter
 
 public class PlayerController : MonoBehaviour, ICanTakeDamage
 {
+    [SerializeField] private SwitchCharacterController _switchCharacterController;
+
     [ReadOnly] public float gravity = -35f;
     [ReadOnly] public PlayerState PlayerState = PlayerState.Ground;        //set what state the player in
 
@@ -67,6 +70,7 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
     public AudioClip soundFootStep;
     public AudioClip soundJump, soundHit, soundDie, soundLanding, soundSlideSlope;
     public AudioClip soundGrap, soundRopeJump;
+    public AudioClip characterChangeSfx;
     [Range(0f, 1f)]
     public float soundFootStepVolume = 0.5f;
     [Range(0f, 1f)]
@@ -225,6 +229,11 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
         {
             GameManager.Instance.SetCheckPoint(hit.point);
         }
+    }
+
+    public void ChangeCharacter()
+    {
+        _switchCharacterController.ChangeCharacter();
     }
 
     void Update()
@@ -556,6 +565,11 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
             isInJumpZone = false;
             wallStickTimeCounter = wallStickTime;       //set reset wall stick timer when on ground
             CheckStandOnEvent();
+
+            if (!rangeAttack.isWeaponShowing())
+            {
+                rangeAttack.ShowWeapon(true);
+            }
         }
 
         ropeRenderer.enabled = isGrabingRope;
@@ -1058,6 +1072,8 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
 
     public void RangeAttack()
     {
+        if (_switchCharacterController.IsManCharacter) return;
+
         if (!isPlaying)
             return;
         if (playerCheckDragableObject.isGrabbingTheDragableObject || isSliding)
@@ -1100,6 +1116,8 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
     [HideInInspector] public MeleeAttack meleeAttack;
     public void MeleeAttack()
     {
+        if (!_switchCharacterController.IsManCharacter) return;
+
         if (!isPlaying)
             return;
         if (isSliding || playerCheckDragableObject.isGrabbingTheDragableObject || isUsingJetpack)
@@ -2040,7 +2058,10 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
         if (!verticalMotion)
             vel.y = characterController.velocity.y; // Preserve vertical velocity
 
-        characterController.Move(vel * Time.deltaTime);
+        if (characterController.enabled)
+        {
+            characterController.Move(vel * Time.deltaTime);
+        }
 
         Vector3 deltaRot = anim.deltaRotation.eulerAngles;
 
@@ -2208,7 +2229,6 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
 
     void SetCharacterControllerSlidingSize()
     {
-        Debug.LogError("G");
         characterController.height = slidingCapsultHeight;
         var _center = characterController.center;
         _center.y = slidingCapsultHeight * 0.5f;
@@ -2224,19 +2244,31 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
     }
 
     #region
+
     [Header("---ROPE--")]
     public Vector3 rotateAxis = Vector3.forward;
+
     public float speed = 100;
+
     public float releaseForce = 10;
+
     float distance, releasePointY;
+
     public float ropeCheckRadius = 6;
+
     [Tooltip("draw rope offset")]
     public Vector2 grabOffset = new Vector2(0, 1.6f);
+
     LineRenderer ropeRenderer;
+
     [ReadOnly] public bool isGrabingRope = false;
+
     [ReadOnly] public RopePoint currentAvailableRope;
+
     [ReadOnly] public bool isJumpingOutFromTheRope = false;
+
     public LayerMask layerAsRope;
+
     RopePoint lastRopePointObj;
 
     void CheckRopeInZone()
