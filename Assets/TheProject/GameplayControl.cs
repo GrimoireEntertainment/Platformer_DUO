@@ -58,7 +58,7 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
                     ""name"": ""Y"",
                     ""type"": ""Button"",
                     ""id"": ""5073ad41-877e-4165-8d09-118656e2b4ae"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -76,7 +76,7 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
                     ""name"": ""D Left"",
                     ""type"": ""Button"",
                     ""id"": ""599213ee-e883-4366-b397-b46be4c4c624"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -140,7 +140,7 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""344d44f4-0248-4724-b7c1-efece6371fa4"",
-                    ""path"": ""<Keyboard>/k"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -184,7 +184,7 @@ public partial class @GameplayControl: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""aa7a35db-0ff9-45f2-b4eb-7ccae2f808c3"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

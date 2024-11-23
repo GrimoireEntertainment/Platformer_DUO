@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TheProject.Script;
 using UnityEngine;
 public enum PlayerState { Ground, Water, Jetpack, Windy }
 [System.Serializable]
@@ -16,6 +17,8 @@ public class PlayerParameter
 
 public class PlayerController : MonoBehaviour, ICanTakeDamage
 {
+    [SerializeField] private SwitchCharacterController _switchCharacterController;
+
     [ReadOnly] public float gravity = -35f;
     [ReadOnly] public PlayerState PlayerState = PlayerState.Ground;        //set what state the player in
 
@@ -230,7 +233,7 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
 
     public void ChangeCharacter()
     {
-
+        _switchCharacterController.ChangeCharacter();
     }
 
     void Update()

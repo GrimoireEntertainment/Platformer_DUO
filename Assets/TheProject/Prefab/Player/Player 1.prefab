@@ -293,7 +293,7 @@ Transform:
   m_GameObject: {fileID: 960026696274421606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.783, z: 0.829}
+  m_LocalPosition: {x: -0, y: 0.783, z: 1.265}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21937,7 +21937,7 @@ Transform:
   m_GameObject: {fileID: 4968686132728443710}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.098, y: 0.125, z: 0.025}
+  m_LocalPosition: {x: 1.07, y: 0.09, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22235,7 +22235,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5431458227379743879}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 26847243716ba9f438361f911d9a5e9e, type: 3}
+  m_Avatar: {fileID: 9000000, guid: a8975f791262aa54c9fa418643012e06, type: 3}
   m_Controller: {fileID: 9100000, guid: 8d0eada727050431cb174f1def87ed3d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -22260,6 +22260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4a136a8dd0e4592ba6b43fdd7e0e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _switchCharacterController: {fileID: 5537534367919617518}
   gravity: -20
   PlayerState: 0
   layerAsGround:
@@ -22298,6 +22299,7 @@ MonoBehaviour:
   soundSlideSlope: {fileID: 8300000, guid: fe150a4ac65894274abab184b619ca73, type: 3}
   soundGrap: {fileID: 8300000, guid: e902ea22d83014fefb4b99898f92b7ce, type: 3}
   soundRopeJump: {fileID: 8300000, guid: 5fc0910f927814c3892afdc42118ac53, type: 3}
+  characterChangeSfx: {fileID: 0}
   soundFootStepVolume: 0.1
   soundJumpVolume: 0.2
   GroundParameter:
@@ -22415,12 +22417,17 @@ MonoBehaviour:
   _overrideParametersChecker: {fileID: -5398400572133551889}
   _smallBridge: {fileID: 5304665997519566212}
   _dragableObjectCheck: {fileID: 2114941271}
+  _slopeAngle: {fileID: 5431458227442153055}
   _girlCharacter: {fileID: 1965955237183207515}
   _girlCharacterBones: {fileID: 6293562300523853527}
+  _girlAvatar: {fileID: 9000000, guid: 26847243716ba9f438361f911d9a5e9e, type: 3}
   _manCharacter: {fileID: 1261831651438428986}
   _manCharacterBones: {fileID: 6505508774580422881}
-  _particleSystem: {fileID: 0}
+  _manAvatar: {fileID: 9000000, guid: a8975f791262aa54c9fa418643012e06, type: 3}
+  _particleSystemBlue: {fileID: 4419280169434511281}
+  _particleSystemFire: {fileID: 1917674017211181895}
   _animator: {fileID: 5431458227379743875}
+  IsManCharacter: 0
 --- !u!114 &-5398400572133551889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22480,7 +22487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponAvailable: 0
-  FirePoint: {fileID: 0}
+  FirePoint: {fileID: 3825203561333240817}
   fireRate: 0.25
   muzzleTracerFX: {fileID: 3152374875092216896, guid: f7e5640fa333c934b903a7a87be090b3,
     type: 3}
@@ -22493,7 +22500,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 67968
   standingTimeWhenSneaking: 0.3
-  gunHolder: {fileID: 0}
+  gunHolder: {fileID: 8991436599394682649}
 --- !u!114 &1460487137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23148,7 +23155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1407606589314854818}
   m_Layer: 0
-  m_Name: mixamorig:Hips
+  m_Name: inactive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
