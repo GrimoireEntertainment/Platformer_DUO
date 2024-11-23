@@ -22265,13 +22265,13 @@ MonoBehaviour:
   PlayerState: 0
   layerAsGround:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2432
   layerAsWall:
     serializedVersion: 2
     m_Bits: 256
   layerCheckHitHead:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
   numberOfAirJump: 0
   numberAirJumpCounter: 0
   wallSlidingSpeed: 1
@@ -22440,6 +22440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda83eff64371428bb892ab8c3403ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _switchCharacterController: {fileID: 5537534367919617518}
   layerZoneCheck:
     serializedVersion: 2
     m_Bits: 8192
@@ -22565,6 +22566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6349c02e1d3548e28d7173ce7f7175c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _switchCharacterController: {fileID: 5537534367919617518}
   radius: 0.55
   distance: 0.5
   isHasGroundOnBothSide: 0

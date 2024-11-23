@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TheProject.Script;
 using UnityEngine;
 
-public class PlayerOverrideParametersChecker : MonoBehaviour {
+public class PlayerOverrideParametersChecker : MonoBehaviour
+{
+	[SerializeField] private SwitchCharacterController _switchCharacterController;
+
 	public LayerMask layerZoneCheck;
 	[ReadOnly]
 	public bool useOverrideAcc = false;
@@ -23,6 +27,10 @@ public class PlayerOverrideParametersChecker : MonoBehaviour {
 		if (hitZones.Length>0)
         {
 			OverrideParameterZone zone = hitZones[0].GetComponent<OverrideParameterZone>();
+
+			// Man can not fly, he is too heavy :)
+			if (_switchCharacterController.IsManCharacter && zone.zone == PlayerState.Windy) return;
+
 			if (zone && zone != currentZone)
 			{
 				currentZone = zone;

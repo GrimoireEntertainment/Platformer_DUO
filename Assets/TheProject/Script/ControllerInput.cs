@@ -51,7 +51,7 @@ public class ControllerInput : MonoBehaviour
 
         controls.PlayerControl.Q.started += ctx => ChangeCharacter();
 
-        controls.PlayerControl.Y.started += ctx => MeleeAttack();
+        controls.PlayerControl.X.started += ctx => MeleeAttack();
         controls.PlayerControl.X.started += ctx => RangeAttack();
         controls.PlayerControl.Sliding.started += ctx => SlideOn();
 

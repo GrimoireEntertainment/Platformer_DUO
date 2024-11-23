@@ -76,11 +76,53 @@ namespace TheProject.Script
         private void ChangeToMan()
         {
             ChangeMesh(_manAvatar);
+            _particleSystemFire.Play();
+            SetManParameters();
         }
 
         private void ChangeToGirl()
         {
             ChangeMesh(_girlAvatar);
+            _particleSystemBlue.Play();
+            SetGirlParameters();
+        }
+
+        private void SetManParameters()
+        {
+            _playerController.numberOfAirJump = 0;
+            _playerController.wallSlidingSpeed = 2f;
+            _playerController.wallStickTime = 1f;
+            _playerController.hardFallingDistance = 7;
+            _playerController.hangingMoveSpeed = 1;
+            _playerController.jetForce = 20;
+            _playerController.jetpackDrainTimeOut = 4;
+            _playerController.speed = 25;
+            _playerController.GroundParameter.moveSpeed = 3;
+            _playerController.GroundParameter.runSpeed = 5;
+            _playerController.GroundParameter.sneakingSpeed = 2;
+            _playerController.GroundParameter.maxJumpHeight = 2;
+            _playerController.GroundParameter.minJumpHeight = 1;
+            _playerController.GroundParameter.gravity = -40;
+            _dragableObjectCheck.dragPushMoveSpeed = 2;
+        }
+
+        private void SetGirlParameters()
+        {
+            _playerController.numberOfAirJump = 1;
+            _playerController.wallSlidingSpeed = 0.0001f;
+            _playerController.wallStickTime = 10f;
+            _playerController.hardFallingDistance = 3;
+            _playerController.hangingMoveSpeed = 3;
+            _playerController.jetForce = 35;
+            _playerController.jetpackDrainTimeOut = 6;
+            _playerController.speed = 75;
+            _playerController.GroundParameter.moveSpeed = 4;
+            _playerController.GroundParameter.runSpeed = 6;
+            _playerController.GroundParameter.sneakingSpeed = 3;
+            _playerController.GroundParameter.maxJumpHeight = 3;
+            _playerController.GroundParameter.minJumpHeight = 1;
+            _playerController.GroundParameter.gravity = -30;
+            _dragableObjectCheck.dragPushMoveSpeed = 0;
         }
 
         private void ChangeMesh(Avatar avatar)
@@ -90,7 +132,7 @@ namespace TheProject.Script
             _animator.avatar = avatar;
 
             SetActiveGameObjects();
-            
+
             _ladder.rootBone = IsManCharacter ? _manCharacterBones.transform : _girlCharacterBones.transform;
             _slopeAngle.rootBone = IsManCharacter ? _manCharacterBones.transform : _girlCharacterBones.transform;
         }
