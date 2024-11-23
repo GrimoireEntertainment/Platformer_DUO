@@ -29,6 +29,8 @@ namespace TheProject.Script
 
         private const string ActiveBonesName = "mixamorig:Hips";
 
+        private Vector2 _vector2;
+
         private void Awake()
         {
             GetInitialState();
@@ -39,9 +41,11 @@ namespace TheProject.Script
             if (_manCharacter.activeInHierarchy)
             {
                 IsManCharacter = true;
+                ChangeCharacter();
                 return;
             }
 
+            ChangeCharacter();
             IsManCharacter = false;
         }
 
@@ -105,6 +109,8 @@ namespace TheProject.Script
             _playerController.GroundParameter.gravity = -40;
             _dragableObjectCheck.dragPushMoveSpeed = 2;
             _ropeDetector.swingForce = 35;
+            _vector2.y = -1.6f;
+            _playerController.hangingOffset = _vector2;
         }
 
         private void SetGirlParameters()
@@ -125,6 +131,8 @@ namespace TheProject.Script
             _playerController.GroundParameter.gravity = -30;
             _dragableObjectCheck.dragPushMoveSpeed = 0;
             _ropeDetector.swingForce = 75;
+            _vector2.y = -1.25f;
+            _playerController.hangingOffset = _vector2;
         }
 
         private void ChangeMesh(Avatar avatar)

@@ -565,6 +565,11 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
             isInJumpZone = false;
             wallStickTimeCounter = wallStickTime;       //set reset wall stick timer when on ground
             CheckStandOnEvent();
+
+            if (!rangeAttack.isWeaponShowing())
+            {
+                rangeAttack.ShowWeapon(true);
+            }
         }
 
         ropeRenderer.enabled = isGrabingRope;
