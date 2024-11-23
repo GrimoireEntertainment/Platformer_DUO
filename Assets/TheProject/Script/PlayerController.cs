@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
     public AudioClip soundFootStep;
     public AudioClip soundJump, soundHit, soundDie, soundLanding, soundSlideSlope;
     public AudioClip soundGrap, soundRopeJump;
+    public AudioClip characterChangeSfx;
     [Range(0f, 1f)]
     public float soundFootStepVolume = 0.5f;
     [Range(0f, 1f)]
@@ -229,7 +230,7 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
 
     public void ChangeCharacter()
     {
-        
+
     }
 
     void Update()
