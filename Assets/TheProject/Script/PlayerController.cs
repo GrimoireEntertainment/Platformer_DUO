@@ -1067,6 +1067,8 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
 
     public void RangeAttack()
     {
+        if (_switchCharacterController.IsManCharacter) return;
+
         if (!isPlaying)
             return;
         if (playerCheckDragableObject.isGrabbingTheDragableObject || isSliding)
@@ -1109,6 +1111,8 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
     [HideInInspector] public MeleeAttack meleeAttack;
     public void MeleeAttack()
     {
+        if (!_switchCharacterController.IsManCharacter) return;
+
         if (!isPlaying)
             return;
         if (isSliding || playerCheckDragableObject.isGrabbingTheDragableObject || isUsingJetpack)

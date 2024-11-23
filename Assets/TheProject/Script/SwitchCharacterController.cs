@@ -96,7 +96,7 @@ namespace TheProject.Script
             _playerController.hangingMoveSpeed = 1;
             _playerController.jetForce = 20;
             _playerController.jetpackDrainTimeOut = 4;
-            _playerController.speed = 25;
+            _playerController.speed = 50;
             _playerController.GroundParameter.moveSpeed = 3;
             _playerController.GroundParameter.runSpeed = 5;
             _playerController.GroundParameter.sneakingSpeed = 2;
@@ -104,6 +104,7 @@ namespace TheProject.Script
             _playerController.GroundParameter.minJumpHeight = 1;
             _playerController.GroundParameter.gravity = -40;
             _dragableObjectCheck.dragPushMoveSpeed = 2;
+            _ropeDetector.swingForce = 35;
         }
 
         private void SetGirlParameters()
@@ -115,7 +116,7 @@ namespace TheProject.Script
             _playerController.hangingMoveSpeed = 3;
             _playerController.jetForce = 35;
             _playerController.jetpackDrainTimeOut = 6;
-            _playerController.speed = 75;
+            _playerController.speed = 50;
             _playerController.GroundParameter.moveSpeed = 4;
             _playerController.GroundParameter.runSpeed = 6;
             _playerController.GroundParameter.sneakingSpeed = 3;
@@ -123,6 +124,7 @@ namespace TheProject.Script
             _playerController.GroundParameter.minJumpHeight = 1;
             _playerController.GroundParameter.gravity = -30;
             _dragableObjectCheck.dragPushMoveSpeed = 0;
+            _ropeDetector.swingForce = 75;
         }
 
         private void ChangeMesh(Avatar avatar)
