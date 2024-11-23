@@ -570,6 +570,11 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
             {
                 rangeAttack.ShowWeapon(true);
             }
+
+            if (!meleeAttack.isWeaponShowing())
+            {
+                meleeAttack.ShowWeapon(true);
+            }
         }
 
         ropeRenderer.enabled = isGrabingRope;
