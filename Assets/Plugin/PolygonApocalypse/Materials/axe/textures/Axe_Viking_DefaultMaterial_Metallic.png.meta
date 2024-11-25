@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Axe_Viking_DefaultMaterial_Metallic_0: -2533968872845405683
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

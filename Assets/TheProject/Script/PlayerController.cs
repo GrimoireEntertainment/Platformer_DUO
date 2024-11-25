@@ -1119,6 +1119,21 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
     }
 
     [HideInInspector] public MeleeAttack meleeAttack;
+    private int comboStep = 0;
+    private int maxComboStep = 3;
+    private float lastAttackTime = 0f;
+    public float comboResetTime = 1f;
+
+    private bool canReceiveInput = false;
+    private bool isAttacking = false;
+    private bool nextAttackQueued = false;
+
+// Arrays to hold values for each combo step
+    public float[] attackAfterTimes = new float[3];
+    public float[] attackRates = new float[3];
+    public int[] damageAmounts = new int[3];
+    public Vector2[] knockbackForces = new Vector2[3];
+
     public void MeleeAttack()
     {
         if (!_switchCharacterController.IsManCharacter) return;
@@ -1143,17 +1158,74 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
             return;
         }
 
-        if (meleeAttack != null)
-        {
-            if (meleeAttack.Attack())
-            {
-                if (rangeAttack.isWeaponShowing())
-                    rangeAttack.ShowWeapon(false);
+        float timeSinceLastAttack = Time.time - lastAttackTime;
 
-                anim.SetTrigger("meleeAttack");
-                forceStandingRemain = meleeAttack.standingTime;
+        if (timeSinceLastAttack > comboResetTime && !isAttacking)
+        {
+            // Reset combo
+            comboStep = 0;
+            anim.SetInteger("ComboStep", 0);
+        }
+
+        lastAttackTime = Time.time;
+
+        if (canReceiveInput)
+        {
+            // Queue next attack
+            nextAttackQueued = true;
+        }
+        else if (!isAttacking)
+        {
+            // Start attack
+            comboStep = 1;
+            anim.SetInteger("ComboStep", comboStep);
+            anim.SetTrigger("Attack");
+            isAttacking = true;
+            nextAttackQueued = false;
+
+            // Start attack logic
+            if (meleeAttack != null)
+            {
+                meleeAttack.Attack(comboStep - 1);
             }
         }
+    }
+
+    public void AttackAnimationComplete()
+    {
+        isAttacking = false;
+
+        if (nextAttackQueued && comboStep < maxComboStep)
+        {
+            // Proceed to next combo attack
+            comboStep++;
+            anim.SetInteger("ComboStep", comboStep);
+            anim.SetTrigger("Attack");
+            isAttacking = true;
+            nextAttackQueued = false;
+
+            // Start attack logic
+            if (meleeAttack != null)
+            {
+                meleeAttack.Attack(comboStep - 1);
+            }
+        }
+        else
+        {
+            // Reset combo
+            comboStep = 0;
+            anim.SetInteger("ComboStep", 0);
+        }
+    }
+
+    public void ComboWindowOpen()
+    {
+        canReceiveInput = true;
+    }
+
+    public void ComboWindowClose()
+    {
+        canReceiveInput = false;
     }
 
     float forceStandingRemain = 0;

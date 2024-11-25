@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DefaultMaterial_ambient_occlusion_0: 5273839045121194293
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

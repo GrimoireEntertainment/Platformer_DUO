@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7e1a54618061f9d4ca974adb37e1b76c
+guid: 994840b7fd73f754a970f37a462ddb63
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -14,7 +14,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 0
+    removeConstantScaleCurves: 1
     motionNodeName: 
     animationImportErrors: 
     animationImportWarnings: 

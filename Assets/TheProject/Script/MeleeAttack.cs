@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
+	private PlayerController _playerController;
+
 	[ReadOnly] public bool weaponAvailable = false;
 	[Tooltip("What layers should be hit")]
 	public LayerMask CollisionMask;
@@ -42,20 +45,39 @@ public class MeleeAttack : MonoBehaviour
 		ShowWeapon(true);
 	}
 
-    private void Start()
+	private void Awake()
+	{
+		_playerController = GetComponent<PlayerController>();
+	}
+
+	// Define these variables at the top of your class
+	public int comboStep = 0;
+	public float lastAttackTime = 0;
+	public float comboResetTime = 1f; // Time window to reset the combo (1 second)
+
+// Arrays to hold values for each combo step
+	public float[] attackAfterTimes = new float[3]; // Delay before damage is applied for each combo step
+	public float[] attackRates = new float[3]; // Attack rate for each combo step
+	public int[] damageAmounts = new int[3]; // Damage to give at each combo step
+	public Vector2[] knockbackForces = new Vector2[3];
+
+	private void Start()
     {
 		ShowWeapon(false);
 	}
 
-    public bool Attack()
+	public bool Attack(int comboStep)
 	{
 		if (weaponAvailable && (Time.time > nextAttack))
 		{
 			if (!isWeaponShowing())
 				ShowWeapon(true);
 
-			nextAttack = Time.time + attackRate;
-			StartCoroutine(CheckTargetCo(attackAfterTime));
+			nextAttack = Time.time + attackRates[comboStep];
+
+			// Start the coroutine to check for targets, pass comboStep
+			StartCoroutine(CheckTargetCo(attackAfterTimes[comboStep], comboStep));
+
 			SoundManager.PlaySfx(meleeAttackSound);
 			return true;
 		}
@@ -63,7 +85,8 @@ public class MeleeAttack : MonoBehaviour
 			return false;
 	}
 
-	IEnumerator CheckTargetCo(float delay)
+
+	IEnumerator CheckTargetCo(float delay, int comboStep)
 	{
 		yield return new WaitForSeconds(delay);
 
@@ -81,15 +104,21 @@ public class MeleeAttack : MonoBehaviour
 			if (damage == null)
 				continue;
 
-			damage.TakeDamage(damageToGive, Vector2.zero, gameObject, MeleePoint.position);
+			int damageAmount = damageAmounts[comboStep];
+			Vector2 knockbackForce = knockbackForces[comboStep];
+
+			damage.TakeDamage(damageAmount, knockbackForce, gameObject, MeleePoint.position);
+
 			if (!multiDamage)
 				break;
-
 		}
 
 		Instantiate(hitFX, MeleePoint.position, hitFX.transform.rotation);
 		SoundManager.PlaySfx(hitSound);
 	}
+
+
+
 
 	void OnDrawGizmos()
 	{

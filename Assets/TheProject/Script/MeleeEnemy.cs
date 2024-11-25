@@ -327,6 +327,13 @@ public class MeleeEnemy : MonoBehaviour, ICanTakeDamage
     {
         hitsToKill--;
 
+        // Применяем отталкивание
+        var rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.AddForce(new Vector3(force.x, force.y, 0), ForceMode.Impulse);
+        }
+
         if (hitsToKill > 0)
             DetectPlayer();
         else Kill();
