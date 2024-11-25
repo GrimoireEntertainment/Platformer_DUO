@@ -100,7 +100,7 @@ namespace TheProject.Script
             _playerController.hangingMoveSpeed = 1;
             _playerController.jetForce = 20;
             _playerController.jetpackDrainTimeOut = 4;
-            _playerController.speed = 50;
+            _playerController.speed = 150;
             _playerController.GroundParameter.moveSpeed = 3;
             _playerController.GroundParameter.runSpeed = 5;
             _playerController.GroundParameter.sneakingSpeed = 2;
@@ -122,7 +122,7 @@ namespace TheProject.Script
             _playerController.hangingMoveSpeed = 3;
             _playerController.jetForce = 35;
             _playerController.jetpackDrainTimeOut = 6;
-            _playerController.speed = 50;
+            _playerController.speed = 150;
             _playerController.GroundParameter.moveSpeed = 4;
             _playerController.GroundParameter.runSpeed = 6;
             _playerController.GroundParameter.sneakingSpeed = 3;

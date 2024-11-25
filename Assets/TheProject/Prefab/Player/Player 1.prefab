@@ -22327,19 +22327,6 @@ MonoBehaviour:
   rangeAttack: {fileID: 0}
   meleeAttack: {fileID: 0}
   comboResetTime: 1
-  attackAfterTimes:
-  - 0
-  - 0
-  - 0
-  attackRates:
-  - 0
-  - 0
-  - 0
-  damageAmounts: 000000000000000000000000
-  knockbackForces:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
   moveDirection: {x: 0, y: 0, z: 0}
   isIgnorePlayerMovenmentInput: 0
   layersCanGrab:
@@ -22381,7 +22368,7 @@ MonoBehaviour:
   rotateAxis: {x: 0, y: 0, z: 2}
   speed: 100
   releaseForce: 10
-  ropeCheckRadius: 6
+  ropeCheckRadius: 4
   grabOffset: {x: 0, y: 1.6}
   isGrabingRope: 0
   currentAvailableRope: {fileID: 0}
@@ -22492,9 +22479,6 @@ MonoBehaviour:
   meleeAttackSound: {fileID: 8300000, guid: 20ab8afd4efd94836a9179320df79369, type: 3}
   hitSound: {fileID: 8300000, guid: b0a70741065a546bcaadd6fc3276b23a, type: 3}
   meleeHolder: {fileID: 3298121056585239390}
-  comboStep: 0
-  lastAttackTime: 0
-  comboResetTime: 1
   attackAfterTimes:
   - 0.1
   - 0.15

@@ -33,7 +33,7 @@ public class RopePoint : MonoBehaviour
                     if (GameManager.Instance.Player.isGrabingRope && GameManager.Instance.Player.transform.position.x > transform.position.x && GameManager.Instance.Player.transform.position.y > (transform.position.y - (Vector2.Distance(transform.position, GameManager.Instance.Player.transform.position) * 0.5f)))
                     {
                         showReleaseTutObj.SetActive(true);
-                        Time.timeScale = 0.1f;
+                        Time.timeScale = 0.2f;
                     }
             }
         }
