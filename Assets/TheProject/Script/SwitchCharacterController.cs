@@ -120,13 +120,13 @@ namespace TheProject.Script
             _playerController.wallStickTime = 10f;
             _playerController.hardFallingDistance = 3;
             _playerController.hangingMoveSpeed = 3;
-            _playerController.jetForce = 35;
+            _playerController.jetForce = 45;
             _playerController.jetpackDrainTimeOut = 6;
             _playerController.speed = 150;
             _playerController.GroundParameter.moveSpeed = 4;
             _playerController.GroundParameter.runSpeed = 6;
             _playerController.GroundParameter.sneakingSpeed = 3;
-            _playerController.GroundParameter.maxJumpHeight = 3;
+            _playerController.GroundParameter.maxJumpHeight = 2;
             _playerController.GroundParameter.minJumpHeight = 1;
             _playerController.GroundParameter.gravity = -30;
             _dragableObjectCheck.dragPushMoveSpeed = 0;
