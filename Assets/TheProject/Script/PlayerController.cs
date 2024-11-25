@@ -1128,12 +1128,6 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
     private bool isAttacking = false;
     private bool nextAttackQueued = false;
 
-// Arrays to hold values for each combo step
-    public float[] attackAfterTimes = new float[3];
-    public float[] attackRates = new float[3];
-    public int[] damageAmounts = new int[3];
-    public Vector2[] knockbackForces = new Vector2[3];
-
     public void MeleeAttack()
     {
         if (!_switchCharacterController.IsManCharacter) return;

@@ -50,16 +50,11 @@ public class MeleeAttack : MonoBehaviour
 		_playerController = GetComponent<PlayerController>();
 	}
 
-	// Define these variables at the top of your class
-	public int comboStep = 0;
-	public float lastAttackTime = 0;
-	public float comboResetTime = 1f; // Time window to reset the combo (1 second)
-
 // Arrays to hold values for each combo step
-	public float[] attackAfterTimes = new float[3]; // Delay before damage is applied for each combo step
-	public float[] attackRates = new float[3]; // Attack rate for each combo step
-	public int[] damageAmounts = new int[3]; // Damage to give at each combo step
-	public Vector2[] knockbackForces = new Vector2[3];
+	public float[] attackAfterTimes; // Delay before damage is applied for each combo step
+	public float[] attackRates; // Attack rate for each combo step
+	public int[] damageAmounts; // Damage to give at each combo step
+	public Vector2[] knockbackForces;
 
 	private void Start()
     {
