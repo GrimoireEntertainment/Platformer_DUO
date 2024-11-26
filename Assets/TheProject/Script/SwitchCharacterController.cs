@@ -40,7 +40,7 @@ namespace TheProject.Script
         {
             if (_manCharacter.activeInHierarchy)
             {
-                IsManCharacter = true;
+                IsManCharacter = false;
                 ChangeCharacter();
                 return;
             }
