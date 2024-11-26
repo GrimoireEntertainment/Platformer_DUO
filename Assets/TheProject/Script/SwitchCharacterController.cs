@@ -106,7 +106,7 @@ namespace TheProject.Script
             _playerController.GroundParameter.sneakingSpeed = 2;
             _playerController.GroundParameter.maxJumpHeight = 2;
             _playerController.GroundParameter.minJumpHeight = 1;
-            _playerController.GroundParameter.gravity = -40;
+            _playerController.GroundParameter.gravity = -25;
             _dragableObjectCheck.dragPushMoveSpeed = 2;
             _ropeDetector.swingForce = 35;
             _vector2.y = -1.6f;
@@ -128,7 +128,7 @@ namespace TheProject.Script
             _playerController.GroundParameter.sneakingSpeed = 3;
             _playerController.GroundParameter.maxJumpHeight = 2;
             _playerController.GroundParameter.minJumpHeight = 1;
-            _playerController.GroundParameter.gravity = -30;
+            _playerController.GroundParameter.gravity = -20f;
             _dragableObjectCheck.dragPushMoveSpeed = 0;
             _ropeDetector.swingForce = 75;
             _vector2.y = -1.25f;

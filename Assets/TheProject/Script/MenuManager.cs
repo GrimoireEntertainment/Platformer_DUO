@@ -54,19 +54,29 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.gameState == GameManager.GameState.Playing && GameManager.Instance.Player && GameManager.Instance.Player.meleeAttack)
-            meleeIcon.SetActive(GameManager.Instance.Player.meleeAttack.weaponAvailable);
-        if (GameManager.Instance.gameState == GameManager.GameState.Playing && GameManager.Instance.Player && GameManager.Instance.Player.rangeAttack)
-            gunIcon.SetActive(GameManager.Instance.Player.rangeAttack.weaponAvailable);
+        var playerController = GameManager.Instance.Player;
 
-        bulletLeftTxt.text = GameManager.Instance.Player.rangeAttack.bulletRemains + "";
-        jetpackSlider.gameObject.SetActive(GameManager.Instance.Player.isJetpackActived);
-        jetpackSlider.value = GameManager.Instance.Player.jetpackRemainTime / GameManager.Instance.Player.jetpackDrainTimeOut;
-        txtJetpackRemainPercent.text = ((GameManager.Instance.Player.jetpackRemainTime / GameManager.Instance.Player.jetpackDrainTimeOut) * 100).ToString("0") + "%";
+        if (GameManager.Instance.gameState == GameManager.GameState.Playing && playerController &&
+            playerController._switchCharacterController.IsManCharacter)
+        {
+            meleeIcon.SetActive(playerController.meleeAttack.weaponAvailable);
+            gunIcon.SetActive(false);
+        }
+        else if (GameManager.Instance.gameState == GameManager.GameState.Playing && playerController &&
+                 !playerController._switchCharacterController.IsManCharacter)
+        {
+            gunIcon.SetActive(playerController.rangeAttack.weaponAvailable);
+            meleeIcon.SetActive(false);
+        }
 
-        oxygenSlider.gameObject.SetActive(GameManager.Instance.Player.playerCheckWater.isUnderWater);
-        oxygenSlider.value = GameManager.Instance.Player.playerCheckWater.oxygenRemainTime / GameManager.Instance.Player.playerCheckWater.oxygenDrainTimeOut;
-        txtOxygenRemainPercent.text = ((GameManager.Instance.Player.playerCheckWater.oxygenRemainTime / GameManager.Instance.Player.playerCheckWater.oxygenDrainTimeOut) * 100).ToString("0") + "%";
+        bulletLeftTxt.text = playerController.rangeAttack.bulletRemains + "";
+        jetpackSlider.gameObject.SetActive(playerController.isJetpackActived);
+        jetpackSlider.value = playerController.jetpackRemainTime / playerController.jetpackDrainTimeOut;
+        txtJetpackRemainPercent.text = ((playerController.jetpackRemainTime / playerController.jetpackDrainTimeOut) * 100).ToString("0") + "%";
+
+        oxygenSlider.gameObject.SetActive(playerController.playerCheckWater.isUnderWater);
+        oxygenSlider.value = playerController.playerCheckWater.oxygenRemainTime / playerController.playerCheckWater.oxygenDrainTimeOut;
+        txtOxygenRemainPercent.text = ((playerController.playerCheckWater.oxygenRemainTime / playerController.playerCheckWater.oxygenDrainTimeOut) * 100).ToString("0") + "%";
     }
 
     #region Music and Sound

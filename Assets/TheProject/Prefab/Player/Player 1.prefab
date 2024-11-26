@@ -22296,13 +22296,15 @@ MonoBehaviour:
   accelerationTimeGroundedSliding: 1
   soundFootStep: {fileID: 8300000, guid: b0c9066c9cbe449cc86adc4d81ff9c1f, type: 3}
   soundJump: {fileID: 8300000, guid: 5fc0910f927814c3892afdc42118ac53, type: 3}
+  girlJump: {fileID: 8300000, guid: a947a8f7c26166f4a874c2c7b1b25d60, type: 3}
   soundHit: {fileID: 8300000, guid: ff82156e5da8f475f8144df2ee49dad2, type: 3}
+  girlDie: {fileID: 8300000, guid: 6c243e68b8484aa42aaf587e975d4fa8, type: 3}
   soundDie: {fileID: 8300000, guid: ff82156e5da8f475f8144df2ee49dad2, type: 3}
   soundLanding: {fileID: 8300000, guid: b5aedae345b0a7c43acf0a5a1131601b, type: 3}
   soundSlideSlope: {fileID: 8300000, guid: fe150a4ac65894274abab184b619ca73, type: 3}
   soundGrap: {fileID: 8300000, guid: e902ea22d83014fefb4b99898f92b7ce, type: 3}
   soundRopeJump: {fileID: 8300000, guid: 5fc0910f927814c3892afdc42118ac53, type: 3}
-  characterChangeSfx: {fileID: 0}
+  characterChangeSfx: {fileID: 8300000, guid: e902ea22d83014fefb4b99898f92b7ce, type: 3}
   soundFootStepVolume: 0.1
   soundJumpVolume: 0.2
   GroundParameter:
@@ -22562,7 +22564,7 @@ MonoBehaviour:
   ropeMoveUpSpeed: 2
   offsetPlayer: {x: -0.5, y: -1.5}
   swingForce: 75
-  jumpOutForce: 8
+  jumpOutForce: 10
   ropeJumpHoldForce: 500
   isHoldingRope: 0
   isDetectedRope: 0

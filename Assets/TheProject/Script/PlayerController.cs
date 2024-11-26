@@ -17,7 +17,7 @@ public class PlayerParameter
 
 public class PlayerController : MonoBehaviour, ICanTakeDamage
 {
-    [SerializeField] private SwitchCharacterController _switchCharacterController;
+    public SwitchCharacterController _switchCharacterController;
 
     [ReadOnly] public float gravity = -35f;
     [ReadOnly] public PlayerState PlayerState = PlayerState.Ground;        //set what state the player in
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
 
     [Header("---AUDIO---")]
     public AudioClip soundFootStep;
-    public AudioClip soundJump, soundHit, soundDie, soundLanding, soundSlideSlope;
+    public AudioClip soundJump, girlJump, soundHit, girlDie, soundDie, soundLanding, soundSlideSlope;
     public AudioClip soundGrap, soundRopeJump;
     public AudioClip characterChangeSfx;
     [Range(0f, 1f)]
@@ -983,7 +983,7 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
         if (playerRopeDetecter.isHoldingRope)
             playerRopeDetecter.JumpOut();
 
-        SoundManager.PlaySfx(soundDie);
+        SoundManager.PlaySfx(_switchCharacterController.IsManCharacter ? soundDie : girlDie);
         isDead = true;
         velocity.x = 0;
         velocity.y = 0;
@@ -1377,7 +1377,7 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
                 allowGrapNextWall = true;
                 Invoke("AllowCheckWall", 0.05f);
             }
-            SoundManager.PlaySfx(soundJump, soundJumpVolume);
+            SoundManager.PlaySfx(_switchCharacterController.IsManCharacter ? soundJump : girlJump, soundJumpVolume);
         }
         else
         {
@@ -1432,7 +1432,7 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
             if (isWallSliding)
             {
                 if (newForce == -1)
-                    SoundManager.PlaySfx(soundJump, soundJumpVolume);
+                    SoundManager.PlaySfx(_switchCharacterController.IsManCharacter ? soundJump : girlJump, soundJumpVolume);
 
                 isWallSliding = false;
                 allowGrabWall = false;
@@ -1441,7 +1441,7 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
             else if (isGrounded && (PlayerState == PlayerState.Ground || PlayerState == PlayerState.Windy))
             {
                 if (newForce == -1)
-                    SoundManager.PlaySfx(soundJump, soundJumpVolume);
+                    SoundManager.PlaySfx(_switchCharacterController.IsManCharacter ? soundJump : girlJump, soundJumpVolume);
 
                 if (isSliding)
                     SlideOff();
@@ -1476,7 +1476,7 @@ public class PlayerController : MonoBehaviour, ICanTakeDamage
                     anim.SetTrigger("tripleJump");
 
                 if (newForce == -1)
-                    SoundManager.PlaySfx(soundJump, soundJumpVolume);
+                    SoundManager.PlaySfx(_switchCharacterController.IsManCharacter ? soundJump : girlJump, soundJumpVolume);
                 var _height = newForce != -1 ? newForce : maxJumpHeight;
                 velocity.y = Mathf.Sqrt(_height * -2 * gravity);
                 velocity.x = characterController.velocity.x;
